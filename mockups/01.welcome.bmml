@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1141" measuredH="578" mockupW="1010" mockupH="552">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1286" measuredH="578" mockupW="1155" mockupH="552">
   <controls>
     <control controlID="16" controlTypeID="com.balsamiq.mockups::Component" x="131" y="26" w="281" h="543" measuredW="281" measuredH="543" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -99,18 +99,6 @@
     <control controlID="29" controlTypeID="com.balsamiq.mockups::Label" x="343" y="282" w="46" h="-1" measuredW="41" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>0.4%20km</text>
-      </controlProperties>
-    </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::Component" x="149" y="108" w="246" h="33" measuredW="246" measuredH="33" zOrder="9" locked="false" isInGroup="-1">
-      <controlProperties>
-        <override controlID="0" x="0" y="0" w="246" h="33"/>
-        <override controlID="12" x="223" y="8" w="6" h="17"/>
-        <override controlID="-1"/>
-        <override controlID="12:4" x="0" y="0" w="6" h="17"/>
-        <override controlID="12:1" x="1" y="7" w="4" h="4"/>
-        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
-        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
-        <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
     <control controlID="37" controlTypeID="com.balsamiq.mockups::Image" x="292" y="109" w="29" h="29" measuredW="400" measuredH="400" zOrder="10" locked="false" isInGroup="-1">
@@ -250,6 +238,7 @@
     <control controlID="55" controlTypeID="com.balsamiq.mockups::Component" x="656" y="134" w="151" h="16" measuredW="151" measuredH="16" zOrder="24" locked="false" isInGroup="-1">
       <controlProperties>
         <override controlID="0" x="0" y="0" w="151" h="26"/>
+        <override controlID="-1"/>
         <src>./assets/Android%204%20Controls.bmml#ga-textfield</src>
       </controlProperties>
     </control>
@@ -266,7 +255,7 @@
         <text>After%20user%20clicks%20%22Bike%22%20button%20in%20ActionBar%3B%0A%20%0ASame%20should%20be%20for%20%22Station%22%20button</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::CallOut" x="746" y="141" w="42" h="33" measuredW="36" measuredH="43" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::CallOut" x="746" y="141" w="42" h="33" measuredW="36" measuredH="39" zOrder="27" locked="false" isInGroup="-1">
       <controlProperties>
         <text>1</text>
       </controlProperties>
@@ -284,45 +273,95 @@
     <control controlID="62" controlTypeID="com.balsamiq.mockups::Component" x="609" y="384" w="246" h="128" measuredW="246" measuredH="128" zOrder="30" locked="false" isInGroup="-1">
       <controlProperties>
         <override controlID="0" x="0" y="0" w="246" h="128"/>
-        <override controlID="48" x="15" y="36" w="215" h="25"/>
-        <override controlID="51" x="3" y="96" w="238" h="25"/>
         <override controlID="47" x="3" y="7" w="238" h="25"/>
         <override controlID="50" x="3" y="66" w="238" h="25"/>
-        <override controlID="47:4" x="96" y="0" w="22" h="25"/>
-        <override controlID="47:3" x="72" y="0" w="22" h="25"/>
-        <override controlID="50:7" x="182" y="0" w="22" h="25"/>
-        <override controlID="51:2" x="62" y="0" w="118" h="25"/>
-        <override controlID="47:2" x="49" y="0" w="22" h="25"/>
-        <override controlID="47:7" x="169" y="0" w="22" h="25"/>
-        <override controlID="50:6" x="158" y="0" w="22" h="25"/>
-        <override controlID="48:0" x="0" y="0" w="22" h="25"/>
-        <override controlID="47:6" x="145" y="0" w="22" h="25"/>
-        <override controlID="47:0" x="0" y="0" w="22" h="25"/>
-        <override controlID="50:2" x="62" y="0" w="22" h="25"/>
-        <override controlID="47:1" x="25" y="0" w="22" h="25"/>
-        <override controlID="48:3" x="72" y="0" w="22" h="25"/>
-        <override controlID="48:5" x="120" y="0" w="22" h="25"/>
-        <override controlID="51:8" x="206" y="0" w="32" h="25"/>
-        <override controlID="51:7" x="182" y="0" w="22" h="25"/>
-        <override controlID="47:5" x="120" y="0" w="22" h="25"/>
-        <override controlID="47:8" x="193" y="0" w="22" h="25"/>
-        <override controlID="48:4" x="96" y="0" w="22" h="25"/>
-        <override controlID="-1"/>
-        <override controlID="50:8" x="206" y="0" w="32" h="25"/>
-        <override controlID="48:7" x="169" y="0" w="22" h="25"/>
-        <override controlID="51:0" x="0" y="0" w="37" h="25"/>
-        <override controlID="50:1" x="39" y="0" w="22" h="25"/>
-        <override controlID="50:0" x="0" y="0" w="37" h="25"/>
-        <override controlID="48:2" x="49" y="0" w="22" h="25"/>
+        <override controlID="51" x="3" y="96" w="238" h="25"/>
+        <override controlID="48" x="15" y="36" w="215" h="25"/>
         <override controlID="48:1" x="25" y="0" w="22" h="25"/>
-        <override controlID="48:8" x="193" y="0" w="22" h="25"/>
-        <override controlID="50:3" x="87" y="0" w="22" h="25"/>
-        <override controlID="48:6" x="145" y="0" w="22" h="25"/>
-        <override controlID="50:5" x="135" y="0" w="22" h="25"/>
-        <override controlID="50:4" x="110" y="0" w="22" h="25"/>
         <override controlID="51:1" x="39" y="0" w="22" h="25"/>
+        <override controlID="51:0" x="0" y="0" w="37" h="25"/>
+        <override controlID="51:8" x="206" y="0" w="32" h="25"/>
+        <override controlID="50:8" x="206" y="0" w="32" h="25"/>
+        <override controlID="48:5" x="120" y="0" w="22" h="25"/>
+        <override controlID="48:4" x="96" y="0" w="22" h="25"/>
+        <override controlID="47:3" x="72" y="0" w="22" h="25"/>
+        <override controlID="48:0" x="0" y="0" w="22" h="25"/>
+        <override controlID="47:2" x="49" y="0" w="22" h="25"/>
+        <override controlID="48:8" x="193" y="0" w="22" h="25"/>
+        <override controlID="51:2" x="62" y="0" w="118" h="25"/>
+        <override controlID="50:1" x="39" y="0" w="22" h="25"/>
+        <override controlID="50:2" x="62" y="0" w="22" h="25"/>
+        <override controlID="47:8" x="193" y="0" w="22" h="25"/>
+        <override controlID="47:4" x="96" y="0" w="22" h="25"/>
+        <override controlID="50:5" x="135" y="0" w="22" h="25"/>
+        <override controlID="47:0" x="0" y="0" w="22" h="25"/>
+        <override controlID="-1"/>
+        <override controlID="47:1" x="25" y="0" w="22" h="25"/>
+        <override controlID="47:5" x="120" y="0" w="22" h="25"/>
+        <override controlID="50:0" x="0" y="0" w="37" h="25"/>
+        <override controlID="48:7" x="169" y="0" w="22" h="25"/>
+        <override controlID="47:6" x="145" y="0" w="22" h="25"/>
+        <override controlID="50:6" x="158" y="0" w="22" h="25"/>
+        <override controlID="48:2" x="49" y="0" w="22" h="25"/>
+        <override controlID="50:4" x="110" y="0" w="22" h="25"/>
+        <override controlID="50:3" x="87" y="0" w="22" h="25"/>
         <override controlID="47:9" x="216" y="0" w="22" h="25"/>
+        <override controlID="48:3" x="72" y="0" w="22" h="25"/>
+        <override controlID="51:7" x="182" y="0" w="22" h="25"/>
+        <override controlID="48:6" x="145" y="0" w="22" h="25"/>
+        <override controlID="50:7" x="182" y="0" w="22" h="25"/>
+        <override controlID="47:7" x="169" y="0" w="22" h="25"/>
         <src>./assets/Android%204%20Controls.bmml#ga-keyboard-portrait-320</src>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="__group__" x="149" y="108" w="246" h="33" measuredW="246" measuredH="33" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <controlName>ga-action-bar-split2</controlName>
+      </controlProperties>
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="246" h="33" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="63">
+          <controlProperties>
+            <borderStyle>none</borderStyle>
+            <color>14540253</color>
+          </controlProperties>
+        </control>
+        <control controlID="12" controlTypeID="__group__" x="223" y="8" w="6" h="17" measuredW="6" measuredH="17" zOrder="1" locked="false" isInGroup="63">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::Canvas" x="1" y="1" w="4" h="4" measuredW="100" measuredH="70" zOrder="1" locked="false" isInGroup="12">
+              <controlProperties>
+                <backgroundAlpha>1</backgroundAlpha>
+                <borderStyle>none</borderStyle>
+                <color>0</color>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::Canvas" x="1" y="7" w="4" h="4" measuredW="100" measuredH="70" zOrder="2" locked="false" isInGroup="12">
+              <controlProperties>
+                <backgroundAlpha>1</backgroundAlpha>
+                <borderStyle>none</borderStyle>
+                <color>0</color>
+              </controlProperties>
+            </control>
+            <control controlID="2" controlTypeID="com.balsamiq.mockups::Canvas" x="1" y="12" w="4" h="4" measuredW="100" measuredH="70" zOrder="3" locked="false" isInGroup="12">
+              <controlProperties>
+                <backgroundAlpha>1</backgroundAlpha>
+                <borderStyle>none</borderStyle>
+                <color>0</color>
+              </controlProperties>
+            </control>
+            <control controlID="4" controlTypeID="com.balsamiq.mockups::Canvas" x="0" y="0" w="6" h="17" measuredW="100" measuredH="70" zOrder="0" locked="false" isInGroup="12">
+              <controlProperties>
+                <backgroundAlpha>0</backgroundAlpha>
+                <borderStyle>none</borderStyle>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::StickyNote" x="939" y="291" w="347" h="285" measuredW="109" measuredH="123" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>left</align>
+        <text>Comment%3A%0A%20%0Ametody%3A%0A-%20getStationsAround%28userX%2C%20userY%2C%20radius%29%0A%09-%20return%3A%0A%09-%20wysylam%3A%20x%2C%20y%2C%20ile%20stacji%0A%09-%20array%20of%20Objejt%0A%09%09-%20nr%20Station%0A%09%09-%20name%0A%09%09-%20nr%20of%20Bikes%28%29%0A%20%0A-%20synchronizacja%20nazw%0A-%20getStationAruond%28%29%20-%20doda%u0107%20guzik%20%0A-%20getNamesIdsOfStations%28%29%0A%09-%20return%20-%3E%20tablica%20PAR%0A%09-%20%0A%20%0A%09-%20%0A-%20drugie%20list%20View%20z%20wiadomo%u015Bciami%20po%202%2C3%20wiadomo%u015Bci%20dla%20stacji%0A-%20</text>
       </controlProperties>
     </control>
   </controls>

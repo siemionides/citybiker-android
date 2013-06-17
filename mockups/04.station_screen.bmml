@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1334" measuredH="571" mockupW="1274" mockupH="557">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1334" measuredH="571" mockupW="1209" mockupH="557">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::Component" x="125" y="14" w="281" h="543" measuredW="281" measuredH="543" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
@@ -9,11 +9,11 @@
       <controlProperties>
         <override controlID="0" x="0" y="0" w="246" h="33"/>
         <override controlID="12" x="223" y="8" w="6" h="17"/>
-        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <override controlID="-1"/>
         <override controlID="12:4" x="0" y="0" w="6" h="17"/>
-        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
         <override controlID="12:1" x="1" y="7" w="4" h="4"/>
+        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
+        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
@@ -235,11 +235,11 @@
       <controlProperties>
         <override controlID="0" x="0" y="0" w="246" h="33"/>
         <override controlID="12" x="223" y="8" w="6" h="17"/>
-        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <override controlID="-1"/>
         <override controlID="12:4" x="0" y="0" w="6" h="17"/>
-        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
         <override controlID="12:1" x="1" y="7" w="4" h="4"/>
+        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
+        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
@@ -413,11 +413,11 @@
       <controlProperties>
         <override controlID="0" x="0" y="0" w="249" h="37"/>
         <override controlID="12" x="226" y="9" w="7" h="19"/>
-        <override controlID="12:0" x="1" y="1" w="4" h="5"/>
         <override controlID="-1"/>
         <override controlID="12:4" x="0" y="0" w="7" h="19"/>
-        <override controlID="12:2" x="1" y="13" w="4" h="5"/>
         <override controlID="12:1" x="1" y="7" w="4" h="5"/>
+        <override controlID="12:2" x="1" y="13" w="4" h="5"/>
+        <override controlID="12:0" x="1" y="1" w="4" h="5"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
@@ -425,11 +425,11 @@
       <controlProperties>
         <override controlID="0" x="0" y="0" w="249" h="37"/>
         <override controlID="12" x="226" y="9" w="7" h="19"/>
-        <override controlID="12:0" x="1" y="1" w="4" h="5"/>
         <override controlID="-1"/>
         <override controlID="12:4" x="0" y="0" w="7" h="19"/>
-        <override controlID="12:2" x="1" y="13" w="4" h="5"/>
         <override controlID="12:1" x="1" y="7" w="4" h="5"/>
+        <override controlID="12:2" x="1" y="13" w="4" h="5"/>
+        <override controlID="12:0" x="1" y="1" w="4" h="5"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
@@ -473,7 +473,7 @@
         <icon>DownFillTriangleIcon%7Cxsmall</icon>
       </controlProperties>
     </control>
-    <control controlID="66" controlTypeID="com.balsamiq.mockups::CallOut" x="754" y="482" w="36" h="28" measuredW="39" measuredH="39" zOrder="48" locked="false" isInGroup="-1">
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::CallOut" x="754" y="482" w="36" h="28" measuredW="36" measuredH="43" zOrder="48" locked="false" isInGroup="-1">
       <controlProperties>
         <text>1</text>
       </controlProperties>
@@ -492,21 +492,20 @@
         <src>./assets/Android%204%20Controls.bmml#ga-menu</src>
       </controlProperties>
     </control>
-    <control controlID="70" controlTypeID="com.balsamiq.mockups::Icon" x="60" y="82" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="51" locked="false" isInGroup="-1"/>
-    <control controlID="71" controlTypeID="com.balsamiq.mockups::Component" x="1308" y="494" w="19" h="16" measuredW="19" measuredH="16" zOrder="52" locked="false" isInGroup="-1">
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::Component" x="1308" y="494" w="19" h="16" measuredW="19" measuredH="16" zOrder="51" locked="false" isInGroup="-1">
       <controlProperties>
         <override controlID="0" x="0" y="0" w="19" h="16"/>
         <override controlID="-1"/>
         <src>./assets/Android%20Controls.bmml#Checkbox</src>
       </controlProperties>
     </control>
-    <control controlID="72" controlTypeID="com.balsamiq.mockups::Component" x="1308" y="517" w="19" h="16" measuredW="19" measuredH="16" zOrder="53" locked="false" isInGroup="-1">
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::Component" x="1308" y="517" w="19" h="16" measuredW="19" measuredH="16" zOrder="52" locked="false" isInGroup="-1">
       <controlProperties>
         <override controlID="0" x="0" y="0" w="19" h="16"/>
         <src>./assets/Android%20Controls.bmml#Checkbox</src>
       </controlProperties>
     </control>
-    <control controlID="73" controlTypeID="com.balsamiq.mockups::Arrow" x="781" y="464" w="309" h="27" measuredW="150" measuredH="100" zOrder="54" locked="false" isInGroup="-1">
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Arrow" x="781" y="464" w="309" h="27" measuredW="150" measuredH="100" zOrder="53" locked="false" isInGroup="-1">
       <controlProperties>
         <text/>
       </controlProperties>

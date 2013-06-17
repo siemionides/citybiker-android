@@ -1,0 +1,104 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="412" measuredH="569" mockupW="281" mockupH="543">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::Component" x="131" y="26" w="281" h="543" measuredW="281" measuredH="543" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/Samsung%20Galaxy%20S2.bmml#Samsung%20Galaxy%20S2</src>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="149" y="147" w="246" h="-1" measuredW="75" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <color>6710886</color>
+        <text>Bikes%20found%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::HRule" x="149" y="168" w="246" h="-1" measuredW="100" measuredH="10" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>3355443</color>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="__group__" x="149" y="179" w="246" h="59" measuredW="246" measuredH="59" zOrder="3" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::HRule" x="0" y="49" w="246" h="-1" measuredW="100" measuredH="10" zOrder="0" locked="false" isInGroup="4">
+          <controlProperties>
+            <color>10066329</color>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="235" h="-1" measuredW="39" measuredH="21" zOrder="1" locked="false" isInGroup="4">
+          <controlProperties>
+            <bold>false</bold>
+            <color>0</color>
+            <text>69545</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="0" y="16" w="217" h="32" measuredW="200" measuredH="80" zOrder="2" locked="false" isInGroup="4">
+          <controlProperties>
+            <color>6710886</color>
+            <size>11</size>
+            <text>Condition%3A%20OK%20%28no%20service%20msgs%29</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="6" controlTypeID="__group__" x="149" y="250" w="246" h="67" measuredW="246" measuredH="67" zOrder="4" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::HRule" x="0" y="57" w="246" h="-1" measuredW="100" measuredH="10" zOrder="0" locked="false" isInGroup="6">
+          <controlProperties>
+            <color>10066329</color>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="207" h="-1" measuredW="40" measuredH="21" zOrder="1" locked="false" isInGroup="6">
+          <controlProperties>
+            <bold>false</bold>
+            <color>0</color>
+            <text>69333</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="0" y="21" w="217" h="40" measuredW="200" measuredH="80" zOrder="2" locked="false" isInGroup="6">
+          <controlProperties>
+            <color>6710886</color>
+            <size>11</size>
+            <text>Condition%3A%20not%20right%20%282%20service%20msgs%29</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Component" x="149" y="108" w="246" h="33" measuredW="246" measuredH="33" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="246" h="33"/>
+        <override controlID="12" x="223" y="8" w="6" h="17"/>
+        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
+        <override controlID="-1"/>
+        <override controlID="12:4" x="0" y="0" w="6" h="17"/>
+        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
+        <override controlID="12:1" x="1" y="7" w="4" h="4"/>
+        <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Image" x="292" y="109" w="29" h="29" measuredW="400" measuredH="400" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/plain_bicycle_icon_large.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Image" x="321" y="107" w="37" h="33" measuredW="400" measuredH="400" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/station_serach_icon.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Image" x="149" y="113" w="98" h="21" measuredW="250" measuredH="49" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/veturilo-logo.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Icon" x="367" y="193" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>GtIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::Icon" x="367" y="265" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>GtIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

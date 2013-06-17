@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="872" measuredH="578" mockupW="741" mockupH="552">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1141" measuredH="578" mockupW="1010" mockupH="552">
   <controls>
     <control controlID="16" controlTypeID="com.balsamiq.mockups::Component" x="131" y="26" w="281" h="543" measuredW="281" measuredH="543" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -247,9 +247,9 @@
         <src>./assets/plain_bicycle_icon_large.png</src>
       </controlProperties>
     </control>
-    <control controlID="55" controlTypeID="com.balsamiq.mockups::Component" x="656" y="134" w="168" h="16" measuredW="168" measuredH="16" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Component" x="656" y="134" w="151" h="16" measuredW="151" measuredH="16" zOrder="24" locked="false" isInGroup="-1">
       <controlProperties>
-        <override controlID="0" x="0" y="0" w="169" h="26"/>
+        <override controlID="0" x="0" y="0" w="151" h="26"/>
         <override controlID="-1"/>
         <src>./assets/Android%204%20Controls.bmml#ga-textfield</src>
       </controlProperties>
@@ -262,9 +262,24 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::StickyNote" x="427" y="245" w="109" h="181" measuredW="109" measuredH="123" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::StickyNote" x="427" y="245" w="141" h="181" measuredW="109" measuredH="123" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
         <text>After%20user%20clicks%20%22Bike%22%20button%20in%20ActionBar%3B%0A%20%0ASame%20should%20be%20for%20%22Station%22%20button</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::CallOut" x="746" y="141" w="42" h="33" measuredW="45" measuredH="40" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>1</text>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::StickyNote" x="913" y="34" w="228" h="228" measuredW="109" measuredH="123" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%231%20-%20it%20shows%20expandable%20list%20when%20typing%20the%20letters%3B%0A-%20when%20user%20simply%20press%20OK%20on%20keyboard%20he/she%20will%20be%20thrown%20to%20screen%2002_list_bike_stations%20that%20matches%20his/her%20input%20typed%3B%0A-%20when%20user%20presses%20the%20object%20on%20expandable%20list%2C%20he/she%20will%20be%20put%20directly%20to%20the%20bike%20/%20station%20screen</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Image" x="809" y="129" w="18" h="18" measuredW="48" measuredH="48" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./assets/icon-qrcode.png</src>
       </controlProperties>
     </control>
   </controls>

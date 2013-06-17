@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="570" measuredH="569" mockupW="439" mockupH="543">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="846" measuredH="569" mockupW="715" mockupH="543">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::Component" x="131" y="26" w="281" h="543" measuredW="281" measuredH="543" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -178,6 +178,16 @@
           </controlProperties>
         </control>
       </groupChildrenDescriptors>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::CallOut" x="373" y="226" w="34" h="31" measuredW="36" measuredH="37" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>1</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::StickyNote" x="679" y="127" w="167" h="123" measuredW="109" measuredH="123" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%231%3A%0AI%20guess%20we%20can%20computate%20it%20easily%20on%20server%20for%20a%20given%20geolocation%20of%20user</text>
+      </controlProperties>
     </control>
   </controls>
 </mockup>

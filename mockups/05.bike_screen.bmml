@@ -263,22 +263,22 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::Icon" x="231" y="450" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="41" locked="false" isInGroup="-1">
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Icon" x="206" y="451" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="41" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>EmailIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::Icon" x="255" y="464" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="42" locked="false" isInGroup="-1">
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Icon" x="225" y="462" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="42" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>PlusIcon%7Cxsmall</icon>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::Icon" x="702" y="458" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="43" locked="false" isInGroup="-1">
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Icon" x="661" y="466" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="43" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>EmailIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="43" controlTypeID="com.balsamiq.mockups::Icon" x="715" y="473" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="44" locked="false" isInGroup="-1">
+    <control controlID="43" controlTypeID="com.balsamiq.mockups::Icon" x="676" y="481" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="44" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>PlusIcon%7Cxsmall</icon>
       </controlProperties>
@@ -410,7 +410,7 @@
         <color>3355443</color>
       </controlProperties>
     </control>
-    <control controlID="63" controlTypeID="__group__" x="594" y="454" w="249" h="37" measuredW="249" measuredH="37" zOrder="38" locked="false" isInGroup="-1">
+    <control controlID="63" controlTypeID="__group__" x="590" y="463" w="249" h="37" measuredW="249" measuredH="37" zOrder="38" locked="false" isInGroup="-1">
       <controlProperties>
         <controlName>ga-action-bar-split2</controlName>
       </controlProperties>
@@ -439,6 +439,26 @@
     <control controlID="65" controlTypeID="com.balsamiq.mockups::Icon" x="811" y="287" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="46" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>CameraIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::Icon" x="295" y="451" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="47" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::Icon" x="315" y="462" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="48" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SearchIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Icon" x="750" y="465" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="49" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Icon" x="771" y="481" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="50" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SearchIcon%7Cxsmall</icon>
       </controlProperties>
     </control>
   </controls>

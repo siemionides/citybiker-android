@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1334" measuredH="571" mockupW="1209" mockupH="557">
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1282" measuredH="571" mockupW="1157" mockupH="557">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::Component" x="125" y="14" w="281" h="543" measuredW="281" measuredH="543" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
@@ -433,12 +433,12 @@
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
-    <control controlID="56" controlTypeID="com.balsamiq.mockups::Icon" x="231" y="450" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="42" locked="false" isInGroup="-1">
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::Icon" x="215" y="447" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="42" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>EmailIcon%7Csmall</icon>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::Icon" x="255" y="464" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="43" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::Icon" x="239" y="461" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="43" locked="false" isInGroup="-1">
       <controlProperties>
         <icon>PlusIcon%7Cxsmall</icon>
       </controlProperties>
@@ -473,7 +473,7 @@
         <icon>DownFillTriangleIcon%7Cxsmall</icon>
       </controlProperties>
     </control>
-    <control controlID="66" controlTypeID="com.balsamiq.mockups::CallOut" x="754" y="482" w="36" h="28" measuredW="36" measuredH="43" zOrder="48" locked="false" isInGroup="-1">
+    <control controlID="66" controlTypeID="com.balsamiq.mockups::CallOut" x="754" y="482" w="36" h="28" measuredW="41" measuredH="39" zOrder="48" locked="false" isInGroup="-1">
       <controlProperties>
         <text>1</text>
       </controlProperties>
@@ -483,32 +483,76 @@
         <text>%231%20%20-%20opens%20a%20list%20what%20lets%20you%20pre-select%20different%20types%20of%20messages</text>
       </controlProperties>
     </control>
-    <control controlID="69" controlTypeID="com.balsamiq.mockups::Component" x="1090" y="490" w="244" h="52" measuredW="244" measuredH="52" zOrder="50" locked="false" isInGroup="-1">
-      <controlProperties>
-        <override controlID="0" x="0" y="0" w="244" h="52">
-          <text>Show%20times%20between%0AShow%20people%20on%20route%20to%20here</text>
-        </override>
-        <override controlID="-1"/>
-        <src>./assets/Android%204%20Controls.bmml#ga-menu</src>
-      </controlProperties>
-    </control>
-    <control controlID="71" controlTypeID="com.balsamiq.mockups::Component" x="1308" y="494" w="19" h="16" measuredW="19" measuredH="16" zOrder="51" locked="false" isInGroup="-1">
-      <controlProperties>
-        <override controlID="0" x="0" y="0" w="19" h="16"/>
-        <override controlID="-1"/>
-        <src>./assets/Android%20Controls.bmml#Checkbox</src>
-      </controlProperties>
-    </control>
-    <control controlID="72" controlTypeID="com.balsamiq.mockups::Component" x="1308" y="517" w="19" h="16" measuredW="19" measuredH="16" zOrder="52" locked="false" isInGroup="-1">
-      <controlProperties>
-        <override controlID="0" x="0" y="0" w="19" h="16"/>
-        <src>./assets/Android%20Controls.bmml#Checkbox</src>
-      </controlProperties>
-    </control>
-    <control controlID="73" controlTypeID="com.balsamiq.mockups::Arrow" x="781" y="464" w="309" h="27" measuredW="150" measuredH="100" zOrder="53" locked="false" isInGroup="-1">
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::Arrow" x="781" y="464" w="184" h="38" measuredW="150" measuredH="100" zOrder="51" locked="false" isInGroup="-1">
       <controlProperties>
         <text/>
       </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Icon" x="293" y="446" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="52" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="75" controlTypeID="com.balsamiq.mockups::Icon" x="314" y="462" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="53" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SearchIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="76" controlTypeID="com.balsamiq.mockups::Icon" x="696" y="457" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="54" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="77" controlTypeID="com.balsamiq.mockups::Icon" x="717" y="473" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="55" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SearchIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::CallOut" x="692" y="483" w="36" h="28" measuredW="36" measuredH="43" zOrder="56" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>2</text>
+      </controlProperties>
+    </control>
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::Icon" x="333" y="486" w="-1" h="-1" measuredW="24" measuredH="24" zOrder="57" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::Icon" x="354" y="502" w="-1" h="-1" measuredW="16" measuredH="16" zOrder="58" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>SearchIcon%7Cxsmall</icon>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::StickyNote" x="1111" y="352" w="171" h="128" measuredW="109" measuredH="123" zOrder="59" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%232%20%20-%20after%20press%2C%20the%20search%20text%20field%20shows%20un%20in%20the%20top%20actionBar%20and%20seearch%20is%20performed%20%28in%20prototype%29%20among%20the%20downloaded%20messages%0A%20%0A%28in%20real%29%20-%20could%20be%20downloaded%20from%20server</text>
+      </controlProperties>
+    </control>
+    <control controlID="82" controlTypeID="__group__" x="965" y="491" w="244" h="52" measuredW="244" measuredH="52" zOrder="50" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::Component" x="0" y="0" w="244" h="52" measuredW="244" measuredH="52" zOrder="0" locked="false" isInGroup="82">
+          <controlProperties>
+            <override controlID="0" x="0" y="0" w="244" h="52">
+              <text>Show%20times%20between%0AShow%20people%20on%20route%20to%20here</text>
+            </override>
+            <override controlID="-1"/>
+            <src>./assets/Android%204%20Controls.bmml#ga-menu</src>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Component" x="218" y="4" w="19" h="16" measuredW="19" measuredH="16" zOrder="1" locked="false" isInGroup="82">
+          <controlProperties>
+            <override controlID="0" x="0" y="0" w="19" h="16"/>
+            <override controlID="-1"/>
+            <src>./assets/Android%20Controls.bmml#Checkbox</src>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Component" x="218" y="27" w="19" h="16" measuredW="19" measuredH="16" zOrder="2" locked="false" isInGroup="82">
+          <controlProperties>
+            <override controlID="0" x="0" y="0" w="19" h="16"/>
+            <src>./assets/Android%20Controls.bmml#Checkbox</src>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
     </control>
   </controls>
 </mockup>

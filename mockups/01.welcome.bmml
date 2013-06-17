@@ -105,11 +105,11 @@
       <controlProperties>
         <override controlID="0" x="0" y="0" w="246" h="33"/>
         <override controlID="12" x="223" y="8" w="6" h="17"/>
-        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <override controlID="-1"/>
         <override controlID="12:4" x="0" y="0" w="6" h="17"/>
-        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
         <override controlID="12:1" x="1" y="7" w="4" h="4"/>
+        <override controlID="12:2" x="1" y="12" w="4" h="4"/>
+        <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
@@ -236,9 +236,9 @@
         <override controlID="12" x="224" y="9" w="7" h="18"/>
         <override controlID="-1"/>
         <override controlID="12:4" x="0" y="0" w="7" h="18"/>
+        <override controlID="12:1" x="2" y="7" w="4" h="5"/>
         <override controlID="12:2" x="2" y="13" w="4" h="5"/>
         <override controlID="12:0" x="2" y="1" w="4" h="5"/>
-        <override controlID="12:1" x="2" y="7" w="4" h="5"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar</src>
       </controlProperties>
     </control>
@@ -250,7 +250,6 @@
     <control controlID="55" controlTypeID="com.balsamiq.mockups::Component" x="656" y="134" w="151" h="16" measuredW="151" measuredH="16" zOrder="24" locked="false" isInGroup="-1">
       <controlProperties>
         <override controlID="0" x="0" y="0" w="151" h="26"/>
-        <override controlID="-1"/>
         <src>./assets/Android%204%20Controls.bmml#ga-textfield</src>
       </controlProperties>
     </control>
@@ -267,7 +266,7 @@
         <text>After%20user%20clicks%20%22Bike%22%20button%20in%20ActionBar%3B%0A%20%0ASame%20should%20be%20for%20%22Station%22%20button</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::CallOut" x="746" y="141" w="42" h="33" measuredW="45" measuredH="40" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::CallOut" x="746" y="141" w="42" h="33" measuredW="36" measuredH="43" zOrder="27" locked="false" isInGroup="-1">
       <controlProperties>
         <text>1</text>
       </controlProperties>
@@ -280,6 +279,50 @@
     <control controlID="60" controlTypeID="com.balsamiq.mockups::Image" x="809" y="129" w="18" h="18" measuredW="48" measuredH="48" zOrder="29" locked="false" isInGroup="-1">
       <controlProperties>
         <src>./assets/icon-qrcode.png</src>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Component" x="609" y="384" w="246" h="128" measuredW="246" measuredH="128" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <override controlID="0" x="0" y="0" w="246" h="128"/>
+        <override controlID="48" x="15" y="36" w="215" h="25"/>
+        <override controlID="51" x="3" y="96" w="238" h="25"/>
+        <override controlID="47" x="3" y="7" w="238" h="25"/>
+        <override controlID="50" x="3" y="66" w="238" h="25"/>
+        <override controlID="47:4" x="96" y="0" w="22" h="25"/>
+        <override controlID="47:3" x="72" y="0" w="22" h="25"/>
+        <override controlID="50:7" x="182" y="0" w="22" h="25"/>
+        <override controlID="51:2" x="62" y="0" w="118" h="25"/>
+        <override controlID="47:2" x="49" y="0" w="22" h="25"/>
+        <override controlID="47:7" x="169" y="0" w="22" h="25"/>
+        <override controlID="50:6" x="158" y="0" w="22" h="25"/>
+        <override controlID="48:0" x="0" y="0" w="22" h="25"/>
+        <override controlID="47:6" x="145" y="0" w="22" h="25"/>
+        <override controlID="47:0" x="0" y="0" w="22" h="25"/>
+        <override controlID="50:2" x="62" y="0" w="22" h="25"/>
+        <override controlID="47:1" x="25" y="0" w="22" h="25"/>
+        <override controlID="48:3" x="72" y="0" w="22" h="25"/>
+        <override controlID="48:5" x="120" y="0" w="22" h="25"/>
+        <override controlID="51:8" x="206" y="0" w="32" h="25"/>
+        <override controlID="51:7" x="182" y="0" w="22" h="25"/>
+        <override controlID="47:5" x="120" y="0" w="22" h="25"/>
+        <override controlID="47:8" x="193" y="0" w="22" h="25"/>
+        <override controlID="48:4" x="96" y="0" w="22" h="25"/>
+        <override controlID="-1"/>
+        <override controlID="50:8" x="206" y="0" w="32" h="25"/>
+        <override controlID="48:7" x="169" y="0" w="22" h="25"/>
+        <override controlID="51:0" x="0" y="0" w="37" h="25"/>
+        <override controlID="50:1" x="39" y="0" w="22" h="25"/>
+        <override controlID="50:0" x="0" y="0" w="37" h="25"/>
+        <override controlID="48:2" x="49" y="0" w="22" h="25"/>
+        <override controlID="48:1" x="25" y="0" w="22" h="25"/>
+        <override controlID="48:8" x="193" y="0" w="22" h="25"/>
+        <override controlID="50:3" x="87" y="0" w="22" h="25"/>
+        <override controlID="48:6" x="145" y="0" w="22" h="25"/>
+        <override controlID="50:5" x="135" y="0" w="22" h="25"/>
+        <override controlID="50:4" x="110" y="0" w="22" h="25"/>
+        <override controlID="51:1" x="39" y="0" w="22" h="25"/>
+        <override controlID="47:9" x="216" y="0" w="22" h="25"/>
+        <src>./assets/Android%204%20Controls.bmml#ga-keyboard-portrait-320</src>
       </controlProperties>
     </control>
   </controls>

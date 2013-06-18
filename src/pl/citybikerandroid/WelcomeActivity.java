@@ -1,8 +1,12 @@
 package pl.citybikerandroid;
 
+import pl.citybikerandroid.helper.HelperToolkit;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.view.Menu;
+import android.view.MenuItem;
 
 public class WelcomeActivity extends Activity {
 
@@ -17,6 +21,29 @@ public class WelcomeActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.welcome, menu);
 		return true;
+	}
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		switch(item.getItemId()){
+			case R.id.menu_search_bike: {
+				AlertDialog.Builder alert = HelperToolkit.createAlertDialog(this,
+						"searchBikeAlert", "searchBike button preessed - to be implemented!");
+				alert.show();
+				break;
+			}
+			case R.id.menu_search_station:{
+				AlertDialog.Builder alert = HelperToolkit.createAlertDialog(this,
+						"searchStationAlert", "searchStation button preessed - to be implemented!");
+				alert.show();
+				break;
+			}
+		}
+		
+		// TODO Auto-generated method stub
+		return super.onOptionsItemSelected(item);
 	}
 
 }

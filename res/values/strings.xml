@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--  Navigation -->
+    <string name="menu_search_bike">Search Bike</string>
+    <string name="menu_search_station">Search Station</string>
+    
     <string name="app_name">Citybiker\'s Pinboard</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>

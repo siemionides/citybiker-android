@@ -107,9 +107,9 @@
         <override controlID="12" x="223" y="8" w="6" h="17"/>
         <override controlID="12:0" x="1" y="1" w="4" h="4"/>
         <override controlID="-1"/>
+        <override controlID="12:1" x="1" y="7" w="4" h="4"/>
         <override controlID="12:4" x="0" y="0" w="6" h="17"/>
         <override controlID="12:2" x="1" y="12" w="4" h="4"/>
-        <override controlID="12:1" x="1" y="7" w="4" h="4"/>
         <src>./assets/Android%204%20Controls.bmml#ga-action-bar-split2</src>
       </controlProperties>
     </control>
@@ -128,7 +128,7 @@
         <src>./assets/veturilo-logo.png</src>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::StickyNote" x="461" y="176" w="109" h="208" measuredW="109" measuredH="123" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::StickyNote" x="461" y="176" w="184" h="208" measuredW="109" measuredH="123" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Returns%20stations%20that%20match%20the%20query%20%20typed%20into%20Search%20Bar.%0A%20%0AIf%20it%20was%20left%20empty%2C%20all%20stations%20are%20listed%20using%20an%20alphabetical%20%28%3F%3F%29%20order</text>
       </controlProperties>

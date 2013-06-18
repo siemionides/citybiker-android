@@ -8,4 +8,6 @@ Contains mockups (Balsamiq) + the rest of what is necessary.
 
 The communication will be probably based on https://github.com/octo-online/robospice.
 
+Current state of mockups can be viewed somehere here (in docs directory): https://github.com/siemionides/citybiker-android/blob/master/docs/all_mockups.pdf
+
 Enjoy!

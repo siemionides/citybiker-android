@@ -12,7 +12,7 @@ import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.Message;
 import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.StationAround;
+import pl.citybikerandroid.stations.BikeStationAround;
 import pl.citybikerandroid.stations.BikeStation;
 
 /*import pl.citybikerandroid.tests.activities.InformativeMessage;
@@ -25,12 +25,13 @@ import static org.hamcrest.CoreMatchers.anyOf;
 
 @RunWith(RobolectricTestRunner.class)
 public class StationAroundTest {
-	StationAround s1, s2;
+	BikeStationAround s1, s2;
+	
 	
     
     @Before
     public void setUpStationAroundObjectTest() throws Exception{
-    	s1 = new StationAround();
+    	s1 = new BikeStationAround();
 //    		BikeStation bs1 = new BikeStation();    		
     	
     		s1.setName("Stacja pierwsza");
@@ -53,10 +54,15 @@ public class StationAroundTest {
     	s1.setDistanceTo(5.4);
     	
     	
-    	s2 = new StationAround("Stacja nowa testowa", 65544, BikeStation.MORE_THAN_FOUR);
+    	s2 = new BikeStationAround("Stacja nowa testowa", 65544, BikeStation.MORE_THAN_FOUR);
     	
     	s2.addInformativeMessage(new InformativeMessage("Halo day!"));
     	s2.setDistanceTo(5.3);
+    	
+    	//test Data
+    	
+    	
+    	
     		
     }
     

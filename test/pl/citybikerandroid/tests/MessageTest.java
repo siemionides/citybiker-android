@@ -39,6 +39,7 @@ public class MessageTest {
 		
 		//iM2.setPhotoUrl()
 		
+		//test data
 		
 	}
 	
@@ -58,7 +59,6 @@ public class MessageTest {
 		
 		assertThat(lM1.getAuthorName(), equalTo(Message.AUTHOR_ANONYMOUS));
 		assertThat(lM2.getAuthorName(), equalTo("Peter"));
-		
 		
 		//photo
 		assertThat(iM1.hasPhoto(), equalTo(false));

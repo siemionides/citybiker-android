@@ -1,15 +1,19 @@
 package pl.citybikerandroid.messages;
 
+import java.util.Date;
+
 public class ServiceMessage extends Message {
 
 	public ServiceMessage(String text) {
 		super(text);
-		// TODO Auto-generated constructor stub
 	}
 
 	public ServiceMessage(String text, String authorName) {
 		super(text, authorName);
-		// TODO Auto-generated constructor stub
+	}
+
+	public ServiceMessage(String text, Date messageDate) {
+		super(text, messageDate);
 	}
 
 

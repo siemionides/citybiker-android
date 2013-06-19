@@ -26,12 +26,18 @@ public final class R {
         public static final int ic_station_serach_icon=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f080002;
-        public static final int menu_search_bike=0x7f080000;
-        public static final int menu_search_station=0x7f080001;
+        public static final int action_settings=0x7f080007;
+        public static final int listStationsAroundView=0x7f080000;
+        public static final int menu_search_bike=0x7f080005;
+        public static final int menu_search_station=0x7f080006;
+        public static final int tv_station_distance=0x7f080004;
+        public static final int tv_station_info=0x7f080002;
+        public static final int tv_station_messages=0x7f080003;
+        public static final int tv_station_name=0x7f080001;
     }
     public static final class layout {
         public static final int activity_welcome=0x7f030000;
+        public static final int list_item_station_around=0x7f030001;
     }
     public static final class menu {
         public static final int welcome=0x7f070000;

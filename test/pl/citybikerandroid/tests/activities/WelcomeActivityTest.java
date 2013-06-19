@@ -2,7 +2,7 @@ package pl.citybikerandroid.tests.activities;
 
 import pl.citybikerandroid.R;
 import pl.citybikerandroid.WelcomeActivity;
-import pl.citybikerandroid.stations.StationAround;
+import pl.citybikerandroid.stations.BikeStationAround;
 
 import org.junit.Before;
 //import com.xtremelabs.robolectric.RobolectricTestRunner;
@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(RobolectricTestRunner.class)
 public class WelcomeActivityTest {
 	WelcomeActivity activity;
-	StationAround s1;
+	BikeStationAround s1;
 	
 	@Before
 	public void setUp() throws Exception{

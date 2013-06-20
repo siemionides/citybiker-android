@@ -1,8 +1,10 @@
 package pl.citybikerandroid.activities;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import pl.citybikerandroid.R;
+import pl.citybikerandroid.bikes.Bike;
 import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.ServiceMessage;
@@ -174,12 +176,33 @@ public class WelcomeActivity extends Activity {
 //		}
 		
 		switch (item.getItemId()) {
-        case R.id.menu_search_station:
-            onSearchRequested();
-            return true;
-        default:
-            return false;
-    }
+		case R.id.menu_search_station:
+			onSearchRequested();
+			return true;
+		case R.id.menu_search_bike:
+			//start new BikeActivity with an Intent
+			Bike b = new Bike(65432);
+			
+			b.addInformativeMessage(new InformativeMessage(
+					"from Intent: Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+			b.addInformativeMessage(new InformativeMessage(
+					"from Intent:  jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+			b.addInformativeMessage(new InformativeMessage(
+					"from Intent:  Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+			
+			b.addServiceMessage(new ServiceMessage("from Intent:  Dzwonek nie działa!"));
+			b.addServiceMessage(new ServiceMessage("from Intent:  Hamulec nie działa!"));
+			b.addServiceMessage(new ServiceMessage("from Intent:  Światło nie działa! nie działa!"));
+			
+			
+			Intent i = new Intent(WelcomeActivity.this, BikeActivity.class);
+			i.putExtra(Bike.SERIALIZABLE_NAME, (Bike) b);
+			startActivity(i);
+			
+			return true;
+		default:
+			return false;
+		}
 		
 		// TODO Auto-generated method stub
 //		return super.onOptionsItemSelected(item);
@@ -242,7 +265,7 @@ public class WelcomeActivity extends Activity {
 				
 				//Start new bike Station Activity!
 				Intent i = new Intent(WelcomeActivity.this, BikeStationActivity.class);
-				i.putExtra("bikeStation", (BikeStation) station);
+				i.putExtra(BikeStation.SERIALIZABLE_NAME, (BikeStation) station);
 				startActivity(i);
 				
 				

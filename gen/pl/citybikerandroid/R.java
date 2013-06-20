@@ -27,42 +27,49 @@ public final class R {
     }
     public static final class id {
         public static final int TabHost01=0x7f090001;
-        public static final int action_settings=0x7f090017;
+        public static final int action_settings=0x7f090019;
         public static final int listStationsAroundView=0x7f090000;
-        public static final int menu_search_bike=0x7f090016;
-        public static final int menu_search_station=0x7f090015;
+        public static final int menu_search_bike=0x7f090018;
+        public static final int menu_search_station=0x7f090017;
         public static final int tab1Layout=0x7f090002;
-        public static final int tab2Layout=0x7f090006;
-        public static final int tab3Layout=0x7f09000a;
-        public static final int tab_inf_listview=0x7f090005;
-        public static final int tab_inf_station_id_text=0x7f090004;
-        public static final int tab_inf_station_name_text=0x7f090003;
-        public static final int tab_log_listview=0x7f090009;
-        public static final int tab_log_station_id_text=0x7f090008;
-        public static final int tab_log_station_name_text=0x7f090007;
-        public static final int tab_ser_listview=0x7f09000d;
-        public static final int tab_ser_station_id_text=0x7f09000c;
-        public static final int tab_ser_station_name_text=0x7f09000b;
-        public static final int tv_message_date=0x7f09000e;
-        public static final int tv_message_text=0x7f09000f;
-        public static final int tv_station_distance=0x7f090013;
-        public static final int tv_station_info=0x7f090011;
-        public static final int tv_station_messages=0x7f090012;
-        public static final int tv_station_name=0x7f090010;
-        public static final int word=0x7f090014;
+        public static final int tab2Layout=0x7f090005;
+        public static final int tab3Layout=0x7f09000f;
+        public static final int tab_inf_bike_id=0x7f090003;
+        public static final int tab_inf_listview=0x7f090004;
+        public static final int tab_inf_station_id_text=0x7f09000b;
+        public static final int tab_inf_station_name_text=0x7f09000a;
+        public static final int tab_log_listview=0x7f09000e;
+        public static final int tab_log_station_id_text=0x7f09000d;
+        public static final int tab_log_station_name_text=0x7f09000c;
+        public static final int tab_ser_bike_id=0x7f090006;
+        public static final int tab_ser_listview=0x7f090007;
+        public static final int tab_ser_station_id_text=0x7f090011;
+        public static final int tab_ser_station_name_text=0x7f090010;
+        public static final int tv_message_date=0x7f090008;
+        public static final int tv_message_text=0x7f090009;
+        public static final int tv_station_distance=0x7f090015;
+        public static final int tv_station_info=0x7f090013;
+        public static final int tv_station_messages=0x7f090014;
+        public static final int tv_station_name=0x7f090012;
+        public static final int word=0x7f090016;
     }
     public static final class layout {
         public static final int activity_welcome=0x7f030000;
-        public static final int bike_station_activity=0x7f030001;
-        public static final int bike_station_list_item=0x7f030002;
-        public static final int list_item_station_around=0x7f030003;
-        public static final int result=0x7f030004;
+        public static final int bike_activity=0x7f030001;
+        public static final int bike_list_item=0x7f030002;
+        public static final int bike_station_activity=0x7f030003;
+        public static final int bike_station_list_item=0x7f030004;
+        public static final int list_item_station_around=0x7f030005;
+        public static final int result=0x7f030006;
     }
     public static final class menu {
         public static final int welcome=0x7f080000;
     }
     public static final class string {
         public static final int action_settings=0x7f060006;
+        /**  Bike Activity 
+         */
+        public static final int activity_bike_bike_id=0x7f06000a;
         public static final int activity_bike_station_station_id=0x7f060009;
         /**  Bike Station Activity 
          */

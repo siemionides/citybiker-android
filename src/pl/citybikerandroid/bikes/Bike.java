@@ -1,4 +1,4 @@
-package pl.citybikerandroid.stations;
+package pl.citybikerandroid.bikes;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,87 +10,59 @@ import pl.citybikerandroid.messages.Message;
 import pl.citybikerandroid.messages.ServiceMessage;
 
 /**
- * Implements serializable, as it's supposed to be sent from / to activities;
- * eg. from #01 *(welcome) to #04 (bike station)
+ * Represents bike object in App.
+ * 
  * @author Michal Siemionczyk michal.siemionczyk@gmail.com
  *
  */
-public class BikeStation implements Serializable{
+public class Bike implements Serializable {
+	
+	public final static String SERIALIZABLE_NAME = "bike";
+
+	/**
+	 * Real bike ID (not any internal Mongo DB shit)
+	 */
+	private int bikeId;
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	public final static String SERIALIZABLE_NAME = "bikeStation";
 
-
-	public static final int MORE_THAN_FOUR = -500;
-	
-	private String stationName;
-	
-	private int stationId;
-	
-	private int nrBikes;
+//	public static final int MORE_THAN_FOUR = -500;
 	
 	ArrayList<InformativeMessage> informativeMessages = null;
-	
-	ArrayList<LogisticalMessage> logisticalMessages = null;
 	
 	ArrayList<ServiceMessage> serviceMessages = null;
 	
 	
 	
 	
-	public BikeStation() {
-		this.stationName = "";
-		this.stationId = -1;
-		this.nrBikes = -1;
+	public Bike() {
 	}
 
-	public BikeStation(String stationName, int stationId) {
-		this.stationName = stationName;
-		this.stationId = stationId;
-	}
-
-	public BikeStation(String stationName, int stationId, int nrBikes) {
-		this(stationName, stationId);
-		this.nrBikes = nrBikes;
+	public Bike(int bikeId) {
+		this.bikeId = bikeId;
 	}
 
 
-	public void setName(String stationName) {
-		this.stationName = stationName;
-	}
-	
 	public void addInformativeMessage(InformativeMessage informativeMessage) {
 		if(informativeMessages == null) informativeMessages = new ArrayList<InformativeMessage>();
 		informativeMessages.add(informativeMessage);
 		
 	}
 	
-	public void addLogisticalMessage(LogisticalMessage logisticalMessage) {
-		if(logisticalMessages == null) logisticalMessages = new ArrayList<LogisticalMessage>();
-		logisticalMessages.add(logisticalMessage);
-	}
-
 	public void addServiceMessage(ServiceMessage serviceMessage) {
 		if(serviceMessages == null) serviceMessages = new ArrayList<ServiceMessage>();
 		serviceMessages.add(serviceMessage);
 		
 	}
 	
-	public String getName() {
-		return this.stationName;
-	}
 
 	public int getId() {
-		return this.stationId;
+		return this.bikeId;
 	}
 
-	public int getNrBikes() {
-		return this.nrBikes;
-	}
 
 	public ArrayList<InformativeMessage> getInformativeMessages() {
 		return this.informativeMessages;
@@ -98,21 +70,18 @@ public class BikeStation implements Serializable{
 	
 	//public InformativeMessage get 
 
-	public ArrayList<LogisticalMessage> getLogisticalMessages() {
-		return this.logisticalMessages;
-	}
 
 	public ArrayList<ServiceMessage> getServicelMessages() {
 		return this.serviceMessages;
 	}
 	
+	/**
+	 * 
+	 * @param id the real BIKE ID
+	 */
 	public void setId(int id) {
-		this.stationId = id;
+		this.bikeId = id;
 		
-	}
-
-	public void setNrBikes(int nrBikes) {
-		this.nrBikes = nrBikes;
 	}
 
 	public InformativeMessage getLastInformativeMessage() {
@@ -128,15 +97,6 @@ public class BikeStation implements Serializable{
 		return list.get(0);
 	}
 
-	public LogisticalMessage getLastLogisticalMessage() {
-		
-		ArrayList<LogisticalMessage> list = new ArrayList<LogisticalMessage>(this.logisticalMessages);
-		Collections.sort(list, Message.MessageDateComparator);
-		
-		//return first - the biggest
-		return list.get(0);
-	}
-
 	public ServiceMessage getLastServiceMessage() {
 		ArrayList<ServiceMessage> list = new ArrayList<ServiceMessage>(this.serviceMessages);
 		Collections.sort(list, Message.MessageDateComparator);
@@ -145,5 +105,4 @@ public class BikeStation implements Serializable{
 		return list.get(0);
 		
 	}
-
 }

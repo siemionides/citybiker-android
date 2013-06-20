@@ -7,11 +7,11 @@
           android:actionViewClass="android.widget.SearchView"
     />
          
+     <!-- TODO : TEMPORARILY  this button starts BikeActivity (and sends Intent there) -->
     <item android:id="@+id/menu_search_bike"
           android:icon="@drawable/ic_plain_bicycle_icon_large"
           android:title="@string/menu_search_bike"
           android:showAsAction="collapseActionView|ifRoom"
-          android:actionViewClass="android.widget.SearchView"
            />
     
     <item

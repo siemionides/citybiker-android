@@ -19,5 +19,12 @@
     
     <string name="activity_bike_station_station_name">Station name:</string>
     <string name="activity_bike_station_station_id">Station id:</string>
+    
+    
+       <!-- Bike Activity -->
+       
+    <string name="activity_bike_bike_id">Station id:</string>
+       
+    
 
 </resources>

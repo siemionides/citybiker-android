@@ -14,3 +14,8 @@ bin/
 
 # android gen/folder
 gen/
+
+# added .classpath to ignore
+.classpath
+citybiker-android-test/.classpath
+

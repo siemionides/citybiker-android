@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
+import pl.citybikerandroid.bikes.Bike;
 import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.Message;
@@ -175,9 +176,12 @@ public class BikeStationActivity extends Activity {
 				
 				InformativeMessage msg = (InformativeMessage) parent
 						.getItemAtPosition(position);
-				Toast.makeText(getApplicationContext(),
-						"Clicked on Row (informative): " + msg.getText(),
-						Toast.LENGTH_LONG).show();
+				
+				// show single message screen - start new activity
+				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				startActivity(i);
+				
 			}
 		});
 		
@@ -187,38 +191,38 @@ public class BikeStationActivity extends Activity {
 		listView = (ListView) findViewById(R.id.tab_log_listview);
 		listView.setAdapter(adapterLogisticalMsg);
 		
-//		listView.setOnItemClickListener(new OnItemClickListener() {
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				// When clicked, show a toast with the TextView text
-//				BikeStationAround station = (BikeStationAround) parent
-//						.getItemAtPosition(position);
-//				Toast.makeText(getApplicationContext(),
-//						"Clicked on Row (logistical): " + station.getName(),
-//						Toast.LENGTH_LONG).show();
-//			}
-//		});
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+			
+				LogisticalMessage msg = (LogisticalMessage) parent
+						.getItemAtPosition(position);
+				
+				// show single message screen - start new activity
+				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				startActivity(i);
+			}
+		});
 
 		// assign adapter and listener to the third tab (service)
 		listView = (ListView) findViewById(R.id.tab_ser_listview);
 		listView.setAdapter(adapterServiceMsg);
 		
-//		listView.setOnItemClickListener(new OnItemClickListener() {
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				// When clicked, show a toast with the TextView text
-//				BikeStationAround station = (BikeStationAround) parent
-//						.getItemAtPosition(position);
-//				Toast.makeText(getApplicationContext(),
-//						"Clicked on Row: (service) " + station.getName(),
-//						Toast.LENGTH_LONG).show();
-//			}
-//		});
-		
-		
-		
-		
-
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				
+				
+				ServiceMessage msg = (ServiceMessage) parent
+						.getItemAtPosition(position);
+				
+				// show single message screen - start new activity
+				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				startActivity(i);
+			}
+		});
 	}
 
 	private class BikeStationMessagesAdapter <T extends Message> extends ArrayAdapter<T> {

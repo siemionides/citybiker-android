@@ -1,0 +1,143 @@
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".WelcomeActivity" >
+
+    <!-- 
+     <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            
+             />
+              -->
+              
+              
+      <TextView
+          android:id="@+id/title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentTop="true"
+              android:layout_centerHorizontal="true"
+              android:textStyle="bold"
+              android:text="Title" />
+      
+      <!-- Date textView group -->
+      <LinearLayout
+        android:id="@+id/date_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:layout_marginTop="20dip"
+        android:layout_below="@+id/title">
+
+        <TextView
+            android:id="@+id/label_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Date:" />
+        
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2012-12-12" />
+           
+      </LinearLayout>
+      
+      
+        <!-- Autor textView group -->
+      <LinearLayout
+        android:id="@+id/author_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:orientation="horizontal"
+        android:layout_marginTop="20dip"
+        android:layout_below="@+id/date_layout">
+
+        <TextView
+            android:id="@+id/label_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Author: " />
+        
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="test James" />
+           
+      </LinearLayout>
+      
+      <!-- Message Box  -->
+      <LinearLayout
+        android:id="@+id/message_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/author_layout"
+        android:layout_marginTop="20dip"
+        android:orientation="vertical" >
+          <TextView
+            android:id="@+id/label_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Message " />
+          
+          <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false" 
+            android:padding="5dip"
+            android:background="@drawable/message_background"
+            android:text="Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu v 
+			            Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu Super dużo tekstu v " />
+          
+ 	   </LinearLayout>
+ 	   
+      
+         <!-- Photo Box  -->
+      <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/message_layout"
+        android:layout_marginTop="20dip"
+        android:orientation="vertical" >
+          <TextView
+            android:id="@+id/label_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Photo " />
+          
+          <ImageView
+              android:id="@+id/imageview_photo"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:adjustViewBounds="true"
+              
+              android:src="@drawable/veturilo_image" />
+          
+ 	   </LinearLayout>
+ 	   
+    <!--
+     <ListView android:id="@+id/listStationsAroundView" android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"/>
+    -->
+
+
+</RelativeLayout>
+
+</ScrollView>

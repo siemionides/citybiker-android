@@ -143,13 +143,15 @@ public class BikeActivity extends Activity {
 		listView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// When clicked, show a toast with the TextView text
+				
 				
 				InformativeMessage msg = (InformativeMessage) parent
 						.getItemAtPosition(position);
-				Toast.makeText(getApplicationContext(),
-						"Clicked on Row (informative): " + msg.getText(),
-						Toast.LENGTH_LONG).show();
+				
+				// show single message screen - start new activity
+				Intent i = new Intent(BikeActivity.this, SingleMessageActivity.class);
+				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				startActivity(i);
 			}
 		});
 		
@@ -158,17 +160,19 @@ public class BikeActivity extends Activity {
 		listView = (ListView) findViewById(R.id.tab_ser_listview);
 		listView.setAdapter(adapterServiceMsg);
 		
-//		listView.setOnItemClickListener(new OnItemClickListener() {
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				// When clicked, show a toast with the TextView text
-//				BikeStationAround station = (BikeStationAround) parent
-//						.getItemAtPosition(position);
-//				Toast.makeText(getApplicationContext(),
-//						"Clicked on Row: (service) " + station.getName(),
-//						Toast.LENGTH_LONG).show();
-//			}
-//		});
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+			
+				ServiceMessage msg = (ServiceMessage) parent
+						.getItemAtPosition(position);
+				
+				// show single message screen - start new activity
+				Intent i = new Intent(BikeActivity.this, SingleMessageActivity.class);
+				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				startActivity(i);
+			}
+		});
 		
 		
 		

@@ -1,14 +1,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item android:id="@+id/menu_search_bike"
-          android:icon="@drawable/ic_plain_bicycle_icon_large"
-          android:title="@string/menu_search_bike"
-          android:showAsAction="ifRoom|withText" />
-    
      <item android:id="@+id/menu_search_station"
           android:icon="@drawable/ic_station_serach_icon"
           android:title="@string/menu_search_station"
-          android:showAsAction="ifRoom|withText" />
+          android:showAsAction="collapseActionView|ifRoom" 
+          android:actionViewClass="android.widget.SearchView"
+    />
+         
+     <!-- 
+    <item android:id="@+id/menu_search_bike"
+          android:icon="@drawable/ic_plain_bicycle_icon_large"
+          android:title="@string/menu_search_bike"
+          android:showAsAction="collapseActionView|ifRoom"
+          android:actionViewClass="android.widget.SearchView"
+           />
+           
+      -->
     
     <item
         android:id="@+id/action_settings"

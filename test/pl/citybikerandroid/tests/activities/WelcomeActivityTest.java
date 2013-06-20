@@ -1,7 +1,7 @@
 package pl.citybikerandroid.tests.activities;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.WelcomeActivity;
+import pl.citybikerandroid.activities.*;
 import pl.citybikerandroid.stations.BikeStationAround;
 
 import org.junit.Before;

@@ -5,6 +5,10 @@
     <string name="menu_search_bike">Search Bike</string>
     <string name="menu_search_station">Search Station</string>
     
+    <string name="app_label">app label</string>
+    <string name="search_station_hint">Search for station ids and names</string>
+    <string name="search_bike_hint">Search for bike ids</string>
+    
     <string name="app_name">Citybiker\'s Pinboard</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>

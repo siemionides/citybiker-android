@@ -8,6 +8,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".WelcomeActivity" >
 
+    <!-- 
+     <ListView
+            android:id="@+id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            
+             />
+              -->
     
      <ListView android:id="@+id/listStationsAroundView" android:layout_width="fill_parent"
 	  android:layout_height="wrap_content"/>

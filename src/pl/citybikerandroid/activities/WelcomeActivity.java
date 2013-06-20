@@ -185,57 +185,67 @@ public class WelcomeActivity extends Activity {
 //		return super.onOptionsItemSelected(item);
 	}
 	
-	/** Injects the listview with sample fake data*/
-	 private void displayListView() {
-		 
-		  //Array list of countries
-		  ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
-		  
-		  BikeStationAround bs = new BikeStationAround("ul Warynskiego - ul. Nowowiejska",6364,BikeStation.MORE_THAN_FOUR);
-		  	bs.addInformativeMessage(new InformativeMessage("Bardzo piękny dzień, jest super!"));
-		  	bs.addLogisticalMessage(new LogisticalMessage("Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-		  			new BikeStation(), bs, 3432));
-		  	bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-		  	bs.setDistanceTo(0.2);
-		  	stationAroundList.add(bs);
-		  
-		  	bs = new BikeStationAround("Plac Zbawiciela - Nowowiejska",6376,BikeStation.MORE_THAN_FOUR);
-		  	bs.addInformativeMessage(new InformativeMessage(" jest super, dobry dzień!"));
-		  	bs.addLogisticalMessage(new LogisticalMessage("Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-		  			new BikeStation(), bs, 343));
-		  	bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-		  	bs.setDistanceTo(0.5);
-		  	stationAroundList.add(bs);
-		  	
-		  	bs = new BikeStationAround("Plac Politechniki - ul. Nowowiejska",63642,3);
-		  	bs.addInformativeMessage(new InformativeMessage("Bardzo super dzień, jest super!"));
-		  	bs.addLogisticalMessage(new LogisticalMessage("Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-		  			new BikeStation(), bs, 453));
-		  	bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-		  	bs.setDistanceTo(0.8);
-		  	stationAroundList.add(bs);
-		  	
-		 
-		  //create an ArrayAdaptar from the String Array
-		  adapter = new StationsAroundAdapter(this,
-		    R.layout.list_item_station_around, stationAroundList);
-		  ListView listView = (ListView) findViewById(R.id.listStationsAroundView);
-		  // Assign adapter to ListView
-		  listView.setAdapter(adapter);
-		 
-		 
-		  listView.setOnItemClickListener(new OnItemClickListener() {
-		   public void onItemClick(AdapterView<?> parent, View view,
-		     int position, long id) {
-		    // When clicked, show a toast with the TextView text
-		    BikeStationAround station = (BikeStationAround) parent.getItemAtPosition(position);
-		    Toast.makeText(getApplicationContext(),
-		      "Clicked on Row: " + station.getName(), 
-		      Toast.LENGTH_LONG).show();
-		   }
-		  });
-		 
-		 }
+	/** Injects the listview with sample fake data */
+	private void displayListView() {
+
+		// Array list of countries
+		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
+
+		BikeStationAround bs = new BikeStationAround(
+				"ul Warynskiego - ul. Nowowiejska", 6364,
+				BikeStation.MORE_THAN_FOUR);
+		bs.addInformativeMessage(new InformativeMessage(
+				"Bardzo piękny dzień, jest super!"));
+		bs.addLogisticalMessage(new LogisticalMessage(
+				"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
+				new BikeStation(), bs, 3432));
+		bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+		bs.setDistanceTo(0.2);
+		stationAroundList.add(bs);
+
+		bs = new BikeStationAround("Plac Zbawiciela - Nowowiejska", 6376,
+				BikeStation.MORE_THAN_FOUR);
+		bs.addInformativeMessage(new InformativeMessage(
+				" jest super, dobry dzień!"));
+		bs.addLogisticalMessage(new LogisticalMessage(
+				"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
+				new BikeStation(), bs, 343));
+		bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+		bs.setDistanceTo(0.5);
+		stationAroundList.add(bs);
+
+		bs = new BikeStationAround("Plac Politechniki - ul. Nowowiejska",
+				63642, 3);
+		bs.addInformativeMessage(new InformativeMessage(
+				"Bardzo super dzień, jest super!"));
+		bs.addLogisticalMessage(new LogisticalMessage(
+				"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
+				new BikeStation(), bs, 453));
+		bs.addServiceMessage(new ServiceMessage(
+				"Światło nie działa! nie działa!"));
+		bs.setDistanceTo(0.8);
+		stationAroundList.add(bs);
+
+		// create an ArrayAdaptar from the String Array
+		adapter = new StationsAroundAdapter(this,
+				R.layout.list_item_station_around, stationAroundList);
+		ListView listView = (ListView) findViewById(R.id.listStationsAroundView);
+		// Assign adapter to ListView
+		listView.setAdapter(adapter);
+
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// When clicked, show a toast with the TextView text
+				BikeStationAround station = (BikeStationAround) parent
+						.getItemAtPosition(position);
+				Toast.makeText(getApplicationContext(),
+						"Clicked on Row: " + station.getName(),
+						Toast.LENGTH_LONG).show();
+			}
+		});
+
+	}
 	
 	 private class StationsAroundAdapter extends ArrayAdapter<BikeStationAround> {
 		 

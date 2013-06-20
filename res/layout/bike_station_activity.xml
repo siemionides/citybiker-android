@@ -13,38 +13,86 @@ android:layout_height="fill_parent"
           android:id="@+id/tab1Layout" 
           android:layout_width="wrap_content" 
           android:layout_height="wrap_content" >
-           <EditText
-            android:id="@+id/tab1textView"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tab 1 textView" />
+          
+          <TextView
+              android:id="@+id/tab_inf_station_name_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentTop="true"
+              android:text="StationName: FAKENAME" />
+
+          <TextView
+              android:id="@+id/tab_inf_station_id_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_inf_station_name_text"
+              android:text="StationId : FAKEID" />
+
+          <ListView
+              android:id="@+id/tab_inf_listview"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_inf_station_id_text"
+               />
+          
       </RelativeLayout>
       
       <!-- Tab two logistical -->
-      <RelativeLayout
+   <RelativeLayout
           android:id="@+id/tab2Layout" 
           android:layout_width="wrap_content" 
           android:layout_height="wrap_content" >
-           <EditText
-            android:id="@+id/tab2textView"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tab 1 textView" />
+          
+          <TextView
+              android:id="@+id/tab_log_station_name_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentTop="true"
+              android:text="StationName: FAKENAME" />
+
+          <TextView
+              android:id="@+id/tab_log_station_id_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_log_station_name_text"
+              android:text="StationId : FAKEID" />
+
+          <ListView
+              android:id="@+id/tab_log_listview"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+               android:layout_below="@+id/tab_log_station_id_text"
+               />
+          
       </RelativeLayout>
       
       <!-- Tab three service -->
-      <RelativeLayout
+   <RelativeLayout
           android:id="@+id/tab3Layout" 
           android:layout_width="wrap_content" 
           android:layout_height="wrap_content" >
-           <EditText
-            android:id="@+id/tab2textView"
-            style="@android:style/TextAppearance.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tab 1 textView" />
+          
+          <TextView
+              android:id="@+id/tab_ser_station_name_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentTop="true"
+              android:text="StationName: FAKENAME" />
+
+          <TextView
+              android:id="@+id/tab_ser_station_id_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_ser_station_name_text"
+              android:text="StationId : FAKEID" />
+
+          <ListView
+              android:id="@+id/tab_ser_listview"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+               android:layout_below="@+id/tab_ser_station_id_text"
+               />
+          
       </RelativeLayout>
       
     </FrameLayout>

@@ -7,26 +7,43 @@ public abstract class Message {
 	
 	public static final String AUTHOR_ANONYMOUS = "anonymous";
 	
+	/** Has to be provide*/
 	private String text;
 	
+	/** If not given - {@link Message#AUTHOR_ANONYMOUS}*/
 	private String authorName;
 	
+	/**
+	 * If not given - the current system date 
+	 */
 	/** mesage timestamp */
 	private Date messageDate;
 	
+	
+	/**
+	 * Main contructor, others are calling it and stting necessary elements
+	 * to appropirate tyeps (even if not given)
+	 * @param text
+	 * @param authorName
+	 * @param date
+	 */
+	public Message(String text, String authorName, Date date){
+		this.text = text;
+		this.authorName = authorName;
+		this.messageDate = date;
+		
+	}
 
 	public Message(String text, Date date){
-		this.messageDate = date;
+		this(text, Message.AUTHOR_ANONYMOUS, date);
 	}
 	
 	public Message(String text) {
-		this.text = text;
-		this.authorName = Message.AUTHOR_ANONYMOUS;
+		this(text, Message.AUTHOR_ANONYMOUS, new Date());
 	}
 
 	public Message(String text, String authorName) {
-		this.text = text;
-		this.authorName = authorName;
+		this(text, authorName, new Date());
 	}
 	
 	public boolean hasPhoto(){

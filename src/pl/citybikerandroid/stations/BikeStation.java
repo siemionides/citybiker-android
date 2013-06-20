@@ -77,17 +77,17 @@ public class BikeStation {
 		return this.nrBikes;
 	}
 
-	public Iterable<InformativeMessage> getInformativeMessages() {
+	public ArrayList<InformativeMessage> getInformativeMessages() {
 		return this.informativeMessages;
 	}
 	
 	//public InformativeMessage get 
 
-	public Iterable<LogisticalMessage> getLogisticalMessages() {
+	public ArrayList<LogisticalMessage> getLogisticalMessages() {
 		return this.logisticalMessages;
 	}
 
-	public Iterable<ServiceMessage> getServicelMessages() {
+	public ArrayList<ServiceMessage> getServicelMessages() {
 		return this.serviceMessages;
 	}
 	

@@ -13,6 +13,7 @@ import pl.citybikerandroid.stations.BikeStationAround;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
@@ -30,23 +31,23 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class BikeStationActivity extends Activity {
 
-	/** ListView for informal messages tab */
-	private ListView mListViewInformalMessages;
-
-	/** ListView for logistical messages tab */
-	private ListView mListViewLogisticalMessages;
-
-	/** ListView for service messages tab */
-	private ListView mListViewServiceMessages;
+//	/** ListView for informal messages tab */
+//	private ListView mListViewInformalMessages;
+//
+//	/** ListView for logistical messages tab */
+//	private ListView mListViewLogisticalMessages;
+//
+//	/** ListView for service messages tab */
+//	private ListView mListViewServiceMessages;
 
 	/** Adapter for ListView of Informal Messages (for informal tab) objects */
-	BikeStationMessagesAdapter adapterInformalMsg = null;
+	BikeStationMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
 
 	/** Adapter for ListView of Logistical Messages (for logistical tab) objects */
-	BikeStationMessagesAdapter adapterLogisticalMsg = null;
+	BikeStationMessagesAdapter<LogisticalMessage> adapterLogisticalMsg = null;
 
 	/** Adapter for ListView of Service Messages (for service tab) objects */
-	BikeStationMessagesAdapter adapterServiceMsg = null;
+	BikeStationMessagesAdapter<ServiceMessage> adapterServiceMsg = null;
 
 	// private FragmentTabHost mTabHost;
 
@@ -75,49 +76,81 @@ public class BikeStationActivity extends Activity {
 		spec3.setIndicator("service");
 		tabs.addTab(spec3);
 	
+		
+		
+		
+		//if intent is present
+		Intent i = getIntent();
+		BikeStation bs = (BikeStation) i.getSerializableExtra("bikeStation");
+		
 		// populate views
-		populateListViews();
-
+		populateListViews(bs);
+		
 	}
 	
 	
 	/** Injects the listview with sample fake data */
-	private void populateListViews() {
+	private void populateListViews(BikeStation bs) {
 
 //		// Array list of countries
 //		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
 
-		BikeStation bs = new BikeStation(
-				"ul Warynskiego - ul. Nowowiejska", 6364,
-				BikeStation.MORE_THAN_FOUR);
-		
-			bs.addInformativeMessage(new InformativeMessage(
-					"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
-			bs.addInformativeMessage(new InformativeMessage(
-					" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
-			bs.addInformativeMessage(new InformativeMessage(
-					"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+		//for debug for now 
+		if (bs == null){
+			bs = new BikeStation(
+					"ul Warynskiego - ul. Nowowiejska", 6364,
+					BikeStation.MORE_THAN_FOUR);
 			
+				bs.addInformativeMessage(new InformativeMessage(
+						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+				bs.addInformativeMessage(new InformativeMessage(
+						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+				bs.addInformativeMessage(new InformativeMessage(
+						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+				
+				
+				
+				bs.addLogisticalMessage(new LogisticalMessage(
+						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
+						new BikeStation(), bs, 3432));
+				
+				bs.addLogisticalMessage(new LogisticalMessage(
+						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
+						new BikeStation(), bs, 343));
+				bs.addLogisticalMessage(new LogisticalMessage(
+						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
+						new BikeStation(), bs, 453));
+				
 			
+				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
 			
-			bs.addLogisticalMessage(new LogisticalMessage(
-					"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-					new BikeStation(), bs, 3432));
-			
-			bs.addLogisticalMessage(new LogisticalMessage(
-					"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-					new BikeStation(), bs, 343));
-			bs.addLogisticalMessage(new LogisticalMessage(
-					"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-					new BikeStation(), bs, 453));
-			
-		
-			bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-			bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-			bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-		
-		
+		}
 
+		//get prefixed for station name and station id textfield
+		String stationNamePrefix = getResources().getString(R.string.activity_bike_station_station_name) + " ";
+		String stationIdPrefix = getResources().getString(R.string.activity_bike_station_station_id) + " ";
+		
+		//set station name, id for informative tab
+		TextView tv = (TextView) findViewById(R.id.tab_inf_station_name_text);
+		tv.setText(stationNamePrefix + bs.getName());
+		tv = (TextView) findViewById(R.id.tab_inf_station_id_text);
+		tv.setText(stationIdPrefix + bs.getId());
+		
+		//set station name, id for logistical tab
+		tv = (TextView) findViewById(R.id.tab_log_station_name_text);
+		tv.setText(stationNamePrefix + bs.getName());
+		tv = (TextView) findViewById(R.id.tab_log_station_id_text);
+		tv.setText(stationIdPrefix + bs.getId());
+		
+		//set station name, id for service tab
+		tv = (TextView) findViewById(R.id.tab_ser_station_name_text);
+		tv.setText(stationNamePrefix + bs.getName());
+		tv = (TextView) findViewById(R.id.tab_ser_station_id_text);
+		tv.setText(stationIdPrefix + bs.getId());
+		
+		
 		// create an ArrayAdaptar from the String Array
 //		adapter = new StationsAroundAdapter(this,
 //				R.layout.list_item_station_around, stationAroundList);

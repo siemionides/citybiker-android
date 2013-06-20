@@ -12,5 +12,12 @@
     <string name="app_name">Citybiker\'s Pinboard</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    
+    
+    
+    <!-- Bike Station Activity -->
+    
+    <string name="activity_bike_station_station_name">Station name:</string>
+    <string name="activity_bike_station_station_id">Station id:</string>
 
 </resources>

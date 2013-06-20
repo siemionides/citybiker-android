@@ -239,6 +239,13 @@ public class WelcomeActivity extends Activity {
 				// When clicked, show a toast with the TextView text
 				BikeStationAround station = (BikeStationAround) parent
 						.getItemAtPosition(position);
+				
+				//Start new bike Station Activity!
+				Intent i = new Intent(WelcomeActivity.this, BikeStationActivity.class);
+				i.putExtra("bikeStation", (BikeStation) station);
+				startActivity(i);
+				
+				
 				Toast.makeText(getApplicationContext(),
 						"Clicked on Row: " + station.getName(),
 						Toast.LENGTH_LONG).show();

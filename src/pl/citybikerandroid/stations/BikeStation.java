@@ -1,5 +1,6 @@
 package pl.citybikerandroid.stations;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -8,8 +9,19 @@ import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.Message;
 import pl.citybikerandroid.messages.ServiceMessage;
 
-public class BikeStation {
+/**
+ * Implements serializable, as it's supposed to be sent from / to activities;
+ * eg. from #01 *(welcome) to #04 (bike station)
+ * @author Michal Siemionczyk michal.siemionczyk@gmail.com
+ *
+ */
+public class BikeStation implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final int MORE_THAN_FOUR = -500;
 	
 	private String stationName;

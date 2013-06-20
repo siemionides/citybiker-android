@@ -19,14 +19,14 @@ android:layout_height="fill_parent"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentTop="true"
-              android:text="StationName: FAKENAME" />
+              android:text="@string/activity_bike_station_station_name" />
 
           <TextView
               android:id="@+id/tab_inf_station_id_text"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/tab_inf_station_name_text"
-              android:text="StationId : FAKEID" />
+              android:text="@string/activity_bike_station_station_id" />
 
           <ListView
               android:id="@+id/tab_inf_listview"
@@ -48,14 +48,14 @@ android:layout_height="fill_parent"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentTop="true"
-              android:text="StationName: FAKENAME" />
+              android:text="@string/activity_bike_station_station_name" />
 
           <TextView
               android:id="@+id/tab_log_station_id_text"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/tab_log_station_name_text"
-              android:text="StationId : FAKEID" />
+              android:text="@string/activity_bike_station_station_id" />
 
           <ListView
               android:id="@+id/tab_log_listview"
@@ -77,14 +77,14 @@ android:layout_height="fill_parent"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentTop="true"
-              android:text="StationName: FAKENAME" />
+              android:text="@string/activity_bike_station_station_name" />
 
           <TextView
               android:id="@+id/tab_ser_station_id_text"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_below="@+id/tab_ser_station_name_text"
-              android:text="StationId : FAKEID" />
+              android:text="@string/activity_bike_station_station_id" />
 
           <ListView
               android:id="@+id/tab_ser_listview"

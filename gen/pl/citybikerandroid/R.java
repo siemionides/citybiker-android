@@ -63,6 +63,10 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f060006;
+        public static final int activity_bike_station_station_id=0x7f060009;
+        /**  Bike Station Activity 
+         */
+        public static final int activity_bike_station_station_name=0x7f060008;
         public static final int app_label=0x7f060002;
         public static final int app_name=0x7f060005;
         public static final int hello_world=0x7f060007;

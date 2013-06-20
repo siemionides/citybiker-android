@@ -1,10 +1,16 @@
 package pl.citybikerandroid.messages;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
 
-public abstract class Message {
+public abstract class Message implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public static final String AUTHOR_ANONYMOUS = "anonymous";
 	
 	/** Has to be provide*/

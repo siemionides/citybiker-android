@@ -1,29 +1,18 @@
 package pl.citybikerandroid.activities;
 
 import java.util.ArrayList;
-import java.util.List;
-
-//import com.example.android.searchabledict.DictionaryDatabase;
-//import com.example.android.searchabledict.DictionaryProvider;
-//import com.example.android.searchabledict.WordActivity;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.BikeStationAround;
 import pl.citybikerandroid.stations.BikeStation;
-import android.net.Uri;
-import android.os.Bundle;
+import pl.citybikerandroid.stations.BikeStationAround;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.SearchManager;
-import android.app.SearchableInfo;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,10 +23,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.SearchView;
 
 public class WelcomeActivity extends Activity {
 	

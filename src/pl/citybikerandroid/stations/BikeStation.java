@@ -2,7 +2,6 @@ package pl.citybikerandroid.stations;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 
 import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;

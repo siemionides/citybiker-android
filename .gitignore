@@ -11,3 +11,6 @@
 
 # binaries
 bin/
+
+# android gen/folder
+gen/

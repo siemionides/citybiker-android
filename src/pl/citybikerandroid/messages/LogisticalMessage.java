@@ -2,7 +2,6 @@ package pl.citybikerandroid.messages;
 
 import java.util.Date;
 
-import pl.citybikerandroid.stations.BikeStationAround;
 import pl.citybikerandroid.stations.BikeStation;
 
 public class LogisticalMessage extends Message {

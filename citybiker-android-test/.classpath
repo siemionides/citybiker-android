@@ -5,7 +5,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/citybiker-android"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/robolectric-2.2-20130617.221525-10-jar-with-dependencies.jar"/>
-	<classpathentry kind="lib" path="/home/majkeliusz/Programs/adt-bundle-linux-x86_64/sdk/platforms/android-8/android.jar"/>
-	<classpathentry kind="lib" path="/home/majkeliusz/Programs/adt-bundle-linux-x86_64/sdk/add-ons/addon-google_apis-google-8/libs/maps.jar"/>
+	<classpathentry kind="lib" path="/home/ksiejkow/android-sdk-linux/platforms/android-8/android.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

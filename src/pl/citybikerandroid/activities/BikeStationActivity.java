@@ -139,10 +139,11 @@ public class BikeStationActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// When clicked, show a toast with the TextView text
-				BikeStationAround station = (BikeStationAround) parent
+				
+				InformativeMessage msg = (InformativeMessage) parent
 						.getItemAtPosition(position);
 				Toast.makeText(getApplicationContext(),
-						"Clicked on Row (informative): " + station.getName(),
+						"Clicked on Row (informative): " + msg.getText(),
 						Toast.LENGTH_LONG).show();
 			}
 		});
@@ -153,33 +154,33 @@ public class BikeStationActivity extends Activity {
 		listView = (ListView) findViewById(R.id.tab_log_listview);
 		listView.setAdapter(adapterLogisticalMsg);
 		
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// When clicked, show a toast with the TextView text
-				BikeStationAround station = (BikeStationAround) parent
-						.getItemAtPosition(position);
-				Toast.makeText(getApplicationContext(),
-						"Clicked on Row (logistical): " + station.getName(),
-						Toast.LENGTH_LONG).show();
-			}
-		});
+//		listView.setOnItemClickListener(new OnItemClickListener() {
+//			public void onItemClick(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				// When clicked, show a toast with the TextView text
+//				BikeStationAround station = (BikeStationAround) parent
+//						.getItemAtPosition(position);
+//				Toast.makeText(getApplicationContext(),
+//						"Clicked on Row (logistical): " + station.getName(),
+//						Toast.LENGTH_LONG).show();
+//			}
+//		});
 
 		// assign adapter and listener to the third tab (service)
 		listView = (ListView) findViewById(R.id.tab_ser_listview);
 		listView.setAdapter(adapterServiceMsg);
 		
-		listView.setOnItemClickListener(new OnItemClickListener() {
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// When clicked, show a toast with the TextView text
-				BikeStationAround station = (BikeStationAround) parent
-						.getItemAtPosition(position);
-				Toast.makeText(getApplicationContext(),
-						"Clicked on Row: (service) " + station.getName(),
-						Toast.LENGTH_LONG).show();
-			}
-		});
+//		listView.setOnItemClickListener(new OnItemClickListener() {
+//			public void onItemClick(AdapterView<?> parent, View view,
+//					int position, long id) {
+//				// When clicked, show a toast with the TextView text
+//				BikeStationAround station = (BikeStationAround) parent
+//						.getItemAtPosition(position);
+//				Toast.makeText(getApplicationContext(),
+//						"Clicked on Row: (service) " + station.getName(),
+//						Toast.LENGTH_LONG).show();
+//			}
+//		});
 		
 		
 		

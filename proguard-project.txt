@@ -18,3 +18,28 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+# For RoboSpice
+#Results classes that only extend a generic should be preserved as they will be pruned by Proguard 
+#as they are "empty", others are kept
+-keep class pl.citybikerandroid.domain.**
+
+#RoboSpice requests should be preserved in most cases
+-keepclassmembers class pl.citybiker.network.** {
+  public void set*(***);
+  public *** get*();
+  public *** is*();
+}
+
+#if you use public fields instead of setter/getters for your REST POJOs, add this
+-keepclassmembers class pl.citybikerandroid.domain.** {
+      public <fields>;
+}
+
+### Jackson SERIALIZER SETTINGS
+-keepclassmembers,allowobfuscation class * {
+    @org.codehaus.jackson.annotate.* <fields>;
+    @org.codehaus.jackson.annotate.* <init>(...);
+}
+
+

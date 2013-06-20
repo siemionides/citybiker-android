@@ -1,8 +1,5 @@
 package pl.citybikerandroid.stations;
 
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
-import pl.citybikerandroid.messages.ServiceMessage;
 
 public class BikeStationAround extends BikeStation {
 	

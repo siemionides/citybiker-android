@@ -1,6 +1,5 @@
 package pl.citybikerandroid.activities;
 
-import pl.citybikerandroid.R;
 import android.app.ListActivity;
 import android.app.SearchManager;
 import android.content.Intent;

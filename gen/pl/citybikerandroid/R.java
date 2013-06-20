@@ -26,19 +26,26 @@ public final class R {
         public static final int ic_station_serach_icon=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090007;
+        public static final int TabHost01=0x7f090001;
+        public static final int action_settings=0x7f09000d;
         public static final int listStationsAroundView=0x7f090000;
-        public static final int menu_search_station=0x7f090006;
-        public static final int tv_station_distance=0x7f090004;
-        public static final int tv_station_info=0x7f090002;
-        public static final int tv_station_messages=0x7f090003;
-        public static final int tv_station_name=0x7f090001;
-        public static final int word=0x7f090005;
+        public static final int menu_search_station=0x7f09000c;
+        public static final int tab1Layout=0x7f090002;
+        public static final int tab1textView=0x7f090003;
+        public static final int tab2Layout=0x7f090004;
+        public static final int tab2textView=0x7f090005;
+        public static final int tab3Layout=0x7f090006;
+        public static final int tv_station_distance=0x7f09000a;
+        public static final int tv_station_info=0x7f090008;
+        public static final int tv_station_messages=0x7f090009;
+        public static final int tv_station_name=0x7f090007;
+        public static final int word=0x7f09000b;
     }
     public static final class layout {
         public static final int activity_welcome=0x7f030000;
-        public static final int list_item_station_around=0x7f030001;
-        public static final int result=0x7f030002;
+        public static final int bike_station_activity=0x7f030001;
+        public static final int list_item_station_around=0x7f030002;
+        public static final int result=0x7f030003;
     }
     public static final class menu {
         public static final int welcome=0x7f080000;

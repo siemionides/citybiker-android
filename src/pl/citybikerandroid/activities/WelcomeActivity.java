@@ -14,7 +14,6 @@ import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.ServiceMessage;
 import pl.citybikerandroid.network.CollectionRequest;
-import pl.citybikerandroid.stations.BikeStationAround;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
@@ -171,7 +170,7 @@ public class WelcomeActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				BikeStationAround station = (BikeStationAround) parent
+				Station station = (Station) parent
 						.getItemAtPosition(position);
 
 				Intent i = new Intent(WelcomeActivity.this,
@@ -198,8 +197,8 @@ public class WelcomeActivity extends Activity {
 				20 * DurationInMillis.ONE_MINUTE, new StationRequestListener());
 	}
 
-	private void performStationMessagesRequest(BikeStationAround station, String type,
-			int limit) {
+	private void performStationMessagesRequest(Station station,
+			String type, int limit) {
 
 		if (type == null || type.trim().isEmpty())
 			type = "";
@@ -230,11 +229,10 @@ public class WelcomeActivity extends Activity {
 			adapter.clear();
 
 			for (Station station : stations) {
-				BikeStationAround bs = new BikeStationAround(
-						station.getLocation(), station.getNumber(),
-						station.getBicycles());
+				Station bs = new Station(station.getLocation(),
+						station.getNumber(), station.getBicycles());
 				bs.setId(station.getId());
-				//performStationMessagesRequest(bs, "logistic", 1);
+				// performStationMessagesRequest(bs, "logistic", 1);
 				adapter.add(bs);
 			}
 
@@ -251,11 +249,11 @@ public class WelcomeActivity extends Activity {
 
 	private class StationMessagesRequestListener implements
 			RequestListener<MessageCollection> {
-		
-		BikeStationAround station = null;
 
-		public StationMessagesRequestListener(BikeStationAround station) {
-			this.station = station; 
+		Station station = null;
+
+		public StationMessagesRequestListener(Station station) {
+			this.station = station;
 		}
 
 		@Override
@@ -271,8 +269,9 @@ public class WelcomeActivity extends Activity {
 
 			for (Message message : messages) {
 				String type = message.getType();
-				
-				// TODO: dodać tu wrzucanie wiadomości do stacji, ale to już po ujednoliceniu modeli danych
+
+				// TODO: dodać tu wrzucanie wiadomości do stacji, ale to już po
+				// ujednoliceniu modeli danych
 			}
 
 			adapter.notifyDataSetChanged();
@@ -286,7 +285,7 @@ public class WelcomeActivity extends Activity {
 		}
 	}
 
-	private class StationsAroundAdapter extends ArrayAdapter<BikeStationAround> {
+	private class StationsAroundAdapter extends ArrayAdapter<Station> {
 
 		public StationsAroundAdapter(Context context, int textViewResourceId) {
 			super(context, textViewResourceId);
@@ -326,7 +325,7 @@ public class WelcomeActivity extends Activity {
 				holder = (ViewHolder) convertView.getTag();
 			}
 
-			BikeStationAround station = this.getItem(position);
+			Station station = this.getItem(position);
 
 			holder.stationName.setText(station.getLocation());
 			holder.stationInfo.setText(formatStationInfoText(station));
@@ -335,7 +334,7 @@ public class WelcomeActivity extends Activity {
 			return convertView;
 		}
 
-		private String formatStationInfoText(BikeStationAround station) {
+		private String formatStationInfoText(Station station) {
 			String stationId = station.getId();
 			int nrBikes = station.getBicycles();
 
@@ -347,7 +346,7 @@ public class WelcomeActivity extends Activity {
 			return "Station Nr: " + stationId + "\nBikes Nr: " + nrBikesStr;
 		}
 
-		private String formatStationMessagesText(BikeStationAround station) {
+		private String formatStationMessagesText(Station station) {
 
 			InformativeMessage informative = station
 					.getLastInformativeMessage();
@@ -365,7 +364,7 @@ public class WelcomeActivity extends Activity {
 			return messages;
 		}
 
-		private String formatDistanceToText(BikeStationAround station) {
+		private String formatDistanceToText(Station station) {
 			return station.getDistanceTo().toString() + " km";
 		}
 	}

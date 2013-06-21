@@ -31,7 +31,9 @@ public class Station implements Serializable {
 	@JsonIgnore
 	private static final long serialVersionUID = 1L;
 	@JsonIgnore
-	public final static String SERIALIZABLE_NAME = "bikeStation";
+	public final static String SERIALIZABLE_NAME = "Station";
+	@JsonIgnore
+	private double distance;
 	@JsonIgnore
 	public static final int MORE_THAN_FOUR = -500;
 	@JsonIgnore
@@ -134,6 +136,14 @@ public class Station implements Serializable {
 		serviceMessages = new ArrayList<ServiceMessage>();
 	}
 
+	@JsonIgnore
+	public void setDistanceTo(double distance) {
+		this.distance = distance;
+	}
+	@JsonIgnore
+	public Double getDistanceTo() {
+		return this.distance;
+	}
 	@JsonIgnore
 	public void addInformativeMessage(InformativeMessage informativeMessage) {
 		informativeMessages.add(informativeMessage);

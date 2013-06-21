@@ -6,29 +6,22 @@ import java.util.Date;
 import pl.citybikerandroid.R;
 import pl.citybikerandroid.bikes.Bike;
 import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.Message;
 import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.BikeStation;
-import pl.citybikerandroid.stations.BikeStationAround;
 import android.app.Activity;
-import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * Bike Scren #05 

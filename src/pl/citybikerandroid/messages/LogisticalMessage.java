@@ -2,16 +2,18 @@ package pl.citybikerandroid.messages;
 
 import java.util.Date;
 
-import pl.citybikerandroid.stations.BikeStation;
+import pl.citybikerandroid.domain.Station;
 
 public class LogisticalMessage extends Message {
+
+	private static final long serialVersionUID = -9055041264671786474L;
 
 	public static final int GOING_TO = 1;
 	
 	public static int TIME_BETWEEN = 2;
 
 //	public LogisticalMessage(String text, int logMesType,
-//			BikeStation stationFrom, BikeStation stationTo) {
+//			Station stationFrom, Station stationTo) {
 //		
 //		super(text);
 //		// TODO Auto-generated constructor stub
@@ -26,7 +28,7 @@ public class LogisticalMessage extends Message {
 	 * @param time [in secs]
 	 */
 	public LogisticalMessage(String text, int logMesType,
-			BikeStation stationFrom, BikeStation stationTo, int time) {
+			Station stationFrom, Station stationTo, int time) {
 		
 		super(text);
 		// TODO Auto-generated constructor stub
@@ -42,7 +44,7 @@ public class LogisticalMessage extends Message {
 	 * @param messageDate date of message / a timestamp
 	 */
 	public LogisticalMessage(String text, int logMesType,
-			BikeStation stationFrom, BikeStation stationTo, int time, Date messageDate) {
+			Station stationFrom, Station stationTo, int time, Date messageDate) {
 		
 		super(text, messageDate);
 		// TODO Auto-generated constructor stub
@@ -60,7 +62,7 @@ public class LogisticalMessage extends Message {
 	 * @param time [in seconds]
 	 */
 	public LogisticalMessage(String text, String authorName,  int logMesType,
-			BikeStation stationFrom, BikeStation stationTo, int time) {
+			Station stationFrom, Station stationTo, int time) {
 		
 		super(text, authorName);
 		// TODO Auto-generated constructor stub

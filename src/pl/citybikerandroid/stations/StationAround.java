@@ -1,7 +1,9 @@
 package pl.citybikerandroid.stations;
 
+import pl.citybikerandroid.domain.Station;
 
-public class StationAround extends BikeStation {
+
+public class StationAround extends Station {
 	
 	/**
 	 * 

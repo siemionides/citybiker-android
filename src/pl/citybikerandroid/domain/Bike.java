@@ -1,5 +1,6 @@
 package pl.citybikerandroid.domain;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
@@ -8,6 +9,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class Bike {
 
+	@JsonIgnore
 	private String id;
 	private String number;
 

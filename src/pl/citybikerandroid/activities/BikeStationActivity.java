@@ -4,31 +4,25 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.bikes.Bike;
+import pl.citybikerandroid.domain.Station;
 import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.Message;
 import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.BikeStation;
-import pl.citybikerandroid.stations.BikeStationAround;
 import android.app.Activity;
-import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class BikeStationActivity extends Activity {
 
@@ -82,7 +76,7 @@ public class BikeStationActivity extends Activity {
 		
 		//if intent is present
 		Intent i = getIntent();
-		BikeStation bs = (BikeStation) i.getSerializableExtra(BikeStation.SERIALIZABLE_NAME);
+		Station bs = (Station) i.getSerializableExtra(Station.SERIALIZABLE_NAME);
 		
 		// populate views
 		populateListViews(bs);
@@ -91,16 +85,16 @@ public class BikeStationActivity extends Activity {
 	
 	
 	/** Injects the listview with sample fake data */
-	private void populateListViews(BikeStation bs) {
+	private void populateListViews(Station bs) {
 
 //		// Array list of countries
 //		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
 
 		//for debug for now 
 		if (bs == null){
-			bs = new BikeStation(
+			bs = new Station(
 					"ul Warynskiego - ul. Nowowiejska", "6364",
-					BikeStation.MORE_THAN_FOUR);
+					Station.MORE_THAN_FOUR);
 			
 				bs.addInformativeMessage(new InformativeMessage(
 						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
@@ -113,14 +107,14 @@ public class BikeStationActivity extends Activity {
 				
 				bs.addLogisticalMessage(new LogisticalMessage(
 						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-						new BikeStation(), bs, 3432));
+						new Station(), bs, 3432));
 				
 				bs.addLogisticalMessage(new LogisticalMessage(
 						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-						new BikeStation(), bs, 343));
+						new Station(), bs, 343));
 				bs.addLogisticalMessage(new LogisticalMessage(
 						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-						new BikeStation(), bs, 453));
+						new Station(), bs, 453));
 				
 			
 				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
@@ -135,19 +129,19 @@ public class BikeStationActivity extends Activity {
 		
 		//set station name, id for informative tab
 		TextView tv = (TextView) findViewById(R.id.tab_inf_station_name_text);
-		tv.setText(stationNamePrefix + bs.getName());
+		tv.setText(stationNamePrefix + bs.getLocation());
 		tv = (TextView) findViewById(R.id.tab_inf_station_id_text);
 		tv.setText(stationIdPrefix + bs.getId());
 		
 		//set station name, id for logistical tab
 		tv = (TextView) findViewById(R.id.tab_log_station_name_text);
-		tv.setText(stationNamePrefix + bs.getName());
+		tv.setText(stationNamePrefix + bs.getLocation());
 		tv = (TextView) findViewById(R.id.tab_log_station_id_text);
 		tv.setText(stationIdPrefix + bs.getId());
 		
 		//set station name, id for service tab
 		tv = (TextView) findViewById(R.id.tab_ser_station_name_text);
-		tv.setText(stationNamePrefix + bs.getName());
+		tv.setText(stationNamePrefix + bs.getLocation());
 		tv = (TextView) findViewById(R.id.tab_ser_station_id_text);
 		tv.setText(stationIdPrefix + bs.getId());
 		

@@ -1,7 +1,6 @@
 package pl.citybikerandroid.network;
 
 import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
 import pl.citybikerandroid.Constants;
@@ -66,7 +65,7 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 
 		String url = uriBuilder.build().toString();
 		
-		HttpEntity<String> request = new HttpEntity<String>(""); // no body for test purposes
+		HttpEntity<String> request = new HttpEntity<String>(""); // TODO: no body now, need to add
 		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type); //exchange(url, HttpMethod.GET, request, type);
 		return response.getBody();
 	}

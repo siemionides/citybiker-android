@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class InformativeMessage extends Message {
 
+	private static final long serialVersionUID = 7658522951030098355L;
+
 	public InformativeMessage(String text, String authorName) {
 		super(text, authorName);
 	}

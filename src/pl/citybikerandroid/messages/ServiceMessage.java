@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class ServiceMessage extends Message {
 
+	private static final long serialVersionUID = 4362593283393297268L;
+
 	public ServiceMessage(String text) {
 		super(text);
 	}

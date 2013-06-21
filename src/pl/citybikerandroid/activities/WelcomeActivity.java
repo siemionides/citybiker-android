@@ -14,7 +14,6 @@ import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.ServiceMessage;
 import pl.citybikerandroid.network.CollectionRequest;
-import pl.citybikerandroid.stations.BikeStation;
 import pl.citybikerandroid.stations.BikeStationAround;
 import android.app.Activity;
 import android.app.SearchManager;
@@ -177,11 +176,11 @@ public class WelcomeActivity extends Activity {
 
 				Intent i = new Intent(WelcomeActivity.this,
 						BikeStationActivity.class);
-				i.putExtra(BikeStation.SERIALIZABLE_NAME, (BikeStation) station);
+				i.putExtra(Station.SERIALIZABLE_NAME, (Station) station);
 				startActivity(i);
 
 				Toast.makeText(getApplicationContext(),
-						"Clicked on Row: " + station.getName(),
+						"Clicked on Row: " + station.getLocation(),
 						Toast.LENGTH_LONG).show();
 			}
 		});
@@ -329,7 +328,7 @@ public class WelcomeActivity extends Activity {
 
 			BikeStationAround station = this.getItem(position);
 
-			holder.stationName.setText(station.getName());
+			holder.stationName.setText(station.getLocation());
 			holder.stationInfo.setText(formatStationInfoText(station));
 			holder.stationMessages.setText(formatStationMessagesText(station));
 			holder.distanceTo.setText(formatDistanceToText(station));
@@ -338,10 +337,10 @@ public class WelcomeActivity extends Activity {
 
 		private String formatStationInfoText(BikeStationAround station) {
 			String stationId = station.getId();
-			int nrBikes = station.getNrBikes();
+			int nrBikes = station.getBicycles();
 
 			String nrBikesStr = Integer.toString(nrBikes);
-			if (nrBikes == BikeStation.MORE_THAN_FOUR) {
+			if (nrBikes == Station.MORE_THAN_FOUR) {
 				nrBikesStr = "4+";
 			}
 

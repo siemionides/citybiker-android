@@ -1,7 +1,11 @@
 package pl.citybikerandroid.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Station {
 
+	private String id;
 	private String number;
 	private String location;
 	private int bicycles;
@@ -58,6 +62,12 @@ public class Station {
 	}
 	public void setY(double y) {
 		this.y = y;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 	
 }

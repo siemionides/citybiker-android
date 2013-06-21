@@ -98,7 +98,7 @@ public class BikeStationActivity extends Activity {
 		//for debug for now 
 		if (bs == null){
 			bs = new BikeStation(
-					"ul Warynskiego - ul. Nowowiejska", 6364,
+					"ul Warynskiego - ul. Nowowiejska", "6364",
 					BikeStation.MORE_THAN_FOUR);
 			
 				bs.addInformativeMessage(new InformativeMessage(

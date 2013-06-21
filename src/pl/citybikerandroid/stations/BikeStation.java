@@ -15,7 +15,7 @@ import pl.citybikerandroid.messages.ServiceMessage;
  * @author Michal Siemionczyk michal.siemionczyk@gmail.com
  *
  */
-public class BikeStation implements Serializable{
+public class BikeStation implements Serializable {
 	
 	/**
 	 * 
@@ -29,7 +29,7 @@ public class BikeStation implements Serializable{
 	
 	private String stationName;
 	
-	private int stationId;
+	private String stationId;
 	
 	private int nrBikes;
 	
@@ -44,16 +44,16 @@ public class BikeStation implements Serializable{
 	
 	public BikeStation() {
 		this.stationName = "";
-		this.stationId = -1;
+		this.stationId = "";
 		this.nrBikes = -1;
 	}
 
-	public BikeStation(String stationName, int stationId) {
+	public BikeStation(String stationName, String stationId2) {
 		this.stationName = stationName;
-		this.stationId = stationId;
+		this.stationId = stationId2;
 	}
 
-	public BikeStation(String stationName, int stationId, int nrBikes) {
+	public BikeStation(String stationName, String stationId, int nrBikes) {
 		this(stationName, stationId);
 		this.nrBikes = nrBikes;
 	}
@@ -84,7 +84,7 @@ public class BikeStation implements Serializable{
 		return this.stationName;
 	}
 
-	public int getId() {
+	public String getId() {
 		return this.stationId;
 	}
 
@@ -106,7 +106,7 @@ public class BikeStation implements Serializable{
 		return this.serviceMessages;
 	}
 	
-	public void setId(int id) {
+	public void setId(String id) {
 		this.stationId = id;
 		
 	}

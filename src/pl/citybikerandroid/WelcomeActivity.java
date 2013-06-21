@@ -73,7 +73,7 @@ public class WelcomeActivity extends Activity {
 		  //Array list of countries
 		  ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
 		  
-		  BikeStationAround bs = new BikeStationAround("ul Warynskiego - ul. Nowowiejska",6364,BikeStation.MORE_THAN_FOUR);
+		  BikeStationAround bs = new BikeStationAround("ul Warynskiego - ul. Nowowiejska","6364",BikeStation.MORE_THAN_FOUR);
 		  	bs.addInformativeMessage(new InformativeMessage("Bardzo piękny dzień, jest super!"));
 		  	bs.addLogisticalMessage(new LogisticalMessage("Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
 		  			new BikeStation(), bs, 3432));
@@ -81,7 +81,7 @@ public class WelcomeActivity extends Activity {
 		  	bs.setDistanceTo(0.2);
 		  	stationAroundList.add(bs);
 		  
-		  	bs = new BikeStationAround("Plac Zbawiciela - Nowowiejska",6376,BikeStation.MORE_THAN_FOUR);
+		  	bs = new BikeStationAround("Plac Zbawiciela - Nowowiejska","6376",BikeStation.MORE_THAN_FOUR);
 		  	bs.addInformativeMessage(new InformativeMessage(" jest super, dobry dzień!"));
 		  	bs.addLogisticalMessage(new LogisticalMessage("Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
 		  			new BikeStation(), bs, 343));
@@ -89,7 +89,7 @@ public class WelcomeActivity extends Activity {
 		  	bs.setDistanceTo(0.5);
 		  	stationAroundList.add(bs);
 		  	
-		  	bs = new BikeStationAround("Plac Politechniki - ul. Nowowiejska",63642,3);
+		  	bs = new BikeStationAround("Plac Politechniki - ul. Nowowiejska","63642",3);
 		  	bs.addInformativeMessage(new InformativeMessage("Bardzo super dzień, jest super!"));
 		  	bs.addLogisticalMessage(new LogisticalMessage("Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
 		  			new BikeStation(), bs, 453));
@@ -174,7 +174,7 @@ public class WelcomeActivity extends Activity {
 		  }
 		  
 		private String formatStationInfoText(BikeStationAround station) {
-			int stationId = station.getId();
+			String stationId = station.getId();
 			int nrBikes = station.getNrBikes();
 
 			String nrBikesStr = Integer.toString(nrBikes);

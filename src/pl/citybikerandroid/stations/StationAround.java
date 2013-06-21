@@ -3,14 +3,18 @@ package pl.citybikerandroid.stations;
 
 public class StationAround extends BikeStation {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5965357394451725387L;
 	private double distance;
 
-	public StationAround(String stationName, int stationId) {
+	public StationAround(String stationName, String stationId) {
 		super(stationName, stationId);
 		// TODO Auto-generated constructor stub
 	}
 
-	public StationAround(String stationName, int stationId, int nrBikes) {
+	public StationAround(String stationName, String stationId, int nrBikes) {
 		super(stationName, stationId, nrBikes);
 		// TODO Auto-generated constructor stub
 	}

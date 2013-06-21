@@ -1,7 +1,11 @@
 package pl.citybikerandroid.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Message {
 	
+	private String id;
 	private String type;
 	private String subtype;
 	private String text;
@@ -66,6 +70,12 @@ public class Message {
 	}
 	public void setArrival(String arrival) {
 		this.arrival = arrival;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 		
 

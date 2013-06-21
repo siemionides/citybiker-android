@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+          <!-- Title : New Message Label + Bike (ID) -->
+          
+       <TextView
+            android:id="@+id/new_message_bike_new_message_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="New Message" 
+            android:layout_centerHorizontal="true"
+            />    
+          
+      <LinearLayout
+        android:id="@+id/new_message_bike_id_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/new_message_bike_new_message_label" 
+        android:orientation="horizontal"
+        >
+        
+        <TextView
+            android:id="@+id/new_message_bike_bikeid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Station ID: "
+            android:textStyle="bold" />
+        
+        <TextView
+            android:id="@+id/tv_new_single_message_bike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            
+            android:text="45434 " />
+           
+      </LinearLayout>
+      
+      <!-- Message  Type Box  -->
+
+      <LinearLayout
+          android:id="@+id/new_message_message_type_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/new_message_bike_id_layout"
+          android:layout_centerHorizontal="true"
+          android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/new_message_bike_message_type_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Message Type: " />
+        
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_background"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="informative" />
+        
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="logistical" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="service" />
+
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_background"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="going to..." />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="did the route..." />
+        </RadioGroup>
+
+	</LinearLayout>
+	
+      
+      
+      
+      <!-- Part of bike dropdown  -->
+	
+      
+         <!-- Message Edit TextField -->
+
+      <LinearLayout
+          android:id="@+id/layout_stations_from_to"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentRight="true"
+          android:layout_below="@id/new_message_message_type_layout"
+          android:layout_marginTop="30dp"
+          android:gravity="center_horizontal" >
+
+          <LinearLayout
+              android:id="@+id/stations_stationFrom_layout"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical" >
+
+              <TextView
+                  android:id="@+id/TextView01"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Station from:" />
+
+              <EditText
+                  android:id="@+id/editText1"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" >
+
+                  <requestFocus />
+              </EditText>
+
+          </LinearLayout>
+
+          <Button
+              android:id="@+id/button3"
+              style="?android:attr/buttonStyleSmall"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="swap stations" />
+
+          <LinearLayout
+              android:id="@+id/stations_stationTo_layout"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:orientation="vertical" >
+
+              <TextView
+                  android:id="@+id/TextView02"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Station to:" />
+
+              <EditText
+                  android:id="@+id/EditText01"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content" />
+          </LinearLayout>
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:id="@+id/new_message_message_edit"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/layout_stations_from_to"
+          android:layout_marginTop="20dip"
+          android:orientation="vertical" >
+
+          <TextView
+              android:id="@+id/new_message_bike_message_edit_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Message:"
+              android:textStyle="bold" />
+
+          <EditText
+              android:id="@+id/new_message_bike_message_edit_text"
+              android:layout_width="match_parent"
+              android:layout_height="95dp"
+              android:background="@drawable/message_background"
+              android:inputType="textMultiLine"
+              android:isScrollContainer="true"
+              android:padding="5dip"
+              android:singleLine="false"
+              android:text="Type your message here" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/new_message_message_edit"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="30dp" >
+
+          <Button
+              android:id="@+id/button1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Send Photo" />
+
+          <Button
+              android:id="@+id/button2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="40dp"
+              android:text="Send Message" />
+
+      </LinearLayout>
+
+</RelativeLayout>

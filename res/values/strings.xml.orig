@@ -23,7 +23,8 @@
     
        <!-- Bike Activity -->
        
-    <string name="activity_bike_number">Bike number:</string>
+<<<<<<< HEAD
+    <string name="activity_bike_bike_id">Bike ID:</string>
     
     <!-- New Message -->
      <string-array name="parts_of_bike_array">
@@ -36,6 +37,10 @@
         <item></item>
         <item>India</item>
     </string-array>
+=======
+    <string name="activity_bike_number">Bike number:</string>
+       
+>>>>>>> 63c7b6f65bcee0a5d403bf6b65afed6b716e1582
     
 
 </resources>

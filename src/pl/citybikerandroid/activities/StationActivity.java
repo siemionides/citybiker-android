@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.bikes.Bike;
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
-import pl.citybikerandroid.messages.Message;
-import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.BikeStation;
-import pl.citybikerandroid.stations.BikeStationAround;
+import pl.citybikerandroid.domain.InformativeMessage;
+import pl.citybikerandroid.domain.LogisticalMessage;
+import pl.citybikerandroid.domain.Message;
+import pl.citybikerandroid.domain.ServiceMessage;
+import pl.citybikerandroid.domain.Station;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
@@ -23,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -30,29 +29,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class BikeStationActivity extends Activity {
-
-	private BikeStation bikeStation  = null;
-	
-//	/** ListView for informal messages tab */
-//	private ListView mListViewInformalMessages;
-//
-//	/** ListView for logistical messages tab */
-//	private ListView mListViewLogisticalMessages;
-//
-//	/** ListView for service messages tab */
-//	private ListView mListViewServiceMessages;
+public class StationActivity extends Activity {
 
 	/** Adapter for ListView of Informal Messages (for informal tab) objects */
-	BikeStationMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
+	StationMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
 
 	/** Adapter for ListView of Logistical Messages (for logistical tab) objects */
-	BikeStationMessagesAdapter<LogisticalMessage> adapterLogisticalMsg = null;
+	StationMessagesAdapter<LogisticalMessage> adapterLogisticalMsg = null;
 
 	/** Adapter for ListView of Service Messages (for service tab) objects */
-	BikeStationMessagesAdapter<ServiceMessage> adapterServiceMsg = null;
+	StationMessagesAdapter<ServiceMessage> adapterServiceMsg = null;
 
-	// private FragmentTabHost mTabHost;
+	
 
 	/** Called when the activity is first created. */
 	@Override
@@ -84,89 +72,80 @@ public class BikeStationActivity extends Activity {
 		
 		//if intent is present
 		Intent i = getIntent();
-		this.bikeStation = (BikeStation) i.getSerializableExtra(BikeStation.SERIALIZABLE_NAME);
-		
-		
-		
+		Station bs = (Station) i.getSerializableExtra(Station.SERIALIZABLE_NAME);
 		// populate views
-		populateListViews(this.bikeStation);
-		
+		populateListViews(bs);	
 	}
 	
 	
 	/** Injects the listview with sample fake data */
-	private void populateListViews(final BikeStation bs) {
+	private void populateListViews(Station bs) {
 
 //		// Array list of countries
 //		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
 
 		//for debug for now 
-//		if (bs == null){
-//			bs = new BikeStation(
-//					"ul Warynskiego - ul. Nowowiejska", 6364,
-//					BikeStation.MORE_THAN_FOUR);
-//			
-//				bs.addInformativeMessage(new InformativeMessage(
-//						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
-//				bs.addInformativeMessage(new InformativeMessage(
-//						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
-//				bs.addInformativeMessage(new InformativeMessage(
-//						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
-//				
-//				
-//				
-//				bs.addLogisticalMessage(new LogisticalMessage(
-//						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-//						new BikeStation(), bs, 3432));
-//				
-//				bs.addLogisticalMessage(new LogisticalMessage(
-//						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-//						new BikeStation(), bs, 343));
-//				bs.addLogisticalMessage(new LogisticalMessage(
-//						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-//						new BikeStation(), bs, 453));
-//				
-//			
-//				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-//				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-//				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-//			
-//		}
+		if (bs == null){
+			bs = new Station(
+					"ul Warynskiego - ul. Nowowiejska", "6364",
+					Station.MORE_THAN_FOUR);
+			
+				bs.addInformativeMessage(new InformativeMessage(
+						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+				bs.addInformativeMessage(new InformativeMessage(
+						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+				bs.addInformativeMessage(new InformativeMessage(
+						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+				
+				
+				
+				bs.addLogisticalMessage(new LogisticalMessage(
+						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
+						new Station(), bs, 3432));
+				
+				bs.addLogisticalMessage(new LogisticalMessage(
+						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
+						new Station(), bs, 343));
+				bs.addLogisticalMessage(new LogisticalMessage(
+						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
+						new Station(), bs, 453));
+				
+			
+				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
+			
+		}
 
 		//get prefixed for station name and station id textfield
-		String stationNamePrefix = getResources().getString(R.string.activity_bike_station_station_name) + " ";
-		String stationIdPrefix = getResources().getString(R.string.activity_bike_station_station_id) + " ";
+		String stationLocationPrefix = getResources().getString(R.string.activity_station_location) + " ";
+		String stationDistrictPrefix = getResources().getString(R.string.activity_station_district) + " ";
 		
 		//set station name, id for informative tab
-		TextView tv = (TextView) findViewById(R.id.tab_inf_station_name_text);
-		tv.setText(stationNamePrefix + bs.getName());
-		tv = (TextView) findViewById(R.id.tab_inf_station_id_text);
-		tv.setText(stationIdPrefix + bs.getId());
+		TextView tv = (TextView) findViewById(R.id.tab_inf_station_location_text);
+		tv.setText(stationLocationPrefix + bs.getLocation());
+		tv = (TextView) findViewById(R.id.tab_inf_station_district_text);
+		tv.setText(stationDistrictPrefix + bs.getDistrict());
 		
 		//set station name, id for logistical tab
-		tv = (TextView) findViewById(R.id.tab_log_station_name_text);
-		tv.setText(stationNamePrefix + bs.getName());
-		tv = (TextView) findViewById(R.id.tab_log_station_id_text);
-		tv.setText(stationIdPrefix + bs.getId());
+		tv = (TextView) findViewById(R.id.tab_log_station_location_text);
+		tv.setText(stationLocationPrefix + bs.getLocation());
+		tv = (TextView) findViewById(R.id.tab_log_station_district_text);
+		tv.setText(stationDistrictPrefix + bs.getDistrict());
 		
 		//set station name, id for service tab
-		tv = (TextView) findViewById(R.id.tab_ser_station_name_text);
-		tv.setText(stationNamePrefix + bs.getName());
-		tv = (TextView) findViewById(R.id.tab_ser_station_id_text);
-		tv.setText(stationIdPrefix + bs.getId());
+		tv = (TextView) findViewById(R.id.tab_ser_station_location_text);
+		tv.setText(stationLocationPrefix + bs.getLocation());
+		tv = (TextView) findViewById(R.id.tab_ser_station_district_text);
+		tv.setText(stationDistrictPrefix + bs.getDistrict());
 		
-		
-		// create an ArrayAdaptar from the String Array
-//		adapter = new StationsAroundAdapter(this,
-//				R.layout.list_item_station_around, stationAroundList);
-		
-		adapterInformalMsg = new BikeStationMessagesAdapter<InformativeMessage>(this, 
+		adapterInformalMsg = new StationMessagesAdapter<InformativeMessage>(this, 
 				R.layout.bike_station_list_item, bs.getInformativeMessages());
 		
-		adapterLogisticalMsg = new BikeStationMessagesAdapter<LogisticalMessage>(this, 
+		adapterLogisticalMsg = new StationMessagesAdapter<LogisticalMessage>(this, 
 				R.layout.bike_station_list_item, bs.getLogisticalMessages());
 		
-		adapterServiceMsg = new BikeStationMessagesAdapter<ServiceMessage>(this, 
+		adapterServiceMsg = new StationMessagesAdapter<ServiceMessage>(this, 
 				R.layout.bike_station_list_item, bs.getServicelMessages());
 		
 		// assign adapter and listener to it to the first tab (informative)
@@ -182,9 +161,9 @@ public class BikeStationActivity extends Activity {
 						.getItemAtPosition(position);
 				
 				// show single message screen - start new activity
-				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				Intent i = new Intent(StationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
-				i.putExtra(BikeStation.SERIALIZABLE_NAME, bs);
+				i.putExtra(Station.SERIALIZABLE_NAME, bs);
 				
 				startActivity(i);
 				
@@ -205,9 +184,9 @@ public class BikeStationActivity extends Activity {
 						.getItemAtPosition(position);
 				
 				// show single message screen - start new activity
-				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				Intent i = new Intent(StationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
-				i.putExtra(BikeStation.SERIALIZABLE_NAME, bs);
+				i.putExtra(Station.SERIALIZABLE_NAME, bs);
 				startActivity(i);
 			}
 		});
@@ -225,19 +204,19 @@ public class BikeStationActivity extends Activity {
 						.getItemAtPosition(position);
 				
 				// show single message screen - start new activity
-				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				Intent i = new Intent(StationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
-				i.putExtra(BikeStation.SERIALIZABLE_NAME, bs);
+				i.putExtra(Station.SERIALIZABLE_NAME, bs);
 				startActivity(i);
 			}
 		});
 	}
 
-	private class BikeStationMessagesAdapter <T extends Message> extends ArrayAdapter<T> {
+	private class StationMessagesAdapter <T extends Message> extends ArrayAdapter<T> {
 
 		private ArrayList<T> messagesList;
 
-		public BikeStationMessagesAdapter(Context context,
+		public StationMessagesAdapter(Context context,
 				int textViewResourceId, ArrayList<T> messagesList) {
 			super(context, textViewResourceId, messagesList);
 			this.messagesList = new ArrayList<T>();
@@ -275,7 +254,7 @@ public class BikeStationActivity extends Activity {
 			// let's fill the views from object!
 			Message msg = messagesList.get(position);
 
-			holder.messageDate.setText(msg.getDate().toString());
+			holder.messageDate.setText(msg.getCreatedAt());
 			holder.messageText.setText(msg.getText());
 			// prepare messages string
 			return convertView;

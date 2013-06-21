@@ -4,31 +4,24 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.bikes.Bike;
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
-import pl.citybikerandroid.messages.Message;
-import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.BikeStation;
-import pl.citybikerandroid.stations.BikeStationAround;
+import pl.citybikerandroid.domain.Bike;
+import pl.citybikerandroid.domain.InformativeMessage;
+import pl.citybikerandroid.domain.ServiceMessage;
+import pl.citybikerandroid.domain.Message;
 import android.app.Activity;
-import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTabHost;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 /**
  * Bike Scren #05 
@@ -113,17 +106,17 @@ public class BikeActivity extends Activity {
 //		}
 
 		//get prefixed for station name and station id textfield
-		String bikeIdPrefix = getResources().getString(R.string.activity_bike_bike_id) + " ";
+		String bikeNumberPrefix = getResources().getString(R.string.activity_bike_number) + " ";
 		
 		//set bike id for informative tab
 		TextView tv = (TextView) findViewById(R.id.tab_inf_bike_id);
 		
-		tv.setText(bikeIdPrefix + b.getId());
+		tv.setText(bikeNumberPrefix + b.getNumber());
 		
 		
 		//set station name, id for service tab
 		tv = (TextView) findViewById(R.id.tab_ser_bike_id);
-		tv.setText(bikeIdPrefix + b.getId());
+		tv.setText(bikeNumberPrefix + b.getNumber());
 		
 		// create an ArrayAdaptar from the String Array
 //		adapter = new StationsAroundAdapter(this,
@@ -227,7 +220,7 @@ public class BikeActivity extends Activity {
 			// let's fill the views from object!
 			Message msg = messagesList.get(position);
 
-			holder.messageDate.setText(msg.getDate().toString());
+			holder.messageDate.setText(msg.getCreatedAt());
 			holder.messageText.setText(msg.getText());
 			// prepare messages string
 			return convertView;

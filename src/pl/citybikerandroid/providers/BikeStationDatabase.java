@@ -142,7 +142,8 @@ public class BikeStationDatabase {
 	     */
 	    private static class BikeStationOpenHelper extends SQLiteOpenHelper {
 
-	        private final Context mHelperContext;
+	        @SuppressWarnings("unused")
+			private final Context mHelperContext;
 	        private SQLiteDatabase mDatabase;
 
 	        /* Note that FTS3 does not support column constraints and thus, you cannot

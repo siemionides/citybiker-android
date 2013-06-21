@@ -4,29 +4,36 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <!-- Search View (or some other class there, SearchManager or sth) needs
-    		API min 14.. let's keep it that way, but it has to be redone! -->
+    <!--
+         Search View (or some other class there, SearchManager or sth) needs
+    		API min 14.. let's keep it that way, but it has to be redone!
+    -->
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
+
         <!-- Welcome Activity -->
         <activity
             android:name="pl.citybikerandroid.activities.WelcomeActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
-            
             <intent-filter>
-                    <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-                    <category android:name="android.intent.category.LAUNCHER" />
-                </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
             <!-- Receives the search request. -->
             <intent-filter>
@@ -39,42 +46,35 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable_station" />
         </activity>
-        
+
         <!-- BikeStationActivity -->
         <activity
-            android:name="pl.citybikerandroid.activities.BikeStationActivity"
-            android:label="@string/app_name" 
-            >
+            android:name="pl.citybikerandroid.activities.StationActivity"
+            android:label="@string/app_name" >
         </activity>
-        
-        
+
         <!-- BikeActivity -->
         <activity
             android:name="pl.citybikerandroid.activities.BikeActivity"
-            android:label="@string/app_name" 
-            >
+            android:label="@string/app_name" >
         </activity>
-        
-        
+
         <!-- Single MEssage Activity -->
         <activity
             android:name="pl.citybikerandroid.activities.SingleMessageActivity"
-            android:label="@string/app_name" 
-            >
-                        
-
+            android:label="@string/app_name" >
         </activity>
-        
-        
-        
-        
-         <!-- Provides search suggestions for bike station names and bike ids -->
-       	<provider android:name="pl.citybikerandroid.providers.BikeStationProvider"
-                  android:authorities="pl.citybikerandroid.providers.BikeStationProvider" />
 
-       	
-       	
-        <!-- 
+        <service
+            android:name="com.octo.android.robospice.JacksonSpringAndroidSpiceService"
+            android:exported="false" />
+
+        <!-- Provides search suggestions for bike station names and bike ids -->
+        <provider
+            android:name="pl.citybikerandroid.providers.BikeStationProvider"
+            android:authorities="pl.citybikerandroid.providers.BikeStationProvider" />
+
+        <!--
         <activity 
             android:name="pl.citybikerandroid.activities.SearchableStationActivity"
             android:label="Searchable ">
@@ -86,8 +86,8 @@
                    android:resource="@xml/searchable_station"/>
 
         </activity>
-         -->
-        
+        -->
+
     </application>
 
 </manifest>

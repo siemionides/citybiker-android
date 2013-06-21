@@ -30,13 +30,11 @@
             android:label="@string/app_name"
             android:launchMode="singleTop" >
       
-            <!-- 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-             -->
-
+      
             <!-- Receives the search request. -->
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -90,10 +88,10 @@
             android:name="pl.citybikerandroid.activities.NewMessageStationActivity"
             android:label="new message (station)" >
             
-            <intent-filter>
+ <!--            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter> -->
             
         </activity>
 

@@ -191,11 +191,11 @@ public class WelcomeActivity extends Activity {
 		CollectionRequest<StationCollection> request = new CollectionRequest<StationCollection>(
 				StationCollection.class, Constants.STATIONS_URI);
 		request.addLimit(Integer.toString(limit));
-		request.addBody("{\"x\":21.016181,\"y\":52.216837}");
+		request.addLocation("21.016181,52.216837");
 
 		lastRequestCacheKey = request.createCacheKey();
 		contentManager.execute(request, lastRequestCacheKey,
-				20 * DurationInMillis.ONE_MINUTE, new StationRequestListener());
+				20 * DurationInMillis.ONE_SECOND, new StationRequestListener());
 	}
 
 	private void performStationMessagesRequest(Station station,

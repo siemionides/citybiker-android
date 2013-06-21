@@ -49,7 +49,7 @@
 
         <!-- BikeStationActivity -->
         <activity
-            android:name="pl.citybikerandroid.activities.BikeStationActivity"
+            android:name="pl.citybikerandroid.activities.StationActivity"
             android:label="@string/app_name" >
         </activity>
 

@@ -5,7 +5,7 @@ import java.util.Date;
 
 import pl.citybikerandroid.Constants;
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.bikes.Bike;
+import pl.citybikerandroid.domain.Bike;
 import pl.citybikerandroid.domain.Message;
 import pl.citybikerandroid.domain.MessageCollection;
 import pl.citybikerandroid.domain.Station;
@@ -174,7 +174,7 @@ public class WelcomeActivity extends Activity {
 						.getItemAtPosition(position);
 
 				Intent i = new Intent(WelcomeActivity.this,
-						BikeStationActivity.class);
+						StationActivity.class);
 				i.putExtra(Station.SERIALIZABLE_NAME, (Station) station);
 				startActivity(i);
 
@@ -229,11 +229,11 @@ public class WelcomeActivity extends Activity {
 			adapter.clear();
 
 			for (Station station : stations) {
-				Station bs = new Station(station.getLocation(),
+				/*Station bs = new Station(station.getLocation(),
 						station.getNumber(), station.getBicycles());
-				bs.setId(station.getId());
+				bs.setId(station.getId());*/
 				// performStationMessagesRequest(bs, "logistic", 1);
-				adapter.add(bs);
+				adapter.add(station);
 			}
 
 			adapter.notifyDataSetChanged();
@@ -292,7 +292,7 @@ public class WelcomeActivity extends Activity {
 		}
 
 		private class ViewHolder {
-			TextView stationName;
+			TextView stationLocation;
 			TextView stationInfo;
 			TextView stationMessages;
 			TextView distanceTo;
@@ -311,7 +311,7 @@ public class WelcomeActivity extends Activity {
 						null);
 
 				holder = new ViewHolder();
-				holder.stationName = (TextView) convertView
+				holder.stationLocation = (TextView) convertView
 						.findViewById(R.id.tv_station_name);
 				holder.stationInfo = (TextView) convertView
 						.findViewById(R.id.tv_station_info);
@@ -327,7 +327,7 @@ public class WelcomeActivity extends Activity {
 
 			Station station = this.getItem(position);
 
-			holder.stationName.setText(station.getLocation());
+			holder.stationLocation.setText(station.getLocation());
 			holder.stationInfo.setText(formatStationInfoText(station));
 			holder.stationMessages.setText(formatStationMessagesText(station));
 			holder.distanceTo.setText(formatDistanceToText(station));
@@ -335,15 +335,15 @@ public class WelcomeActivity extends Activity {
 		}
 
 		private String formatStationInfoText(Station station) {
-			String stationId = station.getId();
-			int nrBikes = station.getBicycles();
+			String stationDistrict = station.getDistrict();
+			int bikes = station.getBicycles();
 
-			String nrBikesStr = Integer.toString(nrBikes);
-			if (nrBikes == Station.MORE_THAN_FOUR) {
-				nrBikesStr = "4+";
+			String bikesString = Integer.toString(bikes);
+			if (bikes == Station.MORE_THAN_FOUR) {
+				bikesString = "4+";
 			}
 
-			return "Station Nr: " + stationId + "\nBikes Nr: " + nrBikesStr;
+			return "Station district: " + stationDistrict + "\nBikes: " + bikesString;
 		}
 
 		private String formatStationMessagesText(Station station) {

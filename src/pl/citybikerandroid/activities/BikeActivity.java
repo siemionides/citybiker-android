@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.bikes.Bike;
+import pl.citybikerandroid.domain.Bike;
 import pl.citybikerandroid.messages.InformativeMessage;
 import pl.citybikerandroid.messages.Message;
 import pl.citybikerandroid.messages.ServiceMessage;
@@ -106,17 +106,17 @@ public class BikeActivity extends Activity {
 		}
 
 		//get prefixed for station name and station id textfield
-		String bikeIdPrefix = getResources().getString(R.string.activity_bike_bike_id) + " ";
+		String bikeNumberPrefix = getResources().getString(R.string.activity_bike_number) + " ";
 		
 		//set bike id for informative tab
 		TextView tv = (TextView) findViewById(R.id.tab_inf_bike_id);
 		
-		tv.setText(bikeIdPrefix + b.getId());
+		tv.setText(bikeNumberPrefix + b.getNumber());
 		
 		
 		//set station name, id for service tab
 		tv = (TextView) findViewById(R.id.tab_ser_bike_id);
-		tv.setText(bikeIdPrefix + b.getId());
+		tv.setText(bikeNumberPrefix + b.getNumber());
 		
 		// create an ArrayAdaptar from the String Array
 //		adapter = new StationsAroundAdapter(this,

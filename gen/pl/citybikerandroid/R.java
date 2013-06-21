@@ -49,15 +49,15 @@ public final class R {
         public static final int tab3Layout=0x7f090013;
         public static final int tab_inf_bike_id=0x7f090005;
         public static final int tab_inf_listview=0x7f090006;
-        public static final int tab_inf_station_id_text=0x7f09000f;
-        public static final int tab_inf_station_name_text=0x7f09000e;
+        public static final int tab_inf_station_district_text=0x7f09000f;
+        public static final int tab_inf_station_location_text=0x7f09000e;
         public static final int tab_log_listview=0x7f090012;
-        public static final int tab_log_station_id_text=0x7f090011;
-        public static final int tab_log_station_name_text=0x7f090010;
+        public static final int tab_log_station_district_text=0x7f090011;
+        public static final int tab_log_station_location_text=0x7f090010;
         public static final int tab_ser_bike_id=0x7f09000a;
         public static final int tab_ser_listview=0x7f09000b;
-        public static final int tab_ser_station_id_text=0x7f090015;
-        public static final int tab_ser_station_name_text=0x7f090014;
+        public static final int tab_ser_station_district_text=0x7f090015;
+        public static final int tab_ser_station_location_text=0x7f090014;
         public static final int title=0x7f09001b;
         public static final int tv_author=0x7f090020;
         public static final int tv_date=0x7f09001d;
@@ -87,11 +87,11 @@ public final class R {
         public static final int action_settings=0x7f060006;
         /**  Bike Activity 
          */
-        public static final int activity_bike_bike_id=0x7f06000a;
-        public static final int activity_bike_station_station_id=0x7f060009;
+        public static final int activity_bike_number=0x7f06000a;
+        public static final int activity_station_district=0x7f060009;
         /**  Bike Station Activity 
          */
-        public static final int activity_bike_station_station_name=0x7f060008;
+        public static final int activity_station_location=0x7f060008;
         public static final int app_label=0x7f060002;
         public static final int app_name=0x7f060005;
         public static final int hello_world=0x7f060007;

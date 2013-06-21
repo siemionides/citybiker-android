@@ -24,29 +24,17 @@ import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-public class BikeStationActivity extends Activity {
-
-//	/** ListView for informal messages tab */
-//	private ListView mListViewInformalMessages;
-//
-//	/** ListView for logistical messages tab */
-//	private ListView mListViewLogisticalMessages;
-//
-//	/** ListView for service messages tab */
-//	private ListView mListViewServiceMessages;
+public class StationActivity extends Activity {
 
 	/** Adapter for ListView of Informal Messages (for informal tab) objects */
-	BikeStationMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
+	StationMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
 
 	/** Adapter for ListView of Logistical Messages (for logistical tab) objects */
-	BikeStationMessagesAdapter<LogisticalMessage> adapterLogisticalMsg = null;
+	StationMessagesAdapter<LogisticalMessage> adapterLogisticalMsg = null;
 
 	/** Adapter for ListView of Service Messages (for service tab) objects */
-	BikeStationMessagesAdapter<ServiceMessage> adapterServiceMsg = null;
+	StationMessagesAdapter<ServiceMessage> adapterServiceMsg = null;
 
-	// private FragmentTabHost mTabHost;
-
-	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,17 +58,12 @@ public class BikeStationActivity extends Activity {
 		spec3.setContent(R.id.tab3Layout);
 		spec3.setIndicator("service");
 		tabs.addTab(spec3);
-	
-		
-		
 		
 		//if intent is present
 		Intent i = getIntent();
 		Station bs = (Station) i.getSerializableExtra(Station.SERIALIZABLE_NAME);
-		
 		// populate views
-		populateListViews(bs);
-		
+		populateListViews(bs);	
 	}
 	
 	
@@ -124,42 +107,36 @@ public class BikeStationActivity extends Activity {
 		}
 
 		//get prefixed for station name and station id textfield
-		String stationNamePrefix = getResources().getString(R.string.activity_bike_station_station_name) + " ";
-		String stationIdPrefix = getResources().getString(R.string.activity_bike_station_station_id) + " ";
+		String stationLocationPrefix = getResources().getString(R.string.activity_station_location) + " ";
+		String stationDistrictPrefix = getResources().getString(R.string.activity_station_district) + " ";
 		
 		//set station name, id for informative tab
-		TextView tv = (TextView) findViewById(R.id.tab_inf_station_name_text);
-		tv.setText(stationNamePrefix + bs.getLocation());
-		tv = (TextView) findViewById(R.id.tab_inf_station_id_text);
-		tv.setText(stationIdPrefix + bs.getId());
+		TextView tv = (TextView) findViewById(R.id.tab_inf_station_location_text);
+		tv.setText(stationLocationPrefix + bs.getLocation());
+		tv = (TextView) findViewById(R.id.tab_inf_station_district_text);
+		tv.setText(stationDistrictPrefix + bs.getDistrict());
 		
 		//set station name, id for logistical tab
-		tv = (TextView) findViewById(R.id.tab_log_station_name_text);
-		tv.setText(stationNamePrefix + bs.getLocation());
-		tv = (TextView) findViewById(R.id.tab_log_station_id_text);
-		tv.setText(stationIdPrefix + bs.getId());
+		tv = (TextView) findViewById(R.id.tab_log_station_location_text);
+		tv.setText(stationLocationPrefix + bs.getLocation());
+		tv = (TextView) findViewById(R.id.tab_log_station_district_text);
+		tv.setText(stationDistrictPrefix + bs.getDistrict());
 		
 		//set station name, id for service tab
-		tv = (TextView) findViewById(R.id.tab_ser_station_name_text);
-		tv.setText(stationNamePrefix + bs.getLocation());
-		tv = (TextView) findViewById(R.id.tab_ser_station_id_text);
-		tv.setText(stationIdPrefix + bs.getId());
+		tv = (TextView) findViewById(R.id.tab_ser_station_location_text);
+		tv.setText(stationLocationPrefix + bs.getLocation());
+		tv = (TextView) findViewById(R.id.tab_ser_station_district_text);
+		tv.setText(stationDistrictPrefix + bs.getDistrict());
 		
-		
-		// create an ArrayAdaptar from the String Array
-//		adapter = new StationsAroundAdapter(this,
-//				R.layout.list_item_station_around, stationAroundList);
-		
-		adapterInformalMsg = new BikeStationMessagesAdapter<InformativeMessage>(this, 
+		adapterInformalMsg = new StationMessagesAdapter<InformativeMessage>(this, 
 				R.layout.bike_station_list_item, bs.getInformativeMessages());
 		
-		adapterLogisticalMsg = new BikeStationMessagesAdapter<LogisticalMessage>(this, 
+		adapterLogisticalMsg = new StationMessagesAdapter<LogisticalMessage>(this, 
 				R.layout.bike_station_list_item, bs.getLogisticalMessages());
 		
-		adapterServiceMsg = new BikeStationMessagesAdapter<ServiceMessage>(this, 
+		adapterServiceMsg = new StationMessagesAdapter<ServiceMessage>(this, 
 				R.layout.bike_station_list_item, bs.getServicelMessages());
 		
-		// assign adapter and listener to it to the first tab (informative)
 		ListView listView = (ListView) findViewById(R.id.tab_inf_listview);
 		listView.setAdapter(adapterInformalMsg);
 		
@@ -172,7 +149,7 @@ public class BikeStationActivity extends Activity {
 						.getItemAtPosition(position);
 				
 				// show single message screen - start new activity
-				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				Intent i = new Intent(StationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
 				startActivity(i);
 				
@@ -193,7 +170,7 @@ public class BikeStationActivity extends Activity {
 						.getItemAtPosition(position);
 				
 				// show single message screen - start new activity
-				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				Intent i = new Intent(StationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
 				startActivity(i);
 			}
@@ -212,18 +189,18 @@ public class BikeStationActivity extends Activity {
 						.getItemAtPosition(position);
 				
 				// show single message screen - start new activity
-				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
+				Intent i = new Intent(StationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
 				startActivity(i);
 			}
 		});
 	}
 
-	private class BikeStationMessagesAdapter <T extends Message> extends ArrayAdapter<T> {
+	private class StationMessagesAdapter <T extends Message> extends ArrayAdapter<T> {
 
 		private ArrayList<T> messagesList;
 
-		public BikeStationMessagesAdapter(Context context,
+		public StationMessagesAdapter(Context context,
 				int textViewResourceId, ArrayList<T> messagesList) {
 			super(context, textViewResourceId, messagesList);
 			this.messagesList = new ArrayList<T>();

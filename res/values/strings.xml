@@ -6,8 +6,8 @@
     <string name="menu_search_station">Search Station</string>
     
     <string name="app_label">app label</string>
-    <string name="search_station_hint">Search for station ids and names</string>
-    <string name="search_bike_hint">Search for bike ids</string>
+    <string name="search_station_hint">Search for station locations and districts</string>
+    <string name="search_bike_hint">Search for bike numbers</string>
     
     <string name="app_name">Citybiker\'s Pinboard</string>
     <string name="action_settings">Settings</string>
@@ -17,13 +17,13 @@
     
     <!-- Bike Station Activity -->
     
-    <string name="activity_bike_station_station_name">Station name:</string>
-    <string name="activity_bike_station_station_id">Station id:</string>
+    <string name="activity_station_location">Station location:</string>
+    <string name="activity_station_district">Station district:</string>
     
     
        <!-- Bike Activity -->
        
-    <string name="activity_bike_bike_id">Bike ID:</string>
+    <string name="activity_bike_number">Bike number:</string>
        
     
 

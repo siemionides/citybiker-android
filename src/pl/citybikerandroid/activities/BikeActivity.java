@@ -87,7 +87,7 @@ public class BikeActivity extends Activity {
 	
 	
 	/** Injects the listview with sample fake data */
-	private void populateListViews(Bike b) {
+	private void populateListViews(final Bike b) {
 
 //		// Array list of countries
 //		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
@@ -97,20 +97,20 @@ public class BikeActivity extends Activity {
 		
 		//for debug for now 
 		
-		if (b == null){
-				b = new Bike(65432);
-			
-				b.addInformativeMessage(new InformativeMessage(
-						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
-				b.addInformativeMessage(new InformativeMessage(
-						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
-				b.addInformativeMessage(new InformativeMessage(
-						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
-				
-				b.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-				b.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-				b.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-		}
+//		if (b == null){
+//				b = new Bike(65432);
+//			
+//				b.addInformativeMessage(new InformativeMessage(
+//						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+//				b.addInformativeMessage(new InformativeMessage(
+//						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+//				b.addInformativeMessage(new InformativeMessage(
+//						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+//				
+//				b.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+//				b.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+//				b.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
+//		}
 
 		//get prefixed for station name and station id textfield
 		String bikeIdPrefix = getResources().getString(R.string.activity_bike_bike_id) + " ";
@@ -151,6 +151,8 @@ public class BikeActivity extends Activity {
 				// show single message screen - start new activity
 				Intent i = new Intent(BikeActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				i.putExtra(Bike.SERIALIZABLE_NAME, b);
+				
 				startActivity(i);
 			}
 		});
@@ -170,6 +172,8 @@ public class BikeActivity extends Activity {
 				// show single message screen - start new activity
 				Intent i = new Intent(BikeActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				i.putExtra(Bike.SERIALIZABLE_NAME, b);
+				
 				startActivity(i);
 			}
 		});

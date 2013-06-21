@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+          <!-- Title : New Message Label + Bike (ID) -->
+          
+       <TextView
+            android:id="@+id/new_message_bike_new_message_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="New Message" 
+            android:layout_centerHorizontal="true"
+            />    
+          
+      <LinearLayout
+        android:id="@+id/new_message_bike_id_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/new_message_bike_new_message_label" 
+        android:orientation="horizontal"
+        >
+        
+        <TextView
+            android:id="@+id/new_message_bike_bikeid_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            
+            android:text="Bike ID: " />
+        
+        <TextView
+            android:id="@+id/tv_new_single_message_bike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            
+            android:text="45434 " />
+           
+      </LinearLayout>
+      
+      <!-- Message  Type Box  -->
+      <LinearLayout
+        android:id="@+id/new_message_message_type_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        android:layout_below="@id/new_message_bike_id_layout" 
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/new_message_bike_message_type_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Message Type: " />
+        
+        
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/message_background"
+            android:orientation="horizontal" >
+        
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="informative" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="service" />
+
+        </RadioGroup>
+	</LinearLayout>
+	
+      
+      <!-- Part of bike dropdown  -->
+      <LinearLayout
+        android:id="@+id/new_message_part_of_bike_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_message_message_type_layout" 
+        android:orientation="vertical">
+
+        
+          
+        <TextView
+            android:id="@+id/new_message_bike_part_of_bike_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Part of bike: " />
+        
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
+	</LinearLayout>
+      
+
+</RelativeLayout>

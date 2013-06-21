@@ -1,12 +1,17 @@
 package pl.citybikerandroid.activities;
 
 import pl.citybikerandroid.R;
+import pl.citybikerandroid.bikes.Bike;
 import pl.citybikerandroid.messages.InformativeMessage;
+import pl.citybikerandroid.messages.LogisticalMessage;
 import pl.citybikerandroid.messages.Message;
+import pl.citybikerandroid.messages.ServiceMessage;
+import pl.citybikerandroid.stations.BikeStation;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -24,6 +29,9 @@ public class SingleMessageActivity extends Activity{
 		
 		Intent i = getIntent();
 		Message msg = (Message) i.getSerializableExtra(Message.SERIALIZABLE_NAME);
+		BikeStation bs = (BikeStation) i.getSerializableExtra(BikeStation.SERIALIZABLE_NAME);
+		Bike b = (Bike)i.getSerializableExtra(Bike.SERIALIZABLE_NAME);
+		
 		Log.d("SingleMessageActivity", "received intent!");
 		
 		if(msg instanceof InformativeMessage){
@@ -34,19 +42,47 @@ public class SingleMessageActivity extends Activity{
 					Toast.LENGTH_LONG).show();
 		}
 		
-		populateViews(msg);
+		populateViews(msg, bs, b);
 	}
 	
-	private void populateViews(Message msg){
+	private void populateViews(Message msg, BikeStation bs, Bike b ){
 		
 		//populate Title - Bike(ID) > <Type of message>
-//		String title = "Bike(" + 
+		//				or Station(ID) <Typeof Message>
+		String title = "";
+		if (bs == null){
+			title += "Bike(";
+			title += b.getId();
+			
+		}
+		else{
+			title += "Station(";
+			title += bs.getId();
+		}
+		title += ") > ";
+		//add message type to informative
+		if (msg instanceof InformativeMessage) title += "Informative";
+		else if (msg instanceof LogisticalMessage) title += "Logistical";
+		else if (msg instanceof ServiceMessage) title += "Service";
+		
+		//inject to view
+		TextView tv = (TextView) findViewById(R.id.tv_single_message_title);
+		tv.setText(title);
 		
 		//poulate Date
+		String date = msg.getDate().toString();
+		tv = (TextView) findViewById(R.id.tv_single_message_date);
+		tv.setText(date);
 		
 		//populate Author
+		String author = msg.getAuthorName();
+		tv = (TextView) findViewById(R.id.single_message_tv_author);
+		tv.setText(author);
 		
 		//populate Message
+		String messageText = msg.getText();
+		tv = (TextView) findViewById(R.id.tv_single_message_message);
+		tv.setText(messageText);
 		
 		//populate Photo
 	}

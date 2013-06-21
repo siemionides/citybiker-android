@@ -24,7 +24,18 @@
        <!-- Bike Activity -->
        
     <string name="activity_bike_bike_id">Bike ID:</string>
-       
+    
+    <!-- New Message -->
+     <string-array name="parts_of_bike_array">
+        <item>front light</item>
+        <item>rear light</item>
+        <item>front wheel</item>
+        <item>rear wheel</item>
+        <item>front brake</item>
+        <item>rear brake</item>
+        <item></item>
+        <item>India</item>
+    </string-array>
     
 
 </resources>

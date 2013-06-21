@@ -10,7 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".WelcomeActivity" >
+    >
 
     <!-- 
      <ListView
@@ -23,7 +23,7 @@
               
               
       <TextView
-          android:id="@+id/title"
+          android:id="@+id/tv_single_message_title"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_alignParentTop="true"
@@ -33,22 +33,22 @@
       
       <!-- Date textView group -->
       <LinearLayout
-        android:id="@+id/date_layout"
+        android:id="@+id/single_message_date_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" 
         android:orientation="horizontal"
         android:layout_marginTop="20dip"
-        android:layout_below="@+id/title">
+        android:layout_below="@+id/tv_single_message_title">
 
         <TextView
-            android:id="@+id/label_date"
+            android:id="@+id/single_message_label_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Date:" />
         
         <TextView
-            android:id="@+id/tv_date"
+            android:id="@+id/tv_single_message_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2012-12-12" />
@@ -63,17 +63,17 @@
         android:layout_height="wrap_content" 
         android:orientation="horizontal"
         android:layout_marginTop="20dip"
-        android:layout_below="@+id/date_layout">
+        android:layout_below="@+id/single_message_date_layout">
 
         <TextView
-            android:id="@+id/label_author"
+            android:id="@+id/single_message_label_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Author: " />
         
         <TextView
-            android:id="@+id/tv_author"
+            android:id="@+id/single_message_tv_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="test James" />
@@ -89,14 +89,14 @@
         android:layout_marginTop="20dip"
         android:orientation="vertical" >
           <TextView
-            android:id="@+id/label_message"
+            android:id="@+id/single_message_label_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:text="Message " />
           
           <TextView
-            android:id="@+id/tv_message"
+            android:id="@+id/tv_single_message_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:singleLine="false" 

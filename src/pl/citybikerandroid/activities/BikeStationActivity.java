@@ -32,6 +32,8 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public class BikeStationActivity extends Activity {
 
+	private BikeStation bikeStation  = null;
+	
 //	/** ListView for informal messages tab */
 //	private ListView mListViewInformalMessages;
 //
@@ -82,52 +84,54 @@ public class BikeStationActivity extends Activity {
 		
 		//if intent is present
 		Intent i = getIntent();
-		BikeStation bs = (BikeStation) i.getSerializableExtra(BikeStation.SERIALIZABLE_NAME);
+		this.bikeStation = (BikeStation) i.getSerializableExtra(BikeStation.SERIALIZABLE_NAME);
+		
+		
 		
 		// populate views
-		populateListViews(bs);
+		populateListViews(this.bikeStation);
 		
 	}
 	
 	
 	/** Injects the listview with sample fake data */
-	private void populateListViews(BikeStation bs) {
+	private void populateListViews(final BikeStation bs) {
 
 //		// Array list of countries
 //		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
 
 		//for debug for now 
-		if (bs == null){
-			bs = new BikeStation(
-					"ul Warynskiego - ul. Nowowiejska", 6364,
-					BikeStation.MORE_THAN_FOUR);
-			
-				bs.addInformativeMessage(new InformativeMessage(
-						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
-				bs.addInformativeMessage(new InformativeMessage(
-						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
-				bs.addInformativeMessage(new InformativeMessage(
-						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
-				
-				
-				
-				bs.addLogisticalMessage(new LogisticalMessage(
-						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-						new BikeStation(), bs, 3432));
-				
-				bs.addLogisticalMessage(new LogisticalMessage(
-						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-						new BikeStation(), bs, 343));
-				bs.addLogisticalMessage(new LogisticalMessage(
-						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-						new BikeStation(), bs, 453));
-				
-			
-				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-			
-		}
+//		if (bs == null){
+//			bs = new BikeStation(
+//					"ul Warynskiego - ul. Nowowiejska", 6364,
+//					BikeStation.MORE_THAN_FOUR);
+//			
+//				bs.addInformativeMessage(new InformativeMessage(
+//						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+//				bs.addInformativeMessage(new InformativeMessage(
+//						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+//				bs.addInformativeMessage(new InformativeMessage(
+//						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+//				
+//				
+//				
+//				bs.addLogisticalMessage(new LogisticalMessage(
+//						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
+//						new BikeStation(), bs, 3432));
+//				
+//				bs.addLogisticalMessage(new LogisticalMessage(
+//						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
+//						new BikeStation(), bs, 343));
+//				bs.addLogisticalMessage(new LogisticalMessage(
+//						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
+//						new BikeStation(), bs, 453));
+//				
+//			
+//				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+//				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+//				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
+//			
+//		}
 
 		//get prefixed for station name and station id textfield
 		String stationNamePrefix = getResources().getString(R.string.activity_bike_station_station_name) + " ";
@@ -180,6 +184,8 @@ public class BikeStationActivity extends Activity {
 				// show single message screen - start new activity
 				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				i.putExtra(BikeStation.SERIALIZABLE_NAME, bs);
+				
 				startActivity(i);
 				
 			}
@@ -201,6 +207,7 @@ public class BikeStationActivity extends Activity {
 				// show single message screen - start new activity
 				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				i.putExtra(BikeStation.SERIALIZABLE_NAME, bs);
 				startActivity(i);
 			}
 		});
@@ -220,6 +227,7 @@ public class BikeStationActivity extends Activity {
 				// show single message screen - start new activity
 				Intent i = new Intent(BikeStationActivity.this, SingleMessageActivity.class);
 				i.putExtra(Message.SERIALIZABLE_NAME, (Message) msg);
+				i.putExtra(BikeStation.SERIALIZABLE_NAME, bs);
 				startActivity(i);
 			}
 		});

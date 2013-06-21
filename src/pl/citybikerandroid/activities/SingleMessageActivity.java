@@ -1,12 +1,13 @@
 package pl.citybikerandroid.activities;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.bikes.Bike;
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
-import pl.citybikerandroid.messages.Message;
-import pl.citybikerandroid.messages.ServiceMessage;
-import pl.citybikerandroid.stations.BikeStation;
+import pl.citybikerandroid.domain.Bike;
+import pl.citybikerandroid.domain.Message;
+import pl.citybikerandroid.domain.InformativeMessage;
+import pl.citybikerandroid.domain.LogisticalMessage;
+import pl.citybikerandroid.domain.ServiceMessage;
+import pl.citybikerandroid.domain.Station;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ public class SingleMessageActivity extends Activity{
 		
 		Intent i = getIntent();
 		Message msg = (Message) i.getSerializableExtra(Message.SERIALIZABLE_NAME);
-		BikeStation bs = (BikeStation) i.getSerializableExtra(BikeStation.SERIALIZABLE_NAME);
+		Station bs = (Station) i.getSerializableExtra(Station.SERIALIZABLE_NAME);
 		Bike b = (Bike)i.getSerializableExtra(Bike.SERIALIZABLE_NAME);
 		
 		Log.d("SingleMessageActivity", "received intent!");
@@ -45,7 +46,7 @@ public class SingleMessageActivity extends Activity{
 		populateViews(msg, bs, b);
 	}
 	
-	private void populateViews(Message msg, BikeStation bs, Bike b ){
+	private void populateViews(Message msg, Station bs, Bike b ){
 		
 		//populate Title - Bike(ID) > <Type of message>
 		//				or Station(ID) <Typeof Message>
@@ -70,12 +71,12 @@ public class SingleMessageActivity extends Activity{
 		tv.setText(title);
 		
 		//poulate Date
-		String date = msg.getDate().toString();
+		String date = msg.getCreatedAt().toString();
 		tv = (TextView) findViewById(R.id.tv_single_message_date);
 		tv.setText(date);
 		
 		//populate Author
-		String author = msg.getAuthorName();
+		String author = msg.getAuthor();
 		tv = (TextView) findViewById(R.id.single_message_tv_author);
 		tv.setText(author);
 		

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
+//import pl.citybikerandroid.R;
 import pl.citybikerandroid.domain.Bike;
 import pl.citybikerandroid.domain.InformativeMessage;
 import pl.citybikerandroid.domain.ServiceMessage;

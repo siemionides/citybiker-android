@@ -79,43 +79,43 @@ public class StationActivity extends Activity {
 	
 	
 	/** Injects the listview with sample fake data */
-	private void populateListViews(Station bs) {
+	private void populateListViews(final Station bs) {
 
 //		// Array list of countries
 //		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
 
 		//for debug for now 
-		if (bs == null){
-			bs = new Station(
-					"ul Warynskiego - ul. Nowowiejska", "6364",
-					Station.MORE_THAN_FOUR);
-			
-				bs.addInformativeMessage(new InformativeMessage(
-						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
-				bs.addInformativeMessage(new InformativeMessage(
-						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
-				bs.addInformativeMessage(new InformativeMessage(
-						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
-				
-				
-				
-				bs.addLogisticalMessage(new LogisticalMessage(
-						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-						new Station(), bs, 3432));
-				
-				bs.addLogisticalMessage(new LogisticalMessage(
-						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-						new Station(), bs, 343));
-				bs.addLogisticalMessage(new LogisticalMessage(
-						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-						new Station(), bs, 453));
-				
-			
-				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-			
-		}
+//		if (bs == null){
+//			bs = new Station(
+//					"ul Warynskiego - ul. Nowowiejska", "6364",
+//					Station.MORE_THAN_FOUR);
+//			
+//				bs.addInformativeMessage(new InformativeMessage(
+//						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+//				bs.addInformativeMessage(new InformativeMessage(
+//						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+//				bs.addInformativeMessage(new InformativeMessage(
+//						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+//				
+//				
+//				
+//				bs.addLogisticalMessage(new LogisticalMessage(
+//						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
+//						new Station(), bs, 3432));
+//				
+//				bs.addLogisticalMessage(new LogisticalMessage(
+//						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
+//						new Station(), bs, 343));
+//				bs.addLogisticalMessage(new LogisticalMessage(
+//						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
+//						new Station(), bs, 453));
+//				
+//			
+//				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+//				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+//				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
+//			
+//		}
 
 		//get prefixed for station name and station id textfield
 		String stationLocationPrefix = getResources().getString(R.string.activity_station_location) + " ";

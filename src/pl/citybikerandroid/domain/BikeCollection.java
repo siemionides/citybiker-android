@@ -1,20 +1,12 @@
 package pl.citybikerandroid.domain;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BikeCollection {
+public class BikeCollection extends ArrayList<Bike> {
 
-	 private List<Bike> results;
-
-	 public List<Bike> getResults() {
-	    return results;
-	 }
-
-	 public void setResults(List<Bike> results) {
-	    this.results = results;
-	 }
+	private static final long serialVersionUID = 5447921541750616729L;
 	
 }

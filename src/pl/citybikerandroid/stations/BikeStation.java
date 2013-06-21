@@ -43,39 +43,36 @@ public class BikeStation implements Serializable {
 	
 	
 	public BikeStation() {
-		this.stationName = "";
-		this.stationId = "";
-		this.nrBikes = -1;
+		initialize("","",-1);
 	}
 
-	public BikeStation(String stationName, String stationId2) {
-		this.stationName = stationName;
-		this.stationId = stationId2;
+	public BikeStation(String stationName, String stationId) {
+		initialize(stationName,stationId,-1);
 	}
 
 	public BikeStation(String stationName, String stationId, int nrBikes) {
-		this(stationName, stationId);
-		this.nrBikes = nrBikes;
+		initialize(stationName, stationId, nrBikes);
 	}
-
-
-	public void setName(String stationName) {
+	
+	private void initialize(String stationName, String stationId, int nrBikes) {
 		this.stationName = stationName;
+		this.stationId = stationId;
+		this.nrBikes = nrBikes;
+		informativeMessages = new ArrayList<InformativeMessage>();
+		logisticalMessages = new ArrayList<LogisticalMessage>();
+		serviceMessages = new ArrayList<ServiceMessage>();
 	}
 	
 	public void addInformativeMessage(InformativeMessage informativeMessage) {
-		if(informativeMessages == null) informativeMessages = new ArrayList<InformativeMessage>();
 		informativeMessages.add(informativeMessage);
 		
 	}
 	
 	public void addLogisticalMessage(LogisticalMessage logisticalMessage) {
-		if(logisticalMessages == null) logisticalMessages = new ArrayList<LogisticalMessage>();
 		logisticalMessages.add(logisticalMessage);
 	}
 
 	public void addServiceMessage(ServiceMessage serviceMessage) {
-		if(serviceMessages == null) serviceMessages = new ArrayList<ServiceMessage>();
 		serviceMessages.add(serviceMessage);
 		
 	}
@@ -106,6 +103,10 @@ public class BikeStation implements Serializable {
 		return this.serviceMessages;
 	}
 	
+	public void setName(String stationName) {
+		this.stationName = stationName;
+	}
+	
 	public void setId(String id) {
 		this.stationId = id;
 		
@@ -121,29 +122,21 @@ public class BikeStation implements Serializable {
 		//TODO could be optimed by having a structure (not ArrayList) that ensures natural order by Date
 		
 		ArrayList<InformativeMessage> list = new ArrayList<InformativeMessage>(this.informativeMessages);
-		
 		Collections.sort(list, Message.MessageDateComparator);
-		
-		//return frst
-		return list.get(0);
+		return list.isEmpty() ? null : list.get(0);
 	}
 
 	public LogisticalMessage getLastLogisticalMessage() {
 		
 		ArrayList<LogisticalMessage> list = new ArrayList<LogisticalMessage>(this.logisticalMessages);
 		Collections.sort(list, Message.MessageDateComparator);
-		
-		//return first - the biggest
-		return list.get(0);
+		return list.isEmpty() ? null : list.get(0);
 	}
 
 	public ServiceMessage getLastServiceMessage() {
 		ArrayList<ServiceMessage> list = new ArrayList<ServiceMessage>(this.serviceMessages);
 		Collections.sort(list, Message.MessageDateComparator);
-		
-		//return first - the biggest
-		return list.get(0);
-		
+		return list.isEmpty() ? null : list.get(0);
 	}
 
 }

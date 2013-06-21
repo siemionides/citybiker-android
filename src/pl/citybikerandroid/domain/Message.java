@@ -1,9 +1,16 @@
 package pl.citybikerandroid.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@JsonSerialize(include = Inclusion.NON_NULL)
 public class Message {
+
+	public enum Types {
+		logistic, info, service
+	}
 	
 	private String id;
 	private String type;

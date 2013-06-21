@@ -8,25 +8,40 @@ android:layout_height="fill_parent"
   <TabHost android:id="@+id/TabHost01" android:layout_width="wrap_content" android:layout_height="wrap_content">
     <TabWidget android:id="@android:id/tabs" android:layout_width="wrap_content" android:layout_height="wrap_content" />
     <FrameLayout android:id="@android:id/tabcontent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingTop="65px">
-      <!-- TAB one - informative -->
+    
+        <!-- TAB one - informative -->
       <RelativeLayout
           android:id="@+id/tab1Layout" 
           android:layout_width="wrap_content" 
           android:layout_height="wrap_content" >
           
-          <TextView
-              android:id="@+id/tab_inf_bike_id"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignParentTop="true"
-              android:text="@string/activity_bike_bike_id" />
+                <!-- Bike ID textView group -->
+                <LinearLayout
+                    android:id="@+id/date_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal" >
 
+                    <TextView
+                        android:id="@+id/label_bike_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_bike_bike_id"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tab_inf_bike_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                </LinearLayout>
 
           <ListView
               android:id="@+id/tab_inf_listview"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-              android:layout_below="@+id/tab_inf_bike_id"
+              android:layout_below="@+id/date_layout"
                />
           
       </RelativeLayout>
@@ -39,19 +54,34 @@ android:layout_height="fill_parent"
           android:layout_width="wrap_content" 
           android:layout_height="wrap_content" >
           
-          <TextView
-              android:id="@+id/tab_ser_bike_id"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_alignParentTop="true"
-              android:text="@string/activity_bike_bike_id" />
+                <!-- Bike ID textView group -->
+                <LinearLayout
+                    android:id="@+id/date_layout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/label_bike_id_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/activity_bike_bike_id"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tab_ser_bike_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+                </LinearLayout>
 
 
           <ListView
               android:id="@+id/tab_ser_listview"
               android:layout_width="fill_parent"
               android:layout_height="wrap_content"
-               android:layout_below="@+id/tab_ser_bike_id"
+               android:layout_below="@+id/date_layout2"
                />
           
       </RelativeLayout>

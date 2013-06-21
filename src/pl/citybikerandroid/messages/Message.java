@@ -11,6 +11,9 @@ public abstract class Message implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public static final String SERIALIZABLE_NAME = "message";
+
+	
 	public static final String AUTHOR_ANONYMOUS = "anonymous";
 	
 	/** Has to be provide*/

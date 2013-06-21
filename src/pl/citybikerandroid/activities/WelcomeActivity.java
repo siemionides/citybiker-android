@@ -163,6 +163,7 @@ public class WelcomeActivity extends Activity {
 		adapter = new StationsAroundAdapter(this,
 				R.layout.list_item_station_around);
 		performStationsRequest(3);
+		
 		ListView listView = (ListView) findViewById(R.id.listStationsAroundView);
 		listView.setAdapter(adapter);
 

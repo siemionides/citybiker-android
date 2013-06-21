@@ -25,6 +25,9 @@
        
     <string name="activity_bike_number">Bike number:</string>
     
+    <string name="part_of_bike_prompt">Choose bike part:</string>
+    
+    
     <!-- New Message -->
      <string-array name="parts_of_bike_array">
         <item>front light</item>

@@ -42,13 +42,14 @@
       </LinearLayout>
       
       <!-- Message  Type Box  -->
+
       <LinearLayout
-        android:id="@+id/new_message_message_type_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        
-        android:layout_below="@id/new_message_bike_id_layout" 
-        android:orientation="vertical">
+          android:id="@+id/new_message_message_type_layout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/new_message_bike_id_layout"
+          android:layout_centerHorizontal="true"
+          android:orientation="vertical" >
 
         <TextView
             android:id="@+id/new_message_bike_message_type_label"
@@ -57,11 +58,11 @@
             android:textStyle="bold"
             android:text="Message Type: " />
         
-        
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/message_background"
+            android:gravity="center_horizontal"
             android:orientation="horizontal" >
         
             <RadioButton
@@ -73,11 +74,14 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="service" />
 
         </RadioGroup>
 	</LinearLayout>
 	
+      
+      
       
       <!-- Part of bike dropdown  -->
       <LinearLayout
@@ -98,9 +102,63 @@
         
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        
+            android:layout_height="wrap_content"
+            android:entries="@array/parts_of_bike_array"
+        	android:prompt="@string/part_of_bike_prompt" />
+             />
 	</LinearLayout>
+	
       
+         <!-- Message Edit TextField -->
+
+      <LinearLayout
+          android:id="@+id/new_message_message_edit"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dip"
+          android:layout_below="@id/new_message_part_of_bike_layout"
+          android:orientation="vertical" >
+
+          <TextView
+              android:id="@+id/new_message_bike_message_edit_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Message:"
+              android:textStyle="bold" />
+
+          <EditText
+              android:id="@+id/new_message_bike_message_edit_text"
+              android:layout_width="match_parent"
+              android:layout_height="95dp"
+              android:background="@drawable/message_background"
+              android:inputType="textMultiLine"
+              android:isScrollContainer="true"
+              android:padding="5dip"
+              android:singleLine="false"
+              android:text="Type your message here" />
+
+      </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@id/new_message_message_edit"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="30dp" >
+
+          <Button
+              android:id="@+id/button1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Send Photo" />
+
+          <Button
+              android:id="@+id/button2"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="40dp"
+              android:text="Send Message" />
+
+      </LinearLayout>
 
 </RelativeLayout>

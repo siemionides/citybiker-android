@@ -1,4 +1,4 @@
-package pl.citybikerandroid.messages;
+package pl.citybikerandroid.domain;
 
 import java.util.Date;
 

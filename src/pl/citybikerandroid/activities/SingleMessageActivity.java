@@ -1,8 +1,8 @@
 package pl.citybikerandroid.activities;
 
 import pl.citybikerandroid.R;
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.Message;
+import pl.citybikerandroid.domain.InformativeMessage;
+import pl.citybikerandroid.domain.Message;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

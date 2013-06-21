@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
+import pl.citybikerandroid.domain.InformativeMessage;
+import pl.citybikerandroid.domain.LogisticalMessage;
+import pl.citybikerandroid.domain.Message;
+import pl.citybikerandroid.domain.ServiceMessage;
 import pl.citybikerandroid.domain.Station;
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
-import pl.citybikerandroid.messages.Message;
-import pl.citybikerandroid.messages.ServiceMessage;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -238,7 +238,7 @@ public class StationActivity extends Activity {
 			// let's fill the views from object!
 			Message msg = messagesList.get(position);
 
-			holder.messageDate.setText(msg.getDate().toString());
+			holder.messageDate.setText(msg.getCreatedAt());
 			holder.messageText.setText(msg.getText());
 			// prepare messages string
 			return convertView;

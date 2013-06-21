@@ -9,11 +9,6 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.LogisticalMessage;
-import pl.citybikerandroid.messages.Message;
-import pl.citybikerandroid.messages.ServiceMessage;
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize(include = Inclusion.NON_NULL)
 public class Station implements Serializable {

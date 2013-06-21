@@ -9,9 +9,6 @@ import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
-import pl.citybikerandroid.messages.InformativeMessage;
-import pl.citybikerandroid.messages.Message;
-import pl.citybikerandroid.messages.ServiceMessage;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonSerialize(include = Inclusion.NON_NULL)
@@ -20,7 +17,7 @@ public class Bike implements Serializable {
 	private String id;
 	private String number;
 	@JsonIgnore
-	public final static String SERIALIZABLE_NAME = "bike";
+	public final static String SERIALIZABLE_NAME = "Bike";
 	@JsonIgnore
 	private static final long serialVersionUID = -3058330628500720941L;
 	@JsonIgnore

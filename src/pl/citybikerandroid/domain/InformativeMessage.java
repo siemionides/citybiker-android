@@ -1,4 +1,4 @@
-package pl.citybikerandroid.messages;
+package pl.citybikerandroid.domain;
 
 import java.util.Date;
 
@@ -13,9 +13,5 @@ public class InformativeMessage extends Message {
 	public InformativeMessage(String text, Date messageDate) {
 		super(text, messageDate);
 	}
-
-	
-	
-	
 
 }

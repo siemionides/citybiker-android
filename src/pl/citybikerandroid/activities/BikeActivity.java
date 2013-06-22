@@ -9,12 +9,15 @@ import pl.citybikerandroid.domain.Bike;
 import pl.citybikerandroid.domain.InformativeMessage;
 import pl.citybikerandroid.domain.ServiceMessage;
 import pl.citybikerandroid.domain.Message;
+import pl.citybikerandroid.domain.Station;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -39,6 +42,11 @@ public class BikeActivity extends Activity {
 //
 //	/** ListView for service messages tab */
 //	private ListView mListViewServiceMessages;
+	
+	/**
+	 * Bike associated with this activity
+	 */
+	private Bike bike = null;
 
 	/** Adapter for ListView of Informal Messages (for informal tab) objects */
 	BikeMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
@@ -73,6 +81,9 @@ public class BikeActivity extends Activity {
 		//if intent is present
 		Intent i = getIntent();
 		Bike b = (Bike) i.getSerializableExtra(Bike.SERIALIZABLE_NAME);
+		
+		//attach to instance variable
+		this.bike = b;
 		
 		// populate views
 		populateListViews(b);
@@ -226,5 +237,28 @@ public class BikeActivity extends Activity {
 			// prepare messages string
 			return convertView;
 		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		
+		getMenuInflater().inflate(R.menu.bike_screen_main, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+		case R.id.menu_new_message:
+			Intent i = new Intent(BikeActivity.this, NewMessageBikeActivity.class);
+			i.putExtra(Bike.SERIALIZABLE_NAME, this.bike);
+			startActivity(i);
+			break;
+		
+		case R.id.menu_search_message:
+			break;
+			
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

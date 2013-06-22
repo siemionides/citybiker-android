@@ -22,7 +22,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:uiOptions="splitActionBarWhenNarrow" >
 
         <!-- Welcome Activity -->
         <activity
@@ -30,10 +31,13 @@
             android:label="@string/app_name"
             android:launchMode="singleTop" >
       
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
+             
       
             <!-- Receives the search request. -->
             <intent-filter>
@@ -50,7 +54,11 @@
         <!-- BikeStationActivity -->
         <activity
             android:name="pl.citybikerandroid.activities.StationActivity"
-            android:label="station" >
+            android:label="station" 
+            >
+            
+       
+            
         </activity>
 
         <!-- BikeActivity -->
@@ -88,10 +96,7 @@
             android:name="pl.citybikerandroid.activities.NewMessageStationActivity"
             android:label="new message (station)" >
             
- <!--            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> -->
+         
             
         </activity>
 

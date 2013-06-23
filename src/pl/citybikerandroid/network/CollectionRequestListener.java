@@ -19,7 +19,7 @@ public abstract class CollectionRequestListener<T> implements RequestListener<T>
 
 			if (collection == null) {
 				Toast.makeText(mContext,
-						"Server claims there are no stations nearby!",
+						"Server claims the requested collection is empty!",
 						Toast.LENGTH_LONG).show();
 			}
 

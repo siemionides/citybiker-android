@@ -55,6 +55,16 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 
 	@Override
 	public T loadDataFromNetwork() throws Exception {
+		URI url = new URI(createURI().build().toString());;
+		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type);
+		return response.getBody();
+	}
+
+	public String createCacheKey() {
+		return createURI().toString();
+	}
+	
+	private Uri.Builder createURI() {
 		Uri.Builder uriBuilder = Uri.parse(Constants.HOST_PORT + uri)
 				.buildUpon();
 
@@ -64,14 +74,7 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 		if (fields != null) uriBuilder.appendQueryParameter("fields", fields);
 		if (location != null) uriBuilder.appendQueryParameter("location", location);
 
-		URI url = new URI(uriBuilder.build().toString());
-		
-		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type);
-		return response.getBody();
-	}
-
-	public String createCacheKey() {
-		return uri;
+		return uriBuilder;
 	}
 	
 	public void perform(SpiceManager contentManager, RequestListener<T> listener) {

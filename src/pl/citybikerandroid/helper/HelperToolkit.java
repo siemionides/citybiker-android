@@ -3,6 +3,7 @@ package pl.citybikerandroid.helper;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.widget.Toast;
 
 /**
  * Just a stupid class containg some instant methods that help me
@@ -27,5 +28,11 @@ public class HelperToolkit {
 	            // do nothing
 	        }
 	     });
+	}
+	
+	public static void makeToast(Context appContext, String valueToShow){
+		Toast.makeText(appContext,
+				valueToShow,
+				Toast.LENGTH_LONG).show();
 	}
 }

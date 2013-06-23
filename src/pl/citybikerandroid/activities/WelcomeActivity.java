@@ -13,12 +13,16 @@ import pl.citybikerandroid.domain.MessageCollection;
 import pl.citybikerandroid.domain.ServiceMessage;
 import pl.citybikerandroid.domain.Station;
 import pl.citybikerandroid.domain.StationCollection;
+import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.network.CollectionRequest;
 import pl.citybikerandroid.network.CollectionRequestListener;
 import android.app.Activity;
 import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -38,6 +42,9 @@ import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
 public class WelcomeActivity extends Activity {
+	
+	public static final int ACTION_CODE_QR_SCANNING = 4534535;
+	
 
 	/** ListView for showing up the results */
 	private ListView mListView;
@@ -54,6 +61,8 @@ public class WelcomeActivity extends Activity {
 		setContentView(R.layout.activity_welcome);
 		handleIntent(getIntent());
 		displayListView();
+		
+		
 	}
 
 	@Override
@@ -145,6 +154,36 @@ public class WelcomeActivity extends Activity {
 			i.putExtra(Bike.SERIALIZABLE_NAME, (Bike) b);
 			startActivity(i);
 
+			return true;
+			
+		case R.id.menu_search_bike_qr:
+			Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+	        intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+	        
+	        //chech whether Intent will be resolved - is there app installed?
+	        PackageManager pm = getPackageManager();
+	        ComponentName cn = intent.resolveActivity(pm);
+	        if( cn == null){ //no activity
+	    
+				Uri marketUri = Uri
+						.parse("market://search?q=pname:com.google.zxing.client.android");
+				Intent marketIntent = new Intent(Intent.ACTION_VIEW)
+						.setData(marketUri);
+				if (marketIntent.resolveActivity(pm) != null) {
+					startActivity(marketIntent);
+				} else {
+					Log.e("error", "Market client not available.");
+					HelperToolkit.createAlertDialog(WelcomeActivity.this, "Problem", 
+							"QR app not found. Cannot connect to Google Play too. (are you online?) ").show();
+				}
+	        }else{
+		        //start Activity
+	        	startActivityForResult(intent, WelcomeActivity.ACTION_CODE_QR_SCANNING);	
+	        }
+	        
+	        
+
+	        
 			return true;
 		default:
 			return false;
@@ -328,6 +367,22 @@ public class WelcomeActivity extends Activity {
 
 	protected boolean isAlwaysExpanded() {
 		return false;
+	}
+	
+	/** Used for retrieving Intents from QR code application scanner*/
+	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+	    if (requestCode == WelcomeActivity.ACTION_CODE_QR_SCANNING) {
+	        if (resultCode == RESULT_OK) {
+	            String contents = intent.getStringExtra("SCAN_RESULT");
+	            String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
+	            
+	            HelperToolkit.createAlertDialog(WelcomeActivity.this, "qr return", 
+	            		"Qr returned:" + contents + ", " + format).show();
+	            // Handle successful scan
+	        } else if (resultCode == RESULT_CANCELED) {
+	            // Handle cancel
+	        }
+	    }
 	}
 
 }

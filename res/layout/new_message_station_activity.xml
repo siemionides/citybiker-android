@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent" android:layout_height="fill_parent">
+    
+<RelativeLayout 
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content" >
 
           <!-- Title : New Message Label + Bike (ID) -->
           
@@ -31,12 +37,11 @@
             android:textStyle="bold" />
         
         <TextView
-            android:id="@+id/tv_new_single_message_bike"
+            android:id="@+id/tv_new_message_station_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            
-            android:text="45434 " />
+            android:text="45434 "
+            android:textStyle="bold" />
            
       </LinearLayout>
       
@@ -67,13 +72,12 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
+                
                 android:text="informative" />
         
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="false"
                 android:text="logistical" />
 
             <RadioButton
@@ -94,7 +98,6 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="going to..." />
 
             <RadioButton
@@ -202,25 +205,63 @@
       </LinearLayout>
 
       <LinearLayout
+          android:id="@+id/new_message_station_layout1"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_below="@id/new_message_message_edit"
           android:layout_centerHorizontal="true"
           android:layout_marginTop="30dp" >
 
-          <Button
-              android:id="@+id/button1"
+          <LinearLayout
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Send Photo" />
+              android:orientation="vertical" >
+
+              <Button
+                  android:id="@+id/button_new_message_station_attach_photo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Attach Photo" />
+
+              <CheckBox
+                  android:id="@+id/new_message_station_checkbox_photo"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Include photo"
+                  android:visibility="invisible" />
+          </LinearLayout>
 
           <Button
-              android:id="@+id/button2"
+              android:id="@+id/button_new_message_station_send_message"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginLeft="40dp"
               android:text="Send Message" />
 
       </LinearLayout>
+      
+      
+      <!-- Image attached -->
+
+    <LinearLayout
+        android:id="@+id/new_message_station_photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_message_station_layout1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/new_message_station_photo_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo: "
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/new_message_station_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="Photo to be added" />
+    </LinearLayout>
 
 </RelativeLayout>
+</ScrollView>

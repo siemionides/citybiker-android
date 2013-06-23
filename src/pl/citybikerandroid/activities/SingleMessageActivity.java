@@ -87,6 +87,7 @@ public class SingleMessageActivity extends Activity{
 		tv.setText(messageText);
 		
 		//populate Photo
+		//TODO
 	}
 	
 	@Override

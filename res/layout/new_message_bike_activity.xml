@@ -3,72 +3,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-          <!-- Title : New Message Label + Bike (ID) -->
-          
-       <TextView
-            android:id="@+id/new_message_bike_new_message_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="New Message" 
-            android:layout_centerHorizontal="true"
-            />    
-          
-      <LinearLayout
-        android:id="@+id/new_message_bike_id_layout"
+    <!-- Title : New Message Label + Bike (ID) -->
+
+    <TextView
+        android:id="@+id/new_message_bike_new_message_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/new_message_bike_new_message_label" 
-        android:orientation="horizontal"
-        >
-        
+        android:text="New Message"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/new_message_bike_id_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_message_bike_new_message_label"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal" >
+
         <TextView
             android:id="@+id/new_message_bike_bikeid_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            
-            android:text="Bike ID: " />
-        
+            android:text="Bike ID: "
+            android:textStyle="bold" />
+
         <TextView
-            android:id="@+id/tv_new_single_message_bike"
+            android:id="@+id/tv_new_single_message_bike_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            
-            android:text="45434 " />
-           
-      </LinearLayout>
-      
-      <!-- Message  Type Box  -->
+            android:text="45434 "
+            android:textStyle="bold" />
+    </LinearLayout>
 
-      <LinearLayout
-          android:id="@+id/new_message_message_type_layout"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/new_message_bike_id_layout"
-          android:layout_centerHorizontal="true"
-          android:orientation="vertical" >
+    <!-- Message  Type Box -->
+
+    <LinearLayout
+        android:id="@+id/new_message_message_type_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_message_bike_id_layout"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/new_message_bike_message_type_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="Message Type: " />
-        
+            android:text="Message Type: "
+            android:textStyle="bold" />
+
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/message_background"
             android:gravity="center_horizontal"
             android:orientation="horizontal" >
-        
+
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="informative" />
 
             <RadioButton
@@ -76,89 +70,124 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="service" />
-
         </RadioGroup>
-	</LinearLayout>
-	
-      
-      
-      
-      <!-- Part of bike dropdown  -->
-      <LinearLayout
+    </LinearLayout>
+
+    <!-- Part of bike dropdown -->
+
+    <LinearLayout
         android:id="@+id/new_message_part_of_bike_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/new_message_message_type_layout" 
-        android:orientation="vertical">
+        android:layout_below="@id/new_message_message_type_layout"
+        android:orientation="vertical" >
 
-        
-          
         <TextView
             android:id="@+id/new_message_bike_part_of_bike_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:text="Part of bike: " />
-        
+            android:text="Part of bike: "
+            android:textStyle="bold" />
+
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/parts_of_bike_array"
-        	android:prompt="@string/part_of_bike_prompt" />
+            android:prompt="@string/part_of_bike_prompt" />
              />
-	</LinearLayout>
-	
+    </LinearLayout>
+
+    <!-- Message Edit TextField -->
+
+    <LinearLayout
+        android:id="@+id/new_message_message_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_message_part_of_bike_layout"
+        android:layout_marginTop="20dip"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/new_message_bike_message_edit_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Message:"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/new_message_bike_message_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:background="@drawable/message_background"
+            android:inputType="textMultiLine"
+            android:isScrollContainer="true"
+            android:padding="5dip"
+            android:singleLine="false"
+            android:text="Type your message here" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/new_message_message_edit"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/button_new_message_bike_send_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attach Photo" />
+
+            <CheckBox
+                android:id="@+id/new_message_bike_checkbox_photo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Include photo"
+                android:visibility="invisible" />
+
+            
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_new_message_bike_send_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="Send Message" />
+
+    </LinearLayout>
+    
+    
+    <!--  Image attached -->
+    <LinearLayout
+        android:id="@+id/new_message_photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/new_message_bike_photo_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photo: "
+            android:textStyle="bold" />
+
+        <ImageView
+                android:id="@+id/new_message_bike_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="Photo to be added"
+                 />
       
-         <!-- Message Edit TextField -->
-
-      <LinearLayout
-          android:id="@+id/new_message_message_edit"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dip"
-          android:layout_below="@id/new_message_part_of_bike_layout"
-          android:orientation="vertical" >
-
-          <TextView
-              android:id="@+id/new_message_bike_message_edit_label"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Message:"
-              android:textStyle="bold" />
-
-          <EditText
-              android:id="@+id/new_message_bike_message_edit_text"
-              android:layout_width="match_parent"
-              android:layout_height="95dp"
-              android:background="@drawable/message_background"
-              android:inputType="textMultiLine"
-              android:isScrollContainer="true"
-              android:padding="5dip"
-              android:singleLine="false"
-              android:text="Type your message here" />
-
-      </LinearLayout>
-
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@id/new_message_message_edit"
-          android:layout_centerHorizontal="true"
-          android:layout_marginTop="30dp" >
-
-          <Button
-              android:id="@+id/button1"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Send Photo" />
-
-          <Button
-              android:id="@+id/button2"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginLeft="40dp"
-              android:text="Send Message" />
-
-      </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

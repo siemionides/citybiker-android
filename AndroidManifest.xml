@@ -36,6 +36,10 @@
             android:launchMode="singleTop" >
       
            
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             
              
       
@@ -90,9 +94,6 @@
             android:name="pl.citybikerandroid.activities.NewMessageBikeActivity"
             android:label="new message (bike)" >
             
-             
-           
-            
         </activity>
         
         <!-- new Message station  Activity -->
@@ -100,10 +101,7 @@
             android:name="pl.citybikerandroid.activities.NewMessageStationActivity"
             android:label="new message (station)" >
             
-          <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+    
             
         </activity>
 

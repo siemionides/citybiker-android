@@ -14,7 +14,15 @@
           android:showAsAction="collapseActionView|ifRoom"
            />
     
+    
     <item
+         android:id="@+id/menu_search_bike_qr"
+          android:icon="@drawable/icon_qrcode"
+          android:title="@string/menu_search_bike_qr"
+          android:showAsAction="collapseActionView|ifRoom"
+           />
+    
+    <item       
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"

@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.ViewDebug.CapturedViewProperty;
 import android.widget.TextView;
 import android.widget.Toast;
 

@@ -3,6 +3,7 @@
 
     <!--  Navigation -->
     <string name="menu_search_bike">Search Bike</string>
+    <string name="menu_search_bike_qr">Search Bike QR</string>
     <string name="menu_search_station">Search Station</string>
     <string name="menu_new_message">New Message</string>
     <string name="menu_search_message">Search Message</string>

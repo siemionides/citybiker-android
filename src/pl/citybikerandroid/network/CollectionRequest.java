@@ -1,12 +1,15 @@
 package pl.citybikerandroid.network;
 
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
+import java.net.URI;
+
 import org.springframework.http.ResponseEntity;
 
 import pl.citybikerandroid.Constants;
 import android.net.Uri;
 
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.DurationInMillis;
+import com.octo.android.robospice.request.listener.RequestListener;
 import com.octo.android.robospice.request.springandroid.SpringAndroidSpiceRequest;
 
 public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
@@ -23,7 +26,6 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 		super(type);
 		this.type = type;
 		this.uri = uri;
-		this.location = "";
 	}
 
 	public CollectionRequest<T> addFilter(String filter) {
@@ -62,14 +64,20 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 		if (fields != null) uriBuilder.appendQueryParameter("fields", fields);
 		if (location != null) uriBuilder.appendQueryParameter("location", location);
 
-		String url = uriBuilder.build().toString();
-
-		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type); 
+		URI url = new URI(uriBuilder.build().toString());
+		
+		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type);
 		return response.getBody();
 	}
 
 	public String createCacheKey() {
 		return uri;
+	}
+	
+	public void perform(SpiceManager contentManager, RequestListener<T> listener) {
+		contentManager.execute(this, createCacheKey(),
+				DurationInMillis.ONE_SECOND,
+				listener);
 	}
 
 }

@@ -15,6 +15,7 @@ import pl.citybikerandroid.domain.Station;
 import pl.citybikerandroid.domain.StationCollection;
 import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.network.CollectionRequest;
+import pl.citybikerandroid.network.CollectionRequestListener;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ComponentName;
@@ -39,9 +40,6 @@ import android.widget.Toast;
 
 import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
 import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.persistence.DurationInMillis;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
 
 public class WelcomeActivity extends Activity {
 	
@@ -56,7 +54,6 @@ public class WelcomeActivity extends Activity {
 
 	private SpiceManager contentManager = new SpiceManager(
 			JacksonSpringAndroidSpiceService.class);
-	private String lastRequestCacheKey;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -202,7 +199,7 @@ public class WelcomeActivity extends Activity {
 		adapter = new StationsAroundAdapter(this,
 				R.layout.list_item_station_around);
 		performStationsRequest(3);
-		
+
 		ListView listView = (ListView) findViewById(R.id.listStationsAroundView);
 		listView.setAdapter(adapter);
 
@@ -210,8 +207,7 @@ public class WelcomeActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				Station station = (Station) parent
-						.getItemAtPosition(position);
+				Station station = (Station) parent.getItemAtPosition(position);
 
 				Intent i = new Intent(WelcomeActivity.this,
 						StationActivity.class);
@@ -226,102 +222,61 @@ public class WelcomeActivity extends Activity {
 	}
 
 	private void performStationsRequest(int limit) {
-
 		CollectionRequest<StationCollection> request = new CollectionRequest<StationCollection>(
 				StationCollection.class, Constants.STATIONS_URI);
 		request.addLimit(Integer.toString(limit));
 		request.addLocation("21.016181,52.216837");
+		request.perform(contentManager, new StationCollectionRequest(getApplicationContext()));
+	}
+	
+	private class StationCollectionRequest extends CollectionRequestListener<StationCollection> {
+		
+		public StationCollectionRequest(Context context) {
+			super(context);
+		}
 
-		lastRequestCacheKey = request.createCacheKey();
-		contentManager.execute(request, lastRequestCacheKey,
-				20 * DurationInMillis.ONE_SECOND, new StationRequestListener());
+		public void performOnSuccess(StationCollection collection) {
+			adapter.clear();
+			for (Station station : collection) {
+				Station bs = new Station(station.getLocation(),
+						station.getNumber(), station.getBicycles());
+				bs.setId(station.getId());
+				performMessagesRequest(bs, "logistic", 1);
+				adapter.add(station);
+			}
+			adapter.notifyDataSetChanged();
+		}
 	}
 
-	private void performStationMessagesRequest(Station station,
-			String type, int limit) {
+	private void performMessagesRequest(Station station, String type, int limit) {
 
 		if (type == null || type.trim().isEmpty())
 			type = "";
+		Message.Types.valueOf(type);
 
 		CollectionRequest<MessageCollection> request = new CollectionRequest<MessageCollection>(
 				MessageCollection.class, Constants.MESSAGES_URI);
 		request.addFilter("type::" + type);
 		request.addLimit(Integer.toString(limit));
-
-		lastRequestCacheKey = request.createCacheKey();
-		contentManager.execute(request, lastRequestCacheKey,
-				20 * DurationInMillis.ONE_MINUTE,
-				new StationMessagesRequestListener(station));
+		request.perform(contentManager, new MessageCollectionRequest(getApplicationContext(), station));
 	}
-
-	private class StationRequestListener implements
-			RequestListener<StationCollection> {
-
-		@Override
-		public void onRequestSuccess(StationCollection stations) {
-
-			if (stations == null) {
-				Toast.makeText(getApplicationContext(),
-						"Server claims there are no stations nearby!",
-						Toast.LENGTH_LONG).show();
-			}
-
-			adapter.clear();
-
-			for (Station station : stations) {
-				/*Station bs = new Station(station.getLocation(),
-						station.getNumber(), station.getBicycles());
-				bs.setId(station.getId());*/
-				// performStationMessagesRequest(bs, "logistic", 1);
-				adapter.add(station);
-			}
-
-			adapter.notifyDataSetChanged();
-		}
-
-		@Override
-		public void onRequestFailure(SpiceException e) {
-			Toast.makeText(getApplicationContext(),
-					"Error during request: " + e.getMessage(),
-					Toast.LENGTH_LONG).show();
-		}
-	}
-
-	private class StationMessagesRequestListener implements
-			RequestListener<MessageCollection> {
-
+	
+	private class MessageCollectionRequest extends CollectionRequestListener<MessageCollection> {
+		
 		Station station = null;
-
-		public StationMessagesRequestListener(Station station) {
-			this.station = station;
+		
+		public MessageCollectionRequest(Context context, Station station) {
+			super(context);
+			this.station = station; 
 		}
 
 		@Override
-		public void onRequestSuccess(MessageCollection messages) {
-
-			if (messages == null) {
-				Toast.makeText(getApplicationContext(),
-						"Server claims there are no stations nearby!",
-						Toast.LENGTH_LONG).show();
+		public void performOnSuccess(MessageCollection collection) {
+			station.addInformativeMessage(new InformativeMessage("cześć", "ja"));
+			for (Message message : collection) {
+				String type = message.getType();			
 			}
-
-			adapter.clear();
-
-			for (Message message : messages) {
-				String type = message.getType();
-
-				// TODO: dodać tu wrzucanie wiadomości do stacji, ale to już po
-				// ujednoliceniu modeli danych
-			}
-
 			adapter.notifyDataSetChanged();
-		}
-
-		@Override
-		public void onRequestFailure(SpiceException e) {
-			Toast.makeText(getApplicationContext(),
-					"Error during request: " + e.getMessage(),
-					Toast.LENGTH_LONG).show();
 		}
 	}
 
@@ -383,7 +338,8 @@ public class WelcomeActivity extends Activity {
 				bikesString = "4+";
 			}
 
-			return "Station district: " + stationDistrict + "\nBikes: " + bikesString;
+			return "Station district: " + stationDistrict + "\nBikes: "
+					+ bikesString;
 		}
 
 		private String formatStationMessagesText(Station station) {

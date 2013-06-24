@@ -16,6 +16,8 @@ import pl.citybikerandroid.domain.StationCollection;
 import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.network.CollectionRequest;
 import pl.citybikerandroid.network.CollectionRequestListener;
+import pl.citybikerandroid.network.LocationRequest;
+import pl.citybikerandroid.network.LocationRequest.LocationRequestListener;
 import pl.citybikerandroid.providers.BikeStationDatabase;
 import android.app.Activity;
 import android.app.SearchManager;

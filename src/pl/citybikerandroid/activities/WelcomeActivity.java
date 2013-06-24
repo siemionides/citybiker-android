@@ -16,6 +16,8 @@ import pl.citybikerandroid.domain.StationCollection;
 import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.network.CollectionRequest;
 import pl.citybikerandroid.network.CollectionRequestListener;
+import pl.citybikerandroid.network.LocationRequest;
+import pl.citybikerandroid.network.LocationRequest.LocationRequestListener;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ComponentName;
@@ -38,10 +40,12 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
-public class WelcomeActivity extends Activity {
+public class WelcomeActivity extends Activity implements LocationRequestListener {
 	
 	public static final int ACTION_CODE_QR_SCANNING = 4534535;
 	
@@ -54,6 +58,8 @@ public class WelcomeActivity extends Activity {
 
 	private SpiceManager contentManager = new SpiceManager(
 			JacksonSpringAndroidSpiceService.class);
+	
+	CollectionRequest<StationCollection> collectionRequest;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -222,11 +228,17 @@ public class WelcomeActivity extends Activity {
 	}
 
 	private void performStationsRequest(int limit) {
-		CollectionRequest<StationCollection> request = new CollectionRequest<StationCollection>(
+		collectionRequest = new CollectionRequest<StationCollection>(
 				StationCollection.class, Constants.STATIONS_URI);
-		request.addLimit(Integer.toString(limit));
-		request.addLocation("21.016181,52.216837");
-		request.perform(contentManager, new StationCollectionRequest(getApplicationContext()));
+		collectionRequest.addLimit(Integer.toString(limit));
+		LocationRequest lr = new LocationRequest(this,this);
+	}
+	
+	@Override
+	public void onLocationResult(double[] loc, LocationRequest request) {
+		request.stop();
+		collectionRequest.addLocation(Double.toString(loc[0])+","+Double.toString(loc[1]));
+		collectionRequest.perform(contentManager, new StationCollectionRequest(getApplicationContext()));
 	}
 	
 	private class StationCollectionRequest extends CollectionRequestListener<StationCollection> {
@@ -244,7 +256,6 @@ public class WelcomeActivity extends Activity {
 				performMessagesRequest(bs, "logistic", 1);
 				adapter.add(station);
 			}
-			adapter.notifyDataSetChanged();
 		}
 	}
 
@@ -279,7 +290,7 @@ public class WelcomeActivity extends Activity {
 			adapter.notifyDataSetChanged();
 		}
 	}
-
+	
 	private class StationsAroundAdapter extends ArrayAdapter<Station> {
 
 		public StationsAroundAdapter(Context context, int textViewResourceId) {

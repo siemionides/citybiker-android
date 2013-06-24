@@ -3,21 +3,30 @@ package pl.citybikerandroid.activities;
 import java.util.ArrayList;
 import java.util.Date;
 
+//import com.example.android.searchabledict.DictionaryDatabase;
+
 import pl.citybikerandroid.R;
+import pl.citybikerandroid.domain.Bike;
 import pl.citybikerandroid.domain.InformativeMessage;
 import pl.citybikerandroid.domain.LogisticalMessage;
 import pl.citybikerandroid.domain.Message;
 import pl.citybikerandroid.domain.ServiceMessage;
 import pl.citybikerandroid.domain.Station;
+import pl.citybikerandroid.providers.BikeStationDatabase;
+import pl.citybikerandroid.providers.BikeStationProvider;
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -30,6 +39,15 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class StationActivity extends Activity {
+	
+	
+	
+	/** Station associated to this activity*/
+	private Station station = null;
+	
+	/** Tab host needs to be accessible to inflate different actionBars
+	 * for different tabs*/
+	private TabHost tabs = null;
 
 	/** Adapter for ListView of Informal Messages (for informal tab) objects */
 	StationMessagesAdapter<InformativeMessage> adapterInformalMsg = null;
@@ -49,8 +67,18 @@ public class StationActivity extends Activity {
 		setContentView(R.layout.bike_station_activity);
 
 		/* Fill tabs */
-		TabHost tabs = (TabHost) findViewById(R.id.TabHost01);
+		tabs = (TabHost) findViewById(R.id.TabHost01);
 		tabs.setup();
+		
+		/* invalidate menu when tabs is changed - different layouts has to be injected*/
+		tabs.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+			
+			@Override
+			public void onTabChanged(String tabId) {
+				StationActivity.this.invalidateOptionsMenu();
+				
+			}
+		});
 
 		TabHost.TabSpec spec1 = tabs.newTabSpec("tag1");
 		spec1.setContent(R.id.tab1Layout);
@@ -68,11 +96,46 @@ public class StationActivity extends Activity {
 		tabs.addTab(spec3);
 	
 		
-		
-		
 		//if intent is present
 		Intent i = getIntent();
 		Station bs = (Station) i.getSerializableExtra(Station.SERIALIZABLE_NAME);
+		
+		//Just debug check - if nothing was returned from intent (activit start explicitely)
+//		if (bs == null || getIntent().getData() != null){
+//		bs = new Station(
+//				"ul Warynskiego - ul. Nowowiejska", "6364",
+//				Station.MORE_THAN_FOUR);
+//		
+//			bs.addInformativeMessage(new InformativeMessage(
+//					"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
+//			bs.addInformativeMessage(new InformativeMessage(
+//					" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
+//			bs.addInformativeMessage(new InformativeMessage(
+//					"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
+//			
+//			
+//			
+//			bs.addLogisticalMessage(new LogisticalMessage(
+//					"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
+//					new Station(), bs, 3432));
+//			
+//			bs.addLogisticalMessage(new LogisticalMessage(
+//					"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
+//					new Station(), bs, 343));
+//			bs.addLogisticalMessage(new LogisticalMessage(
+//					"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
+//					new Station(), bs, 453));
+//			
+//		
+//			bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
+//			bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
+//			bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
+//		
+//	}
+		
+		// add to variable
+		this.station = bs;
+		
 		// populate views
 		populateListViews(bs);	
 	}
@@ -81,63 +144,36 @@ public class StationActivity extends Activity {
 	/** Injects the listview with sample fake data */
 	private void populateListViews(final Station bs) {
 
-//		// Array list of countries
-//		ArrayList<BikeStationAround> stationAroundList = new ArrayList<BikeStationAround>();
-
-		//for debug for now 
-//		if (bs == null){
-//			bs = new Station(
-//					"ul Warynskiego - ul. Nowowiejska", "6364",
-//					Station.MORE_THAN_FOUR);
-//			
-//				bs.addInformativeMessage(new InformativeMessage(
-//						"Bardzo piękny dzień, jest super!",new Date(2012,05,23,17,34)));
-//				bs.addInformativeMessage(new InformativeMessage(
-//						" jest super, dobry dzień!",new Date(2012,03,23,12,34)));
-//				bs.addInformativeMessage(new InformativeMessage(
-//						"Bardzo super dzień, jest super!", new Date(2011,04,18,123,34)));
-//				
-//				
-//				
-//				bs.addLogisticalMessage(new LogisticalMessage(
-//						"Będę za 15 minut na 6364", LogisticalMessage.GOING_TO,
-//						new Station(), bs, 3432));
-//				
-//				bs.addLogisticalMessage(new LogisticalMessage(
-//						"Będę za 23 minut na 6376", LogisticalMessage.GOING_TO,
-//						new Station(), bs, 343));
-//				bs.addLogisticalMessage(new LogisticalMessage(
-//						"Zajęło mi to naście minut", LogisticalMessage.TIME_BETWEEN,
-//						new Station(), bs, 453));
-//				
-//			
-//				bs.addServiceMessage(new ServiceMessage("Dzwonek nie działa!"));
-//				bs.addServiceMessage(new ServiceMessage("Hamulec nie działa!"));
-//				bs.addServiceMessage(new ServiceMessage("Światło nie działa! nie działa!"));
-//			
-//		}
-
 		//get prefixed for station name and station id textfield
 		String stationLocationPrefix = getResources().getString(R.string.activity_station_location) + " ";
 		String stationDistrictPrefix = getResources().getString(R.string.activity_station_district) + " ";
+		String stationNumberPrefix = getResources().getString(R.string.activity_station_number) + " ";
 		
 		//set station name, id for informative tab
 		TextView tv = (TextView) findViewById(R.id.tab_inf_station_location_text);
 		tv.setText(stationLocationPrefix + bs.getLocation());
 		tv = (TextView) findViewById(R.id.tab_inf_station_district_text);
 		tv.setText(stationDistrictPrefix + bs.getDistrict());
+		tv = (TextView) findViewById(R.id.tab_inf_station_number_text);
+		tv.setText(stationNumberPrefix + bs.getNumber());
+		
 		
 		//set station name, id for logistical tab
 		tv = (TextView) findViewById(R.id.tab_log_station_location_text);
 		tv.setText(stationLocationPrefix + bs.getLocation());
 		tv = (TextView) findViewById(R.id.tab_log_station_district_text);
 		tv.setText(stationDistrictPrefix + bs.getDistrict());
+		tv = (TextView) findViewById(R.id.tab_log_station_number_text);
+		tv.setText(stationNumberPrefix + bs.getNumber());
 		
 		//set station name, id for service tab
 		tv = (TextView) findViewById(R.id.tab_ser_station_location_text);
 		tv.setText(stationLocationPrefix + bs.getLocation());
 		tv = (TextView) findViewById(R.id.tab_ser_station_district_text);
 		tv.setText(stationDistrictPrefix + bs.getDistrict());
+		tv = (TextView) findViewById(R.id.tab_ser_station_number_text);
+		tv.setText(stationNumberPrefix + bs.getNumber());
+		
 		
 		adapterInformalMsg = new StationMessagesAdapter<InformativeMessage>(this, 
 				R.layout.bike_station_list_item, bs.getInformativeMessages());
@@ -259,5 +295,31 @@ public class StationActivity extends Activity {
 			// prepare messages string
 			return convertView;
 		}
+	}
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch(item.getItemId()){
+		case R.id.menu_new_message:
+			Intent i = new Intent(StationActivity.this, NewMessageStationActivity.class);
+			i.putExtra(Station.SERIALIZABLE_NAME, this.station);
+			startActivity(i);
+			break;
+		
+		case R.id.menu_search_message:
+			break;
+			
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		
+		if(tabs.getCurrentTabTag().equals("tag2")){
+			getMenuInflater().inflate(R.menu.station_screen_logisical_tab, menu);
+		}else{
+			getMenuInflater().inflate(R.menu.station_screen_main, menu);
+		}
+		return super.onCreateOptionsMenu(menu);
 	}
 }

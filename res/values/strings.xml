@@ -3,7 +3,11 @@
 
     <!--  Navigation -->
     <string name="menu_search_bike">Search Bike</string>
+    <string name="menu_search_bike_qr">Search Bike QR</string>
     <string name="menu_search_station">Search Station</string>
+    <string name="menu_new_message">New Message</string>
+    <string name="menu_search_message">Search Message</string>
+    <string name="menu_filter_message">Search Message</string>
     
     <string name="app_label">app label</string>
     <string name="search_station_hint">Search for station locations and districts</string>
@@ -19,11 +23,15 @@
     
     <string name="activity_station_location">Station location:</string>
     <string name="activity_station_district">Station district:</string>
+   	<string name="activity_station_number">Station Number: </string>
     
     
        <!-- Bike Activity -->
        
     <string name="activity_bike_number">Bike number:</string>
+    
+    <string name="part_of_bike_prompt">Choose bike part:</string>
+    
     
     <!-- New Message -->
      <string-array name="parts_of_bike_array">
@@ -36,6 +44,136 @@
         <item></item>
         <item>India</item>
     </string-array>
+    
+     <string-array name="stations_ids">
+         <item>	 Wrocławska - ZUS;0	</item>
+        <item>	 ul. Słomińskiego - Metro Dw. Gdański;6300	</item>
+        <item>	 ul. Andersa - ul. Muranowska;6301	</item>
+        <item>	 Metro Ratusz Arsenał Południowy;6302	</item>
+        <item>	 pl. Bankowy, rejon Ratusza;6303	</item>
+        <item>	 pl. Bankowy;6304	</item>
+        <item>	 ul. Andersa, rejon Pl. Bankowego i ul. Długiej;6305	</item>
+        <item>	 ul. Marszałkowska - pl. Bankowy;6306	</item>
+        <item>	 ul. Marszałkowska - ul. Królewska;6307	</item>
+        <item>	 ul. Bracka - ul. Krucza;6309	</item>
+        <item>	 Al. Jerozolimskie, rejon rotundy;6310	</item>
+        <item>	 ul. Nowy Świat - Rondo de Gaulle\'a;6311	</item>
+        <item>	 Al. 3-go Maja, rejon Dw. Powiśle;6312	</item>
+        <item>	 ul. Topiel - ul. Tamka;6313	</item>
+        <item>	 ul. Oboźna - ul. Kopernika;6314	</item>
+        <item>	 ul. Bonifraterska - Plac Krasińskich;6315	</item>
+        <item>	 ul. Miodowa;6316	</item>
+        <item>	 ul. Anielewicza - ul. Andersa;6317	</item>
+        <item>	 al. Jana Pawła II - al. Solidarności;6318	</item>
+        <item>	 al. Jana Pawła II - pl. Mirowski;6319	</item>
+        <item>	 ul. Grzybowska - Al. Jana Pawła II;6320	</item>
+        <item>	 al. Jana Pawła II - ul. Stawki;6321	</item>
+        <item>	 ul. Krucza - ul. Wspólna;6322	</item>
+        <item>	 ul. Traugutta - ul. Krakowskie Przedmieście;6323	</item>
+        <item>	 BUW - ul. Gęsta/ul. Dobra;6325	</item>
+        <item>	 al. Jana Pawła II - ul. Anielewicza;6326	</item>
+        <item>	 ul. Gałczyńskiego - ul. Foksal;6327	</item>
+        <item>	 ul. Kościelna - Nowe Miasto;6328	</item>
+        <item>	 Wybrzeże Kościuszkowskie - Centrum Nauki Kopernik;6329	</item>
+        <item>	 ul. Solec przy Al.3-go Maja;6330	</item>
+        <item>	 Metro Stare Bielany ul. Kasprowicza;6331	</item>
+        <item>	 Metro Słodowiec;6332	</item>
+        <item>	 Urząd Dzielnicy Bielany - ul. Żeromskiego;6335	</item>
+        <item>	 ul. Broniewskiego - ul. Perzyńskiego;6336	</item>
+        <item>	 ul. Conrada;6337	</item>
+        <item>	 Metro Ursynów - ul. Beli Bartoka 1;6338	</item>
+        <item>	 Metro Ursynów - ul. Beli Bartoka 2;6339	</item>
+        <item>	 Metro Stokłosy - Al. Komisji Edukacji Narodowej;6340	</item>
+        <item>	 SGGW I;6341	</item>
+        <item>	 SGGW II;6342	</item>
+        <item>	 ul. Dereniowa - ul. Płaskowickiej;6343	</item>
+        <item>	 Metro Imielin - Ratusz Ursynów;6344	</item>
+        <item>	 ul. Pileckiego - ul. Alternatywy;6345	</item>
+        <item>	 ul. Ciszewskiego - ul. Pileckiego;6346	</item>
+        <item>	 ul. Puławska - ul. Pileckiego;6347	</item>
+        <item>	 ul. Romera - ul. Pieciolinii;6348	</item>
+        <item>	 ul. Rosoła - ul. Gandhi;6349	</item>
+        <item>	 ul. Rosoła - ul. Wesoła;6350	</item>
+        <item>	 UKSW I - ul. Dewajtis;6351	</item>
+        <item>	 UKSW II;6352	</item>
+        <item>	 AWF I;6353	</item>
+        <item>	 AWF II;6354	</item>
+        <item>	 ul. Ks. Hlonda;6355	</item>
+        <item>	 ul. Przyczółkowa - Al. Wilanowska;6356	</item>
+        <item>	 Arkadia;6357	</item>
+        <item>	 Al. Jerozolimskie/ul.E. Plater (Mariott);6358	</item>
+        <item>	 Plac Politechniki-ul. Nowowiejska;6359	</item>
+        <item>	 Trasa Armii Ludowej, rejon Palcu na Rozdrożu;6360	</item>
+        <item>	 Metro Politechnika-Rondo Jazdy Polskiej;6361	</item>
+        <item>	 Plac Trzech Krzyży;6362	</item>
+        <item>	 Plac Konstytucji;6363	</item>
+        <item>	 ul. Waryńskiego-ul. Nowowiejska-Metro Politechnika;6364	</item>
+        <item>	 ul. Marszałkowska, rejon ul. Złotej;6365	</item>
+        <item>	 ul. Noakowskiego-ul.Koszykowa;6366	</item>
+        <item>	 ul. Marszałkowska-Al. Jerozolimskie;6367	</item>
+        <item>	 ul. Sierakowskiego-ul. Kłopotowskiego;6368	</item>
+        <item>	 ul. Floriańska- rejon Bazyliki Św. Floriana;6369	</item>
+        <item>	 ul. Wałbrzyska Al. KEN - Metro Służew;6370	</item>
+        <item>	 ul. Wybrzeże Helskie- Zoo- Wejście PN;6371	</item>
+        <item>	 ul. Kijowska-Dworzec Wschodni;6372	</item>
+        <item>	 Aleja Zieleniecka - Teatr Powszechny;6373	</item>
+        <item>	 Rondo Waszyngtona - Stadion Narodowy;6374	</item>
+        <item>	 Al. Jerozolimskie- Metro Centrum;6375	</item>
+        <item>	 Plac Zbawiciela- Nowowiejska- Mokotowska;6376	</item>
+        <item>	 ul. Lindleya-Szpital Kliniczny Dzieciątka Jezus;6377	</item>
+        <item>	 Oczki- Akademia Medyczna;6378	</item>
+        <item>	 Al. Jerozolimskie- Plac Zawiszy;6379	</item>
+        <item>	 ul. Raszyńska- Pomnik Lotnika;6380	</item>
+        <item>	 ul. Poznańska- Zespół Szkół Gastronomicznych;6381	</item>
+        <item>	 ul. Marszałkowska- Metro Świętokrzyska;6382	</item>
+        <item>	 Al. Solidarności- LO Władysława IV;6383	</item>
+        <item>	 ul. Ratuszowa- ZOO- wejście PD;6384	</item>
+        <item>	 Pl. Hallera- Dąbrowszczaków;6385	</item>
+        <item>	 ul. Walecznych- Peszteńska;6386	</item>
+        <item>	 ul. Francuska- Walecznych;6387	</item>
+        <item>	 ul. Lipowa- Dobra;6388	</item>
+        <item>	 Pl. Grzybowski- Próżna;6389	</item>
+        <item>	 Pl. Unii Lubelskiej- Puławska;6390	</item>
+        <item>	 ul. Myśliwiecka- LO Stefana Batorego;6391	</item>
+        <item>	 Al. Armii Ludowej- Budynek FOCUS;6392	</item>
+        <item>	 Rondo Starzyńskiego;6393	</item>
+        <item>	 ul. Emilii Plater- Świętokrzyska;6394	</item>
+        <item>	 ul. Emilii Plater- Al. Jerozolimskie;6395	</item>
+        <item>	 ul. Lindleya- Al. Jerozolimskie;6396	</item>
+        <item>	 ul. Grójecka- Pl. Narutowicza;6397	</item>
+        <item>	 ul. Białobrzeska- Kopińska;6398	</item>
+        <item>	 ul. Lubelska- Dw. Warszawa Wschodniap;6399	</item>
+        <item>	 ul. Książęca- Rozbrat;6400	</item>
+        <item>	 ul. Ordynacka- Okólnik;6401	</item>
+        <item>	 ul. Trębacka- Krakowskie Przedmieście;6402	</item>
+        <item>	 ul. Warecka- Nowy Świat;6403	</item>
+        <item>	 ul. Mokotowska- Nowy Świat;6404	</item>
+        <item>	 ul. Wąwozowa- Al. KEN- Metro Kabaty;6405	</item>
+        <item>	 Al. Komisji Edukacji Narodowej- Metro Natolin;6406	</item>
+        <item>	 ul. Grzybowska- Żelazna;6407	</item>
+        <item>	 ul. Wybrzeże Gdańskie- Sanguszki- Skwer 1 Dywizji Pancernej;6408	</item>
+        <item>	 ul. Słowackiego- Metro Marymont;6409	</item>
+        <item>	 Al. Jana Pawła II- Plac Grunwaldzki;6410	</item>
+        <item>	 Plac Inwalidów;6411	</item>
+        <item>	 ul. Żelazna- Sienna;6412	</item>
+        <item>	 Al. Solidarności- Urząd Dzielnicy Wola;6413	</item>
+        <item>	 ul. Matejki-Wiejska;6414	</item>
+        <item>	 ul. Chłodna-Żelazna;6415	</item>
+        <item>	 Al. Lotników- Modzelewskiego;6416	</item>
+        <item>	 Al. Niepodległości- Wilanowska;6417	</item>
+        <item>	 ul. Górskiego- Szpitalna;6418	</item>
+        <item>	 Fabryka Wódek Koneser;6419	</item>
+        <item>	 Al. Niepodległości- Batorego;6420	</item>
+        <item>	 ul. Marymoncka- Dewajtis;6421	</item>
+        <item>	 ul. Radzymińska- Piotra Skargi;6422	</item>
+        <item>	 ul. Stefana Banacha- Uniwesytet Warszawski;6423	</item>
+        <item>	 ul. Pasteura- Winnicka- UW;6424	</item>
+        <item>	 ul. Stalowa- ul. 11-go Listopada;6425	</item>
+        <item>	 Metro Młociny;6426	</item>
+        <item>	 ul. Królewska/ Plac Małachowskiego;6308	</item>
+
+</string-array>
+     
     
 
 </resources>

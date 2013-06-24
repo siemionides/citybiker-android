@@ -14,17 +14,26 @@
           android:showAsAction="collapseActionView|ifRoom"
            />
     
-    
-    
-    
-    <item
-         android:id="@+id/menu_search_bike_qr"
-          android:icon="@drawable/icon_qrcode_search_bike"
-          android:title="@string/menu_search_bike_qr"
+    <item android:id="@+id/menu_new_message"
+          android:icon="@drawable/icon_new_message"
+          android:title="@string/menu_new_message"
           android:showAsAction="collapseActionView|ifRoom"
            />
     
-    <item       
+    <item android:id="@+id/menu_search_message"
+          android:icon="@drawable/icon_search_message"
+          android:title="@string/menu_search_message"
+          android:showAsAction="collapseActionView|ifRoom"
+           />
+    
+    <!-- Message filter option for tab2 -->
+    <item
+        android:id="@+id/menu_filter_message"
+        android:icon="@drawable/icon_message_filter"
+        android:showAsAction="collapseActionView|ifRoom"
+        android:title="@string/menu_filter_message"/>
+    
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"

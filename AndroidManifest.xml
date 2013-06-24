@@ -17,24 +17,32 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    
+    <uses-feature android:name="android.hardware.camera" />
+    
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:uiOptions="splitActionBarWhenNarrow" >
 
         <!-- Welcome Activity -->
         <activity
             android:name="pl.citybikerandroid.activities.WelcomeActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop" >
-            <intent-filter>
+      
+           
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+            
+             
+      
             <!-- Receives the search request. -->
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
@@ -50,19 +58,25 @@
         <!-- BikeStationActivity -->
         <activity
             android:name="pl.citybikerandroid.activities.StationActivity"
-            android:label="@string/app_name" >
+            android:label="station" 
+            >
+            
+       
+            
         </activity>
 
         <!-- BikeActivity -->
         <activity
             android:name="pl.citybikerandroid.activities.BikeActivity"
-            android:label="@string/app_name" >
+            android:label="bike" >
         </activity>
 
+        
+        
         <!-- Single MEssage Activity -->
         <activity
             android:name="pl.citybikerandroid.activities.SingleMessageActivity"
-            android:label="@string/app_name" >
+            android:label="view message" >
         </activity>
 
         <service
@@ -73,6 +87,23 @@
         <provider
             android:name="pl.citybikerandroid.providers.BikeStationProvider"
             android:authorities="pl.citybikerandroid.providers.BikeStationProvider" />
+        
+        
+        <!-- new Message bike  Activity -->
+        <activity
+            android:name="pl.citybikerandroid.activities.NewMessageBikeActivity"
+            android:label="new message (bike)" >
+            
+        </activity>
+        
+        <!-- new Message station  Activity -->
+        <activity
+            android:name="pl.citybikerandroid.activities.NewMessageStationActivity"
+            android:label="new message (station)" >
+            
+    
+            
+        </activity>
 
         <!--
         <activity 

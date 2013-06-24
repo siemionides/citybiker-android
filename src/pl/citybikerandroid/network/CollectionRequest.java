@@ -1,11 +1,15 @@
 package pl.citybikerandroid.network;
 
-import org.springframework.http.HttpEntity;
+import java.net.URI;
+
 import org.springframework.http.ResponseEntity;
 
 import pl.citybikerandroid.Constants;
 import android.net.Uri;
 
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.persistence.DurationInMillis;
+import com.octo.android.robospice.request.listener.RequestListener;
 import com.octo.android.robospice.request.springandroid.SpringAndroidSpiceRequest;
 
 public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
@@ -16,13 +20,12 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 	private String sort;
 	private String limit;
 	private String fields;
-	private String body;
+	private String location;
 
 	public CollectionRequest(Class<T> type, String uri) {
 		super(type);
 		this.type = type;
 		this.uri = uri;
-		this.body = "";
 	}
 
 	public CollectionRequest<T> addFilter(String filter) {
@@ -42,18 +45,26 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 
 	public CollectionRequest<T> addFields(String fields) {
 		this.fields = (fields == null ? "" : fields);
-		;
 		return this;
 	}
 	
-	public CollectionRequest<T> addBody(String body) {
-		this.body = (body == null ? "" : body);
-		;
+	public CollectionRequest<T> addLocation(String location) {
+		this.location = (location == null ? "" : location);
 		return this;
 	}
 
 	@Override
 	public T loadDataFromNetwork() throws Exception {
+		URI url = new URI(createURI().build().toString());;
+		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type);
+		return response.getBody();
+	}
+
+	public String createCacheKey() {
+		return createURI().toString();
+	}
+	
+	private Uri.Builder createURI() {
 		Uri.Builder uriBuilder = Uri.parse(Constants.HOST_PORT + uri)
 				.buildUpon();
 
@@ -61,17 +72,15 @@ public class CollectionRequest<T> extends SpringAndroidSpiceRequest<T> {
 		if (sort != null) uriBuilder.appendQueryParameter("sort", sort);
 		if (limit != null) uriBuilder.appendQueryParameter("limit", limit);
 		if (fields != null) uriBuilder.appendQueryParameter("fields", fields);
+		if (location != null) uriBuilder.appendQueryParameter("location", location);
 
-
-		String url = uriBuilder.build().toString();
-		
-		HttpEntity<String> request = new HttpEntity<String>(""); // TODO: no body now, need to add
-		ResponseEntity<T> response = getRestTemplate().getForEntity(url, type); //exchange(url, HttpMethod.GET, request, type);
-		return response.getBody();
+		return uriBuilder;
 	}
-
-	public String createCacheKey() {
-		return uri;
+	
+	public void perform(SpiceManager contentManager, RequestListener<T> listener) {
+		contentManager.execute(this, createCacheKey(),
+				DurationInMillis.ONE_SECOND,
+				listener);
 	}
 
 }

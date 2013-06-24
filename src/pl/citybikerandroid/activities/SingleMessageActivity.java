@@ -12,6 +12,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.ViewDebug.CapturedViewProperty;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -86,5 +88,14 @@ public class SingleMessageActivity extends Activity{
 		tv.setText(messageText);
 		
 		//populate Photo
+		//TODO
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		
+		getMenuInflater().inflate(R.menu.welcome, menu);
+
+		return super.onCreateOptionsMenu(menu);
 	}
 }

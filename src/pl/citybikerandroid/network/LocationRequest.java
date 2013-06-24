@@ -92,7 +92,7 @@ public class LocationRequest implements
 
 	private void performLocationRequest() {
 		LocationNetworkRequest lnr = new LocationNetworkRequest(Location.class);
-		contentManager.execute(lnr, "locationAPI", DurationInMillis.ONE_MINUTE,
+		contentManager.execute(lnr, "locationAPI", 10*DurationInMillis.ONE_MINUTE,
 				new LocationNetworkRequestListener());
 	}
 

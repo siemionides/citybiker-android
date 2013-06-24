@@ -16,12 +16,14 @@ import pl.citybikerandroid.domain.StationCollection;
 import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.network.CollectionRequest;
 import pl.citybikerandroid.network.CollectionRequestListener;
+import pl.citybikerandroid.providers.BikeStationDatabase;
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +40,7 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import com.example.android.searchabledict.WordActivity;
 import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
@@ -62,7 +65,8 @@ public class WelcomeActivity extends Activity {
 		handleIntent(getIntent());
 		displayListView();
 		
-		
+		//debug - were' not using it, all Stations are hardcoded 
+//		performAllStationsRequest();
 	}
 
 	@Override
@@ -77,9 +81,24 @@ public class WelcomeActivity extends Activity {
 		super.onStop();
 	}
 
+	/** handles Intent from search suggestions service*/
 	private void handleIntent(Intent intent) {
+		/* this handles when user clicks on elements*/
 		if (Intent.ACTION_VIEW.equals(intent.getAction())) {
-			Log.d("debug", "handle Intent");
+			//when user click on suggested result - start BikeStationActivity
+			//content://pl.citybikerandroid.providers.BikeStationProvider/bikestation/29
+			
+				Uri uri = intent.getData();
+		       Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+		       
+		        if (cursor == null) {
+		            finish();
+		        } else {
+		            cursor.moveToFirst();
+		            String stationNumber = cursor.getString(cursor.getColumnIndex(BikeStationDatabase.KEY_STATION_ID));
+		            performOneStationRequest(stationNumber);
+		        }
+		            
 		} else if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
 			String query = intent.getStringExtra(SearchManager.QUERY);
 			showResults(query);
@@ -247,7 +266,82 @@ public class WelcomeActivity extends Activity {
 			adapter.notifyDataSetChanged();
 		}
 	}
+	
+	/** Retrieves all stations data
+	 * For the presentation it's not used and all data info is simply hardcoded in array in strings.xml! */
+	@Deprecated
+	private void performAllStationsRequest() {
+		CollectionRequest<StationCollection> request = new CollectionRequest<StationCollection>(
+				StationCollection.class, Constants.STATIONS_URI);
+//		request.addLimit(Integer.toString(limit));
+//		request.addLocation("21.016181,52.216837");
+		request.perform(contentManager, new AllStationCollectionRequest(getApplicationContext()));
+	}
+	
+	private class AllStationCollectionRequest extends CollectionRequestListener<StationCollection> {
+		
+		public AllStationCollectionRequest(Context context) {
+			super(context);
+		}
 
+		public void performOnSuccess(StationCollection collection) {
+
+			HelperToolkit.makeToast(WelcomeActivity.this, "all data is back, size:" + collection.size());
+			
+			for (Station station : collection){
+				Log.d("debug1", station.getLocation() + ";" + station.getNumber());
+			}
+			//			adapter.clear();
+//			for (Station station : collection) {
+//				Station bs = new Station(station.getLocation(),
+//						station.getNumber(), station.getBicycles());
+//				bs.setId(station.getId());
+//				performMessagesRequest(bs, "logistic", 1);
+//				adapter.add(station);
+//			}
+//			adapter.notifyDataSetChanged();
+		}
+	}
+
+	/** Request performed onSuggestions listview Intem Click */
+	private void performOneStationRequest(String stationNumber){
+		CollectionRequest<StationCollection> request = new CollectionRequest<StationCollection>(
+				StationCollection.class, Constants.STATIONS_URI);
+		request.addFilter("number::" + stationNumber);
+//		request.addLimit(Integer.toString(limit));
+//		request.addLocation("21.016181,52.216837");
+		request.perform(contentManager, new OneStationCollectionRequest(getApplicationContext()));
+	}
+	
+	
+	/** Request performed onSuggestions listview Intem Click*/
+	private class OneStationCollectionRequest extends CollectionRequestListener<StationCollection> {
+
+		public OneStationCollectionRequest(Context context) {
+			super(context);
+			// TODO Auto-generated constructor stub
+		}
+
+		/** On success we are starting new Station Activity*/
+		@Override
+		public void performOnSuccess(StationCollection collection) {
+			if (collection.size() != 1){
+				for(Station s : collection){
+					Log.d("debug5", "returned station (nr)" + s.getNumber() + " , (name:)" + s.getLocation());
+				}
+				
+				throw new IllegalStateException("Collection returned should contain only 1 station, and it contains:" + collection.size());
+			}else{
+				Log.i("debug4", "receiving one station from requests, starting new activity");
+				Station s = collection.get(0);
+				Intent stationIntent = new Intent(WelcomeActivity.this, StationActivity.class);
+				stationIntent.putExtra(Station.SERIALIZABLE_NAME, s);
+				startActivity(stationIntent);
+			}
+		}
+	}
+	
+	
 	private void performMessagesRequest(Station station, String type, int limit) {
 
 		if (type == null || type.trim().isEmpty())

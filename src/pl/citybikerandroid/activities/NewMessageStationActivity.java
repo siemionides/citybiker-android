@@ -4,14 +4,20 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.springframework.http.HttpEntity;
+
+import pl.citybikerandroid.Constants;
 import pl.citybikerandroid.R;
 import pl.citybikerandroid.domain.Message;
 import pl.citybikerandroid.domain.Station;
 import pl.citybikerandroid.helper.HelperToolkit;
+import pl.citybikerandroid.network.SingleAndFieldRequestListener;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -28,6 +34,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
+import com.octo.android.robospice.SpiceManager;
+import com.octo.android.robospice.request.springandroid.SpringAndroidSpiceRequest;
 
 /**
  * New Mesage for Bike.
@@ -38,7 +49,6 @@ import android.widget.TextView;
  */
 public class NewMessageStationActivity extends Activity {
 
-	
 	private String mCurrentPhotoPath = "";
 	
 	private CheckBox checkBox_photo;
@@ -46,6 +56,21 @@ public class NewMessageStationActivity extends Activity {
 	private ImageView imageView_photo;
 	
 	private Message newMessage = new Message();
+	
+	private SpiceManager contentManager = new SpiceManager(
+			JacksonSpringAndroidSpiceService.class);
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		contentManager.start(this);
+	}
+
+	@Override
+	protected void onStop() {
+		contentManager.shouldStop();
+		super.onStop();
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -93,12 +118,10 @@ public class NewMessageStationActivity extends Activity {
 	
 	}
 	
-	protected void sendMessage() {
+	private void sendMessage() {
 		prepareMessage();
-		
+		performRequest();
 	}
-	
-	
 
 	private void prepareMessage() {
 		TextView stationid = (TextView)findViewById(R.id.tv_new_message_station_id);
@@ -120,12 +143,40 @@ public class NewMessageStationActivity extends Activity {
 		    } catch (Exception e) {
 		        e.printStackTrace();
 		    }
-		}
-			 
+		}	 
 		newMessage.setStationId(stationid.getText().toString());
 		newMessage.setText(text.getText().toString());
 		newMessage.setType(Message.Types.values()[typeIdx].name());
 		newMessage.setSubtype(Message.Types.values()[subtypeIdx].name());
+	}
+	
+	private void performRequest() {
+		SpringAndroidSpiceRequest<String> request = new SpringAndroidSpiceRequest<String>(String.class) {
+			@Override
+			public String loadDataFromNetwork() throws Exception {
+				Uri.Builder uriBuilder = Uri.parse(
+						Constants.HOST_PORT + Constants.MESSAGES_URI).buildUpon();
+				String url = uriBuilder.build().toString();
+				HttpEntity<Message> request = new HttpEntity<Message>(newMessage, null); 
+				return getRestTemplate().postForObject(url, request, String.class);
+			}
+		};
+		contentManager.execute(request, new MessageSendListener(getApplicationContext()));
+	}
+	
+	private class MessageSendListener extends SingleAndFieldRequestListener<String> {
+
+		public MessageSendListener(Context context) {
+			super(context);
+		}
+
+		@Override
+		public void performOnSuccess(String object, Context context) {
+			Toast.makeText(context,
+					"Message now available under: " + object,
+					Toast.LENGTH_LONG).show();
+		}
+		
 	}
 
 	@Override

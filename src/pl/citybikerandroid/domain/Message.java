@@ -10,7 +10,7 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonSerialize(include = Inclusion.NON_NULL)
+@JsonSerialize(include = Inclusion.NON_DEFAULT)
 public class Message implements Serializable {
 
 	public enum Types {

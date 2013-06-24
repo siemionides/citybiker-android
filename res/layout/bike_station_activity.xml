@@ -27,6 +27,13 @@ android:layout_height="fill_parent"
               android:layout_height="wrap_content"
               android:layout_below="@+id/tab_inf_station_location_text"
               android:text="@string/activity_station_district" />
+          
+          <TextView
+              android:id="@+id/tab_inf_station_number_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_inf_station_district_text"
+              android:text="@string/activity_station_number" />
 
           <ListView
               android:id="@+id/tab_inf_listview"
@@ -56,6 +63,14 @@ android:layout_height="fill_parent"
               android:layout_height="wrap_content"
               android:layout_below="@+id/tab_log_station_location_text"
               android:text="@string/activity_station_location" />
+          
+          
+            <TextView
+              android:id="@+id/tab_log_station_number_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_log_station_district_text"
+              android:text="@string/activity_station_number" />
 
           <ListView
               android:id="@+id/tab_log_listview"
@@ -85,6 +100,13 @@ android:layout_height="fill_parent"
               android:layout_height="wrap_content"
               android:layout_below="@+id/tab_ser_station_location_text"
               android:text="@string/activity_station_district" />
+          
+            <TextView
+              android:id="@+id/tab_ser_station_number_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@+id/tab_ser_station_district_text"
+              android:text="@string/activity_station_number" />
 
           <ListView
               android:id="@+id/tab_ser_listview"

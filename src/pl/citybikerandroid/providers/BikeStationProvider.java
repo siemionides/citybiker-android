@@ -16,7 +16,7 @@ public class BikeStationProvider extends ContentProvider {
 	
 
     public static String AUTHORITY = "pl.citybikerandroid.providers.BikeStationProvider";
-    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/bikestation");
+    public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/bikestations");
     
     
     // MIME types used for searching words or looking up a single definition
@@ -43,6 +43,7 @@ public class BikeStationProvider extends ContentProvider {
         // to get definitions...
         matcher.addURI(AUTHORITY, "bikestations", SEARCH_WORDS);
         matcher.addURI(AUTHORITY, "bikestations/#", GET_WORD);
+        matcher.addURI(AUTHORITY, "bikestation/#", GET_WORD);
         // to get suggestions...
         matcher.addURI(AUTHORITY, SearchManager.SUGGEST_URI_PATH_QUERY, SEARCH_SUGGEST);
         matcher.addURI(AUTHORITY, SearchManager.SUGGEST_URI_PATH_QUERY + "/*", SEARCH_SUGGEST);

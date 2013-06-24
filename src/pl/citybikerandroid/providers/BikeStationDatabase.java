@@ -4,10 +4,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import pl.citybikerandroid.R;
+import pl.citybikerandroid.activities.WelcomeActivity;
+
+//import android.R;
 import android.app.SearchManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorJoiner;
+import android.database.MergeCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
@@ -19,13 +25,16 @@ public class BikeStationDatabase {
 	
 	 private static final String TAG = "BikeStationDatabase";
 	 
+	 
+	 	private Context context;  
+	 
 	 //The columns we'll include in the dictionary table
 	    public static final String KEY_STATION_NAME = SearchManager.SUGGEST_COLUMN_TEXT_1;
 	    public static final String KEY_STATION_ID = SearchManager.SUGGEST_COLUMN_TEXT_2;
 
 	    private static final String DATABASE_NAME = "bikestations";
 	    private static final String FTS_VIRTUAL_TABLE = "FTSdictionary";
-	    private static final int DATABASE_VERSION = 3;
+	    private static final int DATABASE_VERSION = 8;
 
 	    private final BikeStationOpenHelper mDatabaseOpenHelper;
 	    private static final HashMap<String,String> mColumnMap = buildColumnMap();
@@ -37,6 +46,7 @@ public class BikeStationDatabase {
 	     * @param context The Context within which to work, used to create the DB
 	     */
 	    public BikeStationDatabase(Context context) {
+	    	
 	        mDatabaseOpenHelper = new BikeStationOpenHelper(context);
 	    }
 	    
@@ -87,10 +97,25 @@ public class BikeStationDatabase {
 	     * @return Cursor over all words that match, or null if none found.
 	     */
 	    public Cursor getWordMatches(String query, String[] columns) {
+//	    	Log.d("debug2", "query:" + query);
+	    	
 	        String selection = KEY_STATION_NAME + " MATCH ?";
 	        String[] selectionArgs = new String[] {query+"*"};
+	        
+	        //combine both
+	        
+	        Cursor curA = query(selection, selectionArgs, columns);
+	        
+	        selection = KEY_STATION_ID + " MATCH ?";
+	        
+	        Cursor curB = query(selection, selectionArgs, columns);
+	        
+	        MergeCursor mCur = new MergeCursor(new Cursor[] {curA, curB});
+	        return mCur;
+//	        CursorJoiner joiner = new CursorJoiner(curA, columns, curB, columns);
+//	       	return joiner;
 
-	        return query(selection, selectionArgs, columns);
+//	        return query(selection, selectionArgs, columns);
 
 	        /* This builds a query that looks like:
 	         *     SELECT <columns> FROM <table> WHERE <KEY_WORD> MATCH 'query*'
@@ -186,22 +211,34 @@ public class BikeStationDatabase {
 	        private void loadWords() throws IOException {
 	            Log.d(TAG, "Loading words...");
 	            
+	            String[] pairs = mHelperContext.getResources().getStringArray(R.array.stations_ids);
+	            
+	  
 	            ArrayList<String> stationNames = new ArrayList<String>();
-	            	stationNames.add("ul. Namyslowaska - ul. Politechnika");
-	            	stationNames.add("ul. Marszalkowska - ul. niemarszalkowska");
-	            	stationNames.add("ul. Najlepsza - ul. Najrosza");
-	            	stationNames.add("Iksinska");
-	            	stationNames.add("65434");
-	            	stationNames.add("5434");
-	            	stationNames.add("4434");
 	            ArrayList<String> stationIds = new ArrayList<String>();
-	            	stationIds.add("65443");
-	            	stationIds.add("65442");
-	            	stationIds.add("65441");
-	            	stationIds.add("45441");
-	            	stationIds.add("och");//bike
-	            	stationIds.add("ach");//bike
-	            	stationIds.add("ech"); // bike
+	            for(String s : pairs){
+	            	String[] name_nr = s.split(";");
+	            	stationNames.add(name_nr[0]);
+	            	stationIds.add(name_nr[1]);
+	            }
+	            
+//	            	stationNames.add("ul. Namyslowaska - ul. Politechnika");
+//	            	stationNames.add("ul. Marszalkowska - ul. niemarszalkowska");
+//	            	stationNames.add("ul. Najlepsza - ul. Najrosza");
+//	            	stationNames.add("Iksinska");
+//	            	stationNames.add("65434");
+//	            	stationNames.add("5434");
+//	            	stationNames.add("4434");
+//	           
+//	            	stationIds.add("65443");
+//	            	stationIds.add("65442");
+//	            	stationIds.add("65441");
+//	            	stationIds.add("45441");
+//	            	stationIds.add("och");//bike
+//	            	stationIds.add("ach");//bike
+//	            	stationIds.add("ech"); // bike
+	            
+	            Log.d("debug1", "added this many station-ids:" + stationNames.size());
 	            
 	            for(int i = 0; i < stationIds.size(); i++){
 	            	addWord(stationNames.get(i), stationIds.get(i));

@@ -24,7 +24,6 @@ public abstract class CollectionRequestListener<T> implements RequestListener<T>
 			}
 
 			performOnSuccess(collection);
-			
 		}
 		
 		abstract public void performOnSuccess(T collection);

@@ -16,7 +16,12 @@ import pl.citybikerandroid.domain.StationCollection;
 import pl.citybikerandroid.helper.HelperToolkit;
 import pl.citybikerandroid.network.CollectionRequest;
 import pl.citybikerandroid.network.CollectionRequestListener;
+<<<<<<< HEAD
 import pl.citybikerandroid.providers.BikeStationDatabase;
+=======
+import pl.citybikerandroid.network.LocationRequest;
+import pl.citybikerandroid.network.LocationRequest.LocationRequestListener;
+>>>>>>> c8a35d1632ba842a62d68059fae8bafd95890d6e
 import android.app.Activity;
 import android.app.SearchManager;
 import android.content.ComponentName;
@@ -40,8 +45,12 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
+//import com.example.android.searchabledict.WordActivity;
+=======
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
+>>>>>>> c8a35d1632ba842a62d68059fae8bafd95890d6e
 import com.octo.android.robospice.JacksonSpringAndroidSpiceService;
 import com.octo.android.robospice.SpiceManager;
 
@@ -272,7 +281,6 @@ public class WelcomeActivity extends Activity implements LocationRequestListener
 				performMessagesRequest(bs, "logistic", 1);
 				adapter.add(station);
 			}
-			adapter.notifyDataSetChanged();
 		}
 	}
 	

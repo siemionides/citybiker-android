@@ -26,6 +26,7 @@ public class Message implements Serializable {
 	private Integer between;
 	private String bikeId;
 	private String stationId;
+	private byte[] photo;
 	private String photo_thumbnail_url;
 	private String photo_large_url;
 	private String createdAt;
@@ -38,6 +39,8 @@ public class Message implements Serializable {
 	@JsonIgnore
 	public static final String AUTHOR_ANONYMOUS = "anonymous";
 	
+	public Message() {
+	}
 	public Message(String text, String authorName, Date date){
 		this.text = text;
 		this.author = authorName;
@@ -131,6 +134,13 @@ public class Message implements Serializable {
 		this.updatedAt = updatedAt;
 	}
 		
+	public byte[] getPhoto() {
+		return photo;
+	}
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+
 	/** Provides data in DESCENDING ORDER */
 	@JsonIgnore
 	public static Comparator<Message> MessageDateComparator = new Comparator<Message>() {

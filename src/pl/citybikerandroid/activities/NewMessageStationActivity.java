@@ -1,11 +1,14 @@
 package pl.citybikerandroid.activities;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import pl.citybikerandroid.R;
+import pl.citybikerandroid.domain.Message;
 import pl.citybikerandroid.domain.Station;
 import pl.citybikerandroid.helper.HelperToolkit;
 import android.app.Activity;
@@ -21,7 +24,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 /**
@@ -39,6 +44,8 @@ public class NewMessageStationActivity extends Activity {
 	private CheckBox checkBox_photo;
 	
 	private ImageView imageView_photo;
+	
+	private Message newMessage = new Message();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +81,7 @@ public class NewMessageStationActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				HelperToolkit.createAlertDialog(NewMessageStationActivity.this,
-						"ERROR",
-						"Not yet Implemented! (in NewMessageStationActivity")
-						.show();
+				sendMessage();
 			}
 		});
 		
@@ -89,6 +93,41 @@ public class NewMessageStationActivity extends Activity {
 	
 	}
 	
+	protected void sendMessage() {
+		prepareMessage();
+		
+	}
+	
+	
+
+	private void prepareMessage() {
+		TextView stationid = (TextView)findViewById(R.id.tv_new_message_station_id);
+		EditText text = (EditText)findViewById(R.id.new_message_station_message_edit_text);
+		RadioGroup rgType = (RadioGroup)findViewById(R.id.new_message_station_message_type_radiogroup);
+		int typeIdx = rgType.indexOfChild(rgType.findViewById(rgType.getCheckedRadioButtonId()));
+		RadioGroup rgSubtype = (RadioGroup)findViewById(R.id.new_message_station_message_subtype_radiogroup);
+		int subtypeIdx = rgSubtype.indexOfChild(rgSubtype.findViewById(rgSubtype.getCheckedRadioButtonId()));
+		CheckBox cb = (CheckBox)findViewById(R.id.new_message_station_checkbox_photo);
+		if (cb.isChecked()) {
+			File file = new File(mCurrentPhotoPath);
+		    int size = (int) file.length();
+		    byte[] photo = new byte[size];
+		    try {
+		        BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
+		        buf.read(photo, 0, photo.length);
+				newMessage.setPhoto(photo);
+				buf.close();
+		    } catch (Exception e) {
+		        e.printStackTrace();
+		    }
+		}
+			 
+		newMessage.setStationId(stationid.getText().toString());
+		newMessage.setText(text.getText().toString());
+		newMessage.setType(Message.Types.values()[typeIdx].name());
+		newMessage.setSubtype(Message.Types.values()[subtypeIdx].name());
+	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.welcome, menu);
